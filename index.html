@@ -43,26 +43,32 @@ Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="4" name="Rainfal
 (set: $nitrateCont to false)
 (set: $acidCont to true)
 }
-Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="5" name="assays" tags="" position="600,500" size="100,100">Assay options:
+Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="5" name="assays" tags="" position="600,500" size="100,100">{
+(set: $rapidPanel to false)
+(set: $nitratesAssay to false)
+(set: $phTest to false)
+(set: $salinityAssay to false)
+(set: $turbidityTest to false)
+}Assay options:
 
 Clicking on test purchases the assay.
 
-* [[Rapid panel]], $5: A quick panel which tests for acidity, nitrates, iron, copper, and lead. Will detect highly contaminated sources, but not a very sensitive test.
-* [[Nitrates assay]], $7: A sensitive test for presence of nitrates.
-* [[pH test]], $3: Accurately determines the pH value of the sample.
-* [[Salinity assay]], $5: Determines salt content of water.
-* [[Turbidity test]], $10: Measures the number of dissolved solids and large suspended particles in the sample.
+* [[Rapid panel]], $1: A quick panel which tests for acidity, nitrates, iron, copper, and lead. Will detect highly contaminated sources, but not a very sensitive test.
+* [[Nitrates assay]], $3: A sensitive test for presence of nitrates.
+* [[pH test]], $1: Accurately determines the pH value of the sample.
+* [[Salinity assay]], $3: Determines salt content of water.
+* [[Turbidity test]], $2: Measures the number of dissolved solids and large suspended particles in the sample.
 
 View [[assay results]] or continue to [[treatment]] options.
 
 $budgetString $budget
 
 {
-(set: num-type $rapidCost to 5)
-(set: num-type $nitratesCost to 7)
-(set: num-type $phCost to 3)
-(set: num-type $salinityCost to 5)
-(set: num-type $turbidityCost to 10)
+(set: num-type $rapidCost to 1)
+(set: num-type $nitratesCost to 3)
+(set: num-type $phCost to 1)
+(set: num-type $salinityCost to 3)
+(set: num-type $turbidityCost to 2)
 }</tw-passagedata><tw-passagedata pid="6" name="treatment" tags="" position="1275,525" size="100,100">(if: $assayPerformed is false)[A recent nation-wide water quality survey found that the water contains harmful bacteria, most likely introduced from animal waste upstream. (text-colour:red)[You will need to treat for bacteria.]
 
 Actually, we do want to perform some [[assays]].]
@@ -79,19 +85,20 @@ Actually, we do want to perform some [[assays]].]
 
 (if: $nitratesAssay AND $nitrateCont)[(text-colour:red)[Nitrates were detected.]]
 
-(if: $phTest AND $pHCont)[(text-colour:red)[Sample has a pH of $pHVal.]]
+(if: $phTest AND $acidCont)[(text-colour:red)[Sample has a pH of $pHVal.]]
 
 (if: $salinityAssay AND $saltCont)[(text-colour:red)[Water is salty.]]
 
 (if: $turbidityTest AND $particulateCont)[(text-colour:red)[Sample is contaminated with particulates and should be treated for turbidity.]]
 }
 {
-(if: $bacterialTreatment is true)[(text-colour:blue)[Water has been treated for bacteria.]]
-(if: $nitratesTreatment is true)[(text-colour:blue)[Water has been treated for nitrates.]]
-(if: $salinityTreatment is true)[(text-colour:blue)[Water has been treated for salinity.]]
-(if: $acidityTreatment is true)[(text-colour:blue)[Water has been pH treated.]]
-(if: $particulateTreatment is true)[(text-colour:blue)[Water has been treated for particulates.]]
-(if: $metalsTreatment is true)[(text-colour:blue)[Water has already been treated for heavy metals.]]
+(if: $bacterialTreatment)[(text-colour:blue)[Water has been treated for bacteria.]]
+(if: $nitratesTreatment)[(text-colour:blue)[Water has been treated for nitrates.]]
+(if: $salinityTreatment)[(text-colour:blue)[Water has been treated for salinity.]]
+(if: $acidityTreatment)[(text-colour:blue)[Water pH treated has been raised.]]
+(if: $basicityTreatment)[(text-colour:blue)[Water pH has been lowered.]]
+(if: $particulateTreatment)[(text-colour:blue)[Water has been treated for particulates.]]
+(if: $metalsTreatment)[(text-colour:blue)[Water has already been treated for heavy metals.]]
 }
 Treatment options are sorted by contamination type:
 
@@ -104,7 +111,28 @@ Treatment options are sorted by contamination type:
 
 [[Treatments complete.]]
 
-$budgetString $budget</tw-passagedata><tw-passagedata pid="7" name="assay results" tags="" position="1050,575" size="100,100">{
+$budgetString $budget
+$environmentString $enviroPoints EP
+{
+(set: num-type $pHEP to 0)
+(set: num-type $pHCost to 2)
+(set: num-type $paperfilterEP to -1)
+(set: num-type $paperfilterCost to 2)
+(set: num-type $finefilterEP to -2)
+(set: num-type $finefilterCost to 5)
+(set: num-type $boilingEP to -10)
+(set: num-type $boilingCost to 5)
+(set: num-type $chlorinationEP to -1)
+(set: num-type $chlorinationCost to 4)
+(set: num-type $flocculationEP to -3)
+(set: num-type $flocculationCost to 4)
+(set: num-type $distillationEP to -20)
+(set: num-type $distillationCost to 15)
+(set: num-type $reverseosmosisEP to -5)
+(set: num-type $reverseosmosisCost to 25)
+(set: num-type $bottleEP to -25)
+(set: num-type $bottleCost to 12)
+}</tw-passagedata><tw-passagedata pid="7" name="assay results" tags="" position="1050,575" size="100,100">{
 (if: $rapidPanel is true)[
 |nitrates)[Nitrates were detected.]
 |metals)[(text-colour:red)[Heavy metals were detected.]]
@@ -239,65 +267,64 @@ $budgetString $budget] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><t
 |info)[Perform more [[assays]] or view your [[assay results]].
 $budgetString $budget] (if: $nitResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="12" name="Bacterial treatments" tags="" position="1950,300" size="100,100">Options for treating bacterial contamination:
 (if: $bacterialTreatment is true)[(text-colour:blue)[Water has already been treated for bacteria.]]
-* [[Boiling]], -5 energy points, $15
-* [[Distillation]], -5 energy points, $25
-* [[Chlorination]], -1 energy points, $30
-* [[Flocculation]], -1 energy points, $30
-* [[Bottled drinking water]], -25 energy points, $12
+* [[Boiling]], $boilingEP EP, $$boilingCost
+* [[Distillation]], $distillationEP EP, $$distillationCost
+* [[Chlorination]], $chlorinationEP EP, $$chlorinationCost
+* [[Flocculation]], $flocculationEP EP, $$flocculationCost
+* [[Bottled drinking water]], $bottleEP EP, $$bottleCost
 
 *Click on a treatment type to learn more about the method and what kind of contaminants it can effectively remove. On the treatment description page you will be prompted to confirm purchase of the treatment.
 
 Return to [[treatment]] options.
 
-(print: $budgetString)(print: $budget)
-(print: $environmentString)(print: $environmentPoints)
+$budgetString $budget
+$environmentString $enviroPoints EP
 
 </tw-passagedata><tw-passagedata pid="13" name="Salinity treatments" tags="" position="1800,300" size="100,100">Options for desalinating water:
 (if: $salinityTreatment is true)[(text-colour:blue)[Water has already been desalinated.]]
-* [[Distillation]], -5 energy points, $25
-* [[Reverse osmosis]], -2 energy points, $80
-* [[Bottled drinking water]], -2 energy points, $80
+* [[Distillation]], $distillationEP EP, $$distillationCost
+* [[Reverse osmosis]], $reverseosmosisEP EP, $$reverseosmosisCost
+* [[Bottled drinking water]], $bottleEP EP, $$bottleCost
 
 Return to [[treatment]] options.
 
-(print: $budgetString)
-(print: $budget)</tw-passagedata><tw-passagedata pid="14" name="Nitrates treatments" tags="" position="1625,300" size="100,100">Options for treating nitrate contamination:
+$budgetString $budget
+$environmentString $enviroPoints EP</tw-passagedata><tw-passagedata pid="14" name="Nitrates treatments" tags="" position="1625,300" size="100,100">Options for treating nitrate contamination:
 (if: $nitratesTreatment is true)[(text-colour:blue)[Water has already been treated for nitrates.]]
-* [[Distillation]], -5 energy points, $25
-* [[Reverse osmosis]], -2 energy points, $80
-* [[Bottled drinking water]], -2 energy points, $80
+* [[Distillation]], $distillationEP EP, $$distillationCost
+* [[Reverse osmosis]], $reverseosmosisEP EP, $$reverseosmosisCost
+* [[Bottled drinking water]], $bottleEP EP, $$bottleCost
 
 *Click on a treatment type to learn more about the method and what kind of contaminants it can effectively remove. On the treatment description page you will be prompted to confirm purchase of the treatment.
 
 Return to [[treatment]] options.
 
-(print: $budgetString)(print: $budget)
-(print: $environmentString)(print: $environmentPoints)
+$budgetString $budget
+$environmentString $enviroPoints EP
 </tw-passagedata><tw-passagedata pid="15" name="Particulate treatments" tags="" position="1350,300" size="100,100">Options for treating clouded water with suspended particulates and dissolved solids:
 (if: $particulateTreatment is true)[(text-colour:blue)[Water has already been treated for particulates]]
-* [[Paper filter]], -0 energy points, $2
-* [[Nylon filter]], -0 energy points, $5
-* [[Distillation]], -5 energy points, $25
-* [[Flocculation]], -5 energy points, $25
-* [[Reverse osmosis]], -2 energy points, $80
-* [[Bottled drinking water]], -2 energy points, $80
+* [[Paper filter]], $paperfilterEP EP, $$paperfilterCost
+* [[Nylon filter]], $finefilterEP EP, $$finefilterCost
+* [[Flocculation]], $flocculationEP EP, $$flocculationCost
+* [[Distillation]], $distillationEP EP, $$distillationCost
+* [[Reverse osmosis]], $reverseosmosisEP EP, $$reverseosmosisCost
+* [[Bottled drinking water]], $bottleEP EP, $$bottleCost
 
 *Click on a treatment type to learn more about the method and what kind of contaminants it can effectively remove. On the treatment description page you will be prompted to confirm purchase of the treatment.
 
 Return to [[treatment]] options.
 
-(print: $budgetString)(print: $budget)
-(print: $environmentString)(print: $environmentPoints)
-</tw-passagedata><tw-passagedata pid="16" name="pH treatments" tags="" position="1200,300" size="100,100">Options for treating water with an unbalanced pH:
+$budgetString $budget
+$environmentStrong $enviroPoints EP</tw-passagedata><tw-passagedata pid="16" name="pH treatments" tags="" position="1200,300" size="100,100">Options for treating water with an unbalanced pH:
 (if: $acidityTreatment is true)[(text-colour:blue)[Water has already been treated for acidity.]]
-* [[pH-raising tablet]], -0 energy points, $5
-* [[pH-lowering tablet]], -0 energy points, $5
-* [[Bottled drinking water]], -2 energy points, $80
+* [[pH-raising tablet]], $pHEP EP, $$pHCost
+* [[pH-lowering tablet]], $pHEP EP, $$pHCost
+* [[Bottled drinking water]], $bottleEP EP, $$bottleCost
 
 Return to [[treatment]] options.
 
-(print: $budgetString)
-(print: $budget)</tw-passagedata><tw-passagedata pid="17" name="Turbidity test" tags="" position="800,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for turbidity. The result was:]]
+$budgetString $budget
+$environmentString $enviroPoints EP</tw-passagedata><tw-passagedata pid="17" name="Turbidity test" tags="" position="800,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for turbidity. The result was:]]
 (if: visits is 1)[(set: $turbidityTest to true)(set: $budget to $budget - $turbidityCost)]
 (if: visits is 1)[(dialog: bind $turVal, &quot;Is the sample cloudy?&quot;,&quot;Yes&quot;,&quot;No&quot;)
 (if: $turVal is &quot;Yes&quot;)[(set: $turResult to &quot;pos_result&quot;)]
@@ -311,8 +338,6 @@ Return to [[treatment]] options.
 
 |info)[Perform more [[assays]] or view your [[assay results]].
 $budgetString $budget] (if: $turResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="18" name="Boiling" tags="" position="1675,0" size="100,100">{
-(set: num-type $boilingCost to 15)
-(set: num-type $boilingPoints to -5)
 (if: visits &gt;1 AND $boiled is true)[(text-colour:blue)[Water has already been boiled.]]
 }
 
@@ -320,21 +345,90 @@ Here&#39;s a description of boiling.
 
 Boiling treats for pathogens, including bacterial contaminants.
 
-Do you want to treat your sample by boiling? It will cost $(print: $boilingCost) and have a (print: $boilingPoints) environmental impact.
+Do you want to treat your sample by boiling? It will cost $$boilingCost and have a $boilingEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $boilingCost)(set: $environmentPoints to $environmentPoints + $boilingPoints)(set: $bacterialTreatment to true)(set: $boiled to true)(replace: ?oldBudget)[(print: $budget)](replace: ?oldPoints)[(print: $environmentPoints)](replace: ?result)[(text-colour:blue)[Water has been boiled. Return to [[treatment]] types.]]]
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $boilingCost)(set: $enviroPoints to $enviroPoints + $boilingEP)(set: $bacterialTreatment to true)(set: $boiled to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[Water has been boiled. Return to [[treatment]] types.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
 []&lt;result|
 
-(print: $budgetString)[(print: $budget)]&lt;oldBudget| 
-(print: $environmentString)[(print: $environmentPoints)]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="19" name="Chlorination" tags="" position="1800,0" size="100,100">Here&#39;s a description of chlorination. 
+$budgetString [$budget]&lt;oldBudget| 
+$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="19" name="Chlorination" tags="" position="1800,0" size="100,100">{
+(if: visits &gt;1 AND $chlorinated is true)[(text-colour:blue)[Water has already been chlorinated.]]
+}
+Here&#39;s a description of chlorination. 
 
-Chlorination treats for pathogens, including bacterial contaminants. Chlorination also prevents bacteria from growing after the water leaves the treatment facility.</tw-passagedata><tw-passagedata pid="20" name="Reverse osmosis" tags="" position="1475,125" size="100,100">Here&#39;s a description of reverse osmosis.
+Chlorination treats for pathogens, including bacterial contaminants. Chlorination also prevents bacteria from growing after the water leaves the treatment facility.
 
-Reverse osmosis desalinates, removes turbidity caused by particulates, and elimnates heavy metals and nitrates.</tw-passagedata><tw-passagedata pid="21" name="Distillation" tags="" position="1600,125" size="100,100">Here&#39;s a description of distillation.
+Do you want to treat your sample by chlorinating? It will cost $$chlorinationCost and have a $chlorinationEP environmental impact.
 
-Distillation treats for pathogens (including bacterial contaminations) desalinates, removes turbidity caused by particulates, and elimnates heavy metals and nitrates.</tw-passagedata><tw-passagedata pid="22" name="pH-raising tablet" tags="" position="1250,125" size="100,100"></tw-passagedata><tw-passagedata pid="23" name="pH-lowering tablet" tags="" position="1125,125" size="100,100"></tw-passagedata><tw-passagedata pid="24" name="Paper filter" tags="" position="1300,0" size="100,100">A paper filter will remove large particulates.</tw-passagedata><tw-passagedata pid="25" name="Nylon filter" tags="" position="1425,0" size="100,100">A fine nylon filter will remove small particulates.</tw-passagedata><tw-passagedata pid="26" name="Players" tags="" position="300,50" size="100,100">{(set: $Player1 to (prompt: [Name of Analytical Chemist:], &quot;Player 1&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;))
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $chlorinationCost)(set: $enviroPoints to $enviroPoints + $chlorinationEP)(set: $bacterialTreatment to true)(set: $chlorinated to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[Water has been chlorinated. Return to [[treatment]] types.]]]
+(link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
+
+[]&lt;result|
+
+$budgetString [$budget]&lt;oldBudget| 
+$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="20" name="Reverse osmosis" tags="" position="1475,125" size="100,100">Here&#39;s a description of reverse osmosis.
+
+Reverse osmosis desalinates, removes turbidity caused by particulates, and eliminates heavy metals and nitrates.
+
+Do you want to treat your sample using reverse osmosis? It will cost $$reverseosmosisCost and have a $reverseosmosisEP environmental impact.
+
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $reverseosmosisCost)(set: $enviroPoints to $enviroPoints + $reverseosmosisEP)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[Water has been treated by reverse osmosis. Return to [[treatment]] types.]]]
+(link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
+
+[]&lt;result|
+
+$budgetString [$budget]&lt;oldBudget| 
+$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="21" name="Distillation" tags="" position="1600,125" size="100,100">Here&#39;s a description of distillation.
+
+Distillation treats for pathogens (including bacterial contaminations), desalinates, removes turbidity caused by particulates, and elimnates heavy metals and nitrates.
+
+Do you want to treat your sample with distillation? It will cost $$distillationCost and have a $distillationEP environmental impact.
+
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $distillationCost)(set: $enviroPoints to $enviroPoints + $distillationEP)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)(set: $bacterialTreatment to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[Water has been distilled. Return to [[treatment]] types.]]]
+(link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
+
+[]&lt;result|
+
+$budgetString [$budget]&lt;oldBudget| 
+$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="22" name="pH-raising tablet" tags="" position="1250,125" size="100,100">Do you want to treat your sample with a pH-raising tablet? It will cost $$pHCost and have a $pHEP environmental impact.
+
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $acidityTreatment to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[Water pH has been raised. Return to [[treatment]] types.]]]
+(link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
+
+[]&lt;result|
+
+$budgetString [$budget]&lt;oldBudget| 
+$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="23" name="pH-lowering tablet" tags="" position="1125,125" size="100,100">Do you want to treat your sample with a pH-lowering tablet? It will cost $$pHCost and have a $pHEP environmental impact.
+
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $basicityTreatment to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[Water pH has been lowered. Return to [[treatment]] types.]]]
+(link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
+
+[]&lt;result|
+
+$budgetString [$budget]&lt;oldBudget| 
+$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="24" name="Paper filter" tags="" position="1300,0" size="100,100">A paper filter will remove large particulates.
+
+Do you want to filter your sample with a paper filter? It will cost $$paperfilterCost and have a $paperfilterEP environmental impact.
+
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $paperfilterCost)(set: $enviroPoints to $enviroPoints + $paperfilterEP)(set: $particulateTreatment to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[Water has been filtered with a paper filter. Return to [[treatment]] types.]]]
+(link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
+
+[]&lt;result|
+
+$budgetString [$budget]&lt;oldBudget| 
+$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="25" name="Nylon filter" tags="" position="1425,0" size="100,100">A fine nylon filter will remove small particulates.
+
+Do you want to filter your sample with a fine nylon filter? It will cost $$finefilterCost and have a $finefilterEP environmental impact.
+
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $finefilterCost)(set: $enviroPoints to $enviroPoints + $finefilterEP)(set: $particulateTreatment to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[Water has been filtered with a fine filter. Return to [[treatment]] types.]]]
+(link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
+
+[]&lt;result|
+
+$budgetString [$budget]&lt;oldBudget| 
+$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="26" name="Players" tags="" position="300,50" size="100,100">{(set: $Player1 to (prompt: [Name of Analytical Chemist:], &quot;Player 1&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;))
 (set: $Player2 to (prompt: [Name of Chemical Engineer:], &quot;Player 2&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;))
 (set: $Player3 to (prompt: [Name of Process Engineer:], &quot;Player 3&quot;,  &quot;Cancel&quot;,&quot;Confirm&quot;))
 }
@@ -363,12 +457,26 @@ proceed directly to [[treatment]].
 
 {(set: $budgetString to &quot;Remaining budget:&quot;)(set: num-type $budget to 100)(set: $environmentString to &quot;Environmental impact:&quot;)(set: num-type $enviroPoints to 0)}</tw-passagedata><tw-passagedata pid="29" name="My sample ran out." tags="" position="2200,1000" size="100,100">Oh no, that&#39;s not good. 
 
-You got fired for inefficient resource management. Sorry. :(</tw-passagedata><tw-passagedata pid="30" name="Flocculation" tags="" position="1850,125" size="100,100">Here&#39;s a description of flocculation.
+You got fired for inefficient resource management. Sorry. :(</tw-passagedata><tw-passagedata pid="30" name="Flocculation" tags="" position="1850,125" size="100,100">{
+(if: visits &gt;1 AND $flocculated is true)[(text-colour:blue)[Water has already been boiled.]]
+}
+Here&#39;s a description of flocculation.
 
-Flocculation treats for turbidity and bacteria by causing contaminants to clump together so they can later be filtered out.</tw-passagedata><tw-passagedata pid="31" name="Bottled drinking water" tags="" position="1825,525" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="Heavy metals treatments" tags="" position="1500,300" size="100,100">Options for treating nitrate contamination:
+Flocculation treats for turbidity and bacteria by causing contaminants to clump together so they can later be filtered out.
+
+Do you want to treat your sample by flocculating? It will cost $$flocculationCost and have a $flocculationEP environmental impact.
+
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $flocculationCost)(set: $enviroPoints to $enviroPoints + $flocculationEP)(set: $bacterialTreatment to true)(set: $particulateTreatment to true)(set: $flocculated to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[Water has been flocculated. Return to [[treatment]] types.]]]
+(link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
+
+[]&lt;result|
+
+$budgetString [$budget]&lt;oldBudget| 
+$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="31" name="Bottled drinking water" tags="" position="1825,525" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="Heavy metals treatments" tags="" position="1500,300" size="100,100">Options for treating nitrate contamination:
 (if: $metalsTreatment is true)[(text-colour:blue)[Water has already been treated for heavy metals.]]
-* [[Distillation]], -5 energy points, $25
-* [[Reverse osmosis]], -2 energy points, $80
+* [[Distillation]], $distillationEP EP, $$distillationCost
+* [[Reverse osmosis]], $reverseosmosis EP, $$reverseosmosisCost
+* [[Bottled drinking water]], $bottleEP EP, $$bottleCost
 
 *Click on a treatment type to learn more about the method and what kind of contaminants it can effectively remove. On the treatment description page you will be prompted to confirm purchase of the treatment.
 
