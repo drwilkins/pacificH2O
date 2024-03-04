@@ -15,7 +15,7 @@ Text can be input and parsed based on the assays we get in lab. Then the &quot;a
 #### to do:
 Prevent assays from being performed multiple times (treatments can be performed multiple times, because less effective treatments might need to be repeated)
 Change counters to sidebar counters
-Build in bumpers like &quot;are you sure those were your results...?&quot; if the inputted results don&#39;t really match what they should be based on the water source.</tw-passagedata><tw-passagedata pid="2" name="River water" tags="" position="750,200" size="100,100">{(set: $waterSource to &quot;river&quot;)
+Build in bumpers like &quot;are you sure those were your results...?&quot; if the inputted results don&#39;t really match what they should be based on the water source.</tw-passagedata><tw-passagedata pid="2" name="River water" tags="" position="750,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
 (set: $bacterialCont to true)
 (set: $particulateCont to true)
 (set: $saltCont to false)
@@ -25,7 +25,7 @@ Build in bumpers like &quot;are you sure those were your results...?&quot; if th
 }
 
 
-Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="3" name="Aquifers" tags="" position="600,200" size="100,100">{(set: $waterSource to &quot;aquifer&quot;)
+Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="3" name="Aquifers" tags="" position="600,200" size="100,100">{(set: $waterSource to &quot;a coastal aquifer&quot;)
 (set: $bacterialCont to true)
 (set: $particulateCont to false)
 (set: $saltCont to true)
@@ -35,7 +35,7 @@ Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="3" name="Aquifer
 }
 
 
-Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="4" name="Rainfall catchments" tags="" position="450,200" size="100,100">{(set: $waterSource to &quot;rain&quot;)
+Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="4" name="Rainfall catchments" tags="" position="450,200" size="100,100">{(set: $waterSource to &quot;rainfall catchments&quot;)
 (set: $bacterialCont to true)
 (set: $particulateCont to false)
 (set: $saltCont to false)
@@ -43,13 +43,7 @@ Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="4" name="Rainfal
 (set: $nitrateCont to false)
 (set: $acidCont to true)
 }
-Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="5" name="assays" tags="" position="600,500" size="100,100">{
-(set: $rapidPanel to false)
-(set: $nitratesAssay to false)
-(set: $phTest to false)
-(set: $salinityAssay to false)
-(set: $turbidityTest to false)
-}Assay options:
+Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="5" name="assays" tags="" position="600,500" size="100,100">Assay options:
 
 Clicking on test purchases the assay.
 
@@ -92,13 +86,13 @@ Actually, we do want to perform some [[assays]].]
 (if: $turbidityTest AND $particulateCont)[(text-colour:red)[Sample is contaminated with particulates and should be treated for turbidity.]]
 }
 {
-(if: $bacterialTreatment)[(text-colour:blue)[Water has been treated for bacteria.]]
-(if: $nitratesTreatment)[(text-colour:blue)[Water has been treated for nitrates.]]
-(if: $salinityTreatment)[(text-colour:blue)[Water has been treated for salinity.]]
-(if: $acidityTreatment)[(text-colour:blue)[Water pH treated has been raised.]]
-(if: $basicityTreatment)[(text-colour:blue)[Water pH has been lowered.]]
-(if: $particulateTreatment)[(text-colour:blue)[Water has been treated for particulates.]]
-(if: $metalsTreatment)[(text-colour:blue)[Water has already been treated for heavy metals.]]
+(if: $bacterialTreatment is true)[(text-colour:blue)[Water has been treated for bacteria.]]
+(if: $nitratesTreatment is true)[(text-colour:blue)[Water has been treated for nitrates.]]
+(if: $salinityTreatment is true)[(text-colour:blue)[Water has been treated for salinity.]]
+(if: $acidityTreatment is true)[(text-colour:blue)[Water pH treated has been raised.]]
+(if: $basicityTreatment is true)[(text-colour:blue)[Water pH has been lowered.]]
+(if: $particulateTreatment is true)[(text-colour:blue)[Water has been treated for particulates.]]
+(if: $metalsTreatment is true)[(text-colour:blue)[Water has been treated for heavy metals.]]
 }
 Treatment options are sorted by contamination type:
 
@@ -134,7 +128,7 @@ $environmentString $enviroPoints EP
 (set: num-type $bottleCost to 12)
 }</tw-passagedata><tw-passagedata pid="7" name="assay results" tags="" position="1050,575" size="100,100">{
 (if: $rapidPanel is true)[
-|nitrates)[Nitrates were detected.]
+|nitrates)[(text-colour:red)Nitrates were detected.]
 |metals)[(text-colour:red)[Heavy metals were detected.]]
 |salt)[(text-colour:red)[Salt was detected.]]
 |pH)[(text-colour:red)[pH is outside drinkable range.]]
@@ -210,7 +204,7 @@ $budgetString $budget] (if: $salResult is not 0)[(show:?info)]</tw-passagedata><
 |pH)[pH is outside drinkable range.]
 |null)[No relevant contaminants were detected.]
 }
-(if: $rapidPanel AND visits &gt;1)[(show:?recap)]
+(if: $rapidPanel is true AND visits &gt;1)[(show:?recap)]
 
 |result&gt;[{(if: $nitrateResult)(show:?nitrates)
 (if: $metalResult)(show:?metals)
@@ -315,7 +309,7 @@ $environmentString $enviroPoints EP
 Return to [[treatment]] options.
 
 $budgetString $budget
-$environmentStrong $enviroPoints EP</tw-passagedata><tw-passagedata pid="16" name="pH treatments" tags="" position="1200,300" size="100,100">Options for treating water with an unbalanced pH:
+$environmentString $enviroPoints EP</tw-passagedata><tw-passagedata pid="16" name="pH treatments" tags="" position="1200,300" size="100,100">Options for treating water with an unbalanced pH:
 (if: $acidityTreatment is true)[(text-colour:blue)[Water has already been treated for acidity.]]
 * [[pH-raising tablet]], $pHEP EP, $$pHCost
 * [[pH-lowering tablet]], $pHEP EP, $$pHCost
@@ -455,9 +449,14 @@ OR
 
 proceed directly to [[treatment]].
 
-{(set: $budgetString to &quot;Remaining budget:&quot;)(set: num-type $budget to 100)(set: $environmentString to &quot;Environmental impact:&quot;)(set: num-type $enviroPoints to 0)}</tw-passagedata><tw-passagedata pid="29" name="My sample ran out." tags="" position="2200,1000" size="100,100">Oh no, that&#39;s not good. 
-
-You got fired for inefficient resource management. Sorry. :(</tw-passagedata><tw-passagedata pid="30" name="Flocculation" tags="" position="1850,125" size="100,100">{
+{(set: $budgetString to &quot;Remaining budget:&quot;)(set: num-type $budget to 100)(set: $environmentString to &quot;Environmental impact:&quot;)(set: num-type $enviroPoints to 0)}
+{
+(set: $rapidPanel to false)
+(set: $nitratesAssay to false)
+(set: $phTest to false)
+(set: $salinityAssay to false)
+(set: $turbidityTest to false)
+}</tw-passagedata><tw-passagedata pid="29" name="Flocculation" tags="" position="1850,125" size="100,100">{
 (if: visits &gt;1 AND $flocculated is true)[(text-colour:blue)[Water has already been boiled.]]
 }
 Here&#39;s a description of flocculation.
@@ -472,19 +471,20 @@ Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $flocculationCost)(set: 
 []&lt;result|
 
 $budgetString [$budget]&lt;oldBudget| 
-$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="31" name="Bottled drinking water" tags="" position="1825,525" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="Heavy metals treatments" tags="" position="1500,300" size="100,100">Options for treating nitrate contamination:
+$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="30" name="Bottled drinking water" tags="" position="1825,525" size="100,100"></tw-passagedata><tw-passagedata pid="31" name="Heavy metals treatments" tags="" position="1500,300" size="100,100">Options for treating nitrate contamination:
 (if: $metalsTreatment is true)[(text-colour:blue)[Water has already been treated for heavy metals.]]
 * [[Distillation]], $distillationEP EP, $$distillationCost
-* [[Reverse osmosis]], $reverseosmosis EP, $$reverseosmosisCost
+* [[Reverse osmosis]], $reverseosmosisEP EP, $$reverseosmosisCost
 * [[Bottled drinking water]], $bottleEP EP, $$bottleCost
 
 *Click on a treatment type to learn more about the method and what kind of contaminants it can effectively remove. On the treatment description page you will be prompted to confirm purchase of the treatment.
 
 Return to [[treatment]] options.
 
-(print: $budgetString)(print: $budget)
-(print: $environmentString)(print: $environmentPoints)
-</tw-passagedata><tw-passagedata pid="33" name="Treatments complete." tags="" position="1275,700" size="100,100">Great! Each treatment you completed came with a free [[post-treatment assay]].</tw-passagedata><tw-passagedata pid="34" name="Post-treatment rapid panel" tags="" position="850,975" size="100,100">{
+$budgetString $budget
+$environmentString $enviroPoints EP
+
+</tw-passagedata><tw-passagedata pid="32" name="Treatments complete." tags="" position="1275,700" size="100,100">Great! Each treatment you completed came with a free [[post-treatment assay]].</tw-passagedata><tw-passagedata pid="33" name="Post-treatment rapid panel" tags="" position="850,975" size="100,100">{
 (if: visits is 1)[(set:$postrapidPanel to true)
 (set: _promptstring to &quot;Check all contaminants identified by the rapid panel.&quot;)
 (dialog: [(print: _promptstring)
@@ -511,7 +511,7 @@ Post-treatment rapid panel results:
 |info)[Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].
 $budgetString $budget] (if: $nitrateResult is not 0 OR $metalResult is not 0 OR $salrapResult is not 0 OR $pHrapResult is not 0 OR $none is not 0)[(show:?info)]
 
-</tw-passagedata><tw-passagedata pid="35" name="Post-treatment turbidity test" tags="" position="1350,975" size="100,100">{
+</tw-passagedata><tw-passagedata pid="34" name="Post-treatment turbidity test" tags="" position="1350,975" size="100,100">{
 (if: visits is 1)[(set: $postturbidityTest to true)
 (dialog: bind $turVal, &quot;Is the sample cloudy?&quot;,&quot;Yes&quot;,&quot;No&quot;)
 (if: $turVal is &quot;Yes&quot;)[(set: $turResult to &quot;pos_result&quot;)]
@@ -523,7 +523,7 @@ $budgetString $budget] (if: $nitrateResult is not 0 OR $metalResult is not 0 OR 
 |result&gt;[(show:(hooks-named:$turResult))]
 
 |info)[Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].
-$budgetString $budget] (if: $turResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="36" name="Post-treatment pH test" tags="" position="1100,975" size="100,100">{
+$budgetString $budget] (if: $turResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="35" name="Post-treatment pH test" tags="" position="1100,975" size="100,100">{
 (if: visits is 1 AND $pHResult is not &quot;fail&quot;)[(set:$postphTest to true)
 (set: num-type $pHVal to (num: (prompt: [pH determined by test strip:], &quot;&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;)))]
 (if: visits &gt;1 AND $pHResult is &quot;fail&quot;)[(set: $budget to $budget - $phCost)
@@ -553,7 +553,7 @@ $budgetString $budget] (if: $turResult is not 0)[(show:?info)]</tw-passagedata><
 
 |info)[Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].
 
-$budgetString $budget] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="37" name="Post-treatment salinity test" tags="" position="1225,975" size="100,100">{
+$budgetString $budget] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="36" name="Post-treatment salinity test" tags="" position="1225,975" size="100,100">{
 (if: visits is 1)[(set: $postsalinityAssay to true)
 (dialog: bind $salVal, &quot;Does the sample contain salt?&quot;,&quot;Yes&quot;,&quot;No&quot;)
 (if: $salVal is &quot;Yes&quot;)[(set: $salResult to &quot;pos_result&quot;)]
@@ -565,7 +565,7 @@ $budgetString $budget] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><t
 |result&gt;[(show:(hooks-named:$salResult))]
 
 |info)[Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].
-$budgetString $budget] (if: $salResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="38" name="Post-treatment nitrates assay" tags="" position="975,975" size="100,100">{
+$budgetString $budget] (if: $salResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="37" name="Post-treatment nitrates assay" tags="" position="975,975" size="100,100">{
 (if: visits is 1)[(set:$postnitratesAssay to true)
 (dialog: bind $nitVal, &quot;Does the sample contain nitrates?&quot;,&quot;Yes&quot;,&quot;No&quot;)
 (if: $nitVal is &quot;Yes&quot;)[(set: $nitResult to &quot;pos_result&quot;)]
@@ -577,9 +577,10 @@ $budgetString $budget] (if: $salResult is not 0)[(show:?info)]</tw-passagedata><
 |result&gt;[(show:(hooks-named:$nitResult))]
 
 |info)[Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].
-$budgetString $budget] (if: $nitResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="39" name="Post-treatment bacterial assay" tags="" position="1475,975" size="100,100">The lab you sent your sample to reported no bacterial contamination.
+$budgetString $budget] (if: $nitResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="38" name="Post-treatment bacterial assay" tags="" position="1475,975" size="100,100">{(set: $postbacteriaTest to true)}
+The lab you sent your sample to reported no bacterial contamination.
 
-Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].</tw-passagedata><tw-passagedata pid="40" name="post-treatment assay" tags="" position="1275,825" size="100,100">Treatments may have to be repeated if the contaminant was not efficiently removed the first time.
+Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].</tw-passagedata><tw-passagedata pid="39" name="post-treatment assay" tags="" position="1275,825" size="100,100">Treatments may have to be repeated if the contaminant was not efficiently removed the first time.
 {
 (if: $bacterialTreatment is true)[[Post-treatment bacterial assay]]
 (if: $nitratesTreatment is true)[[Post-treatment nitrates assay]]
@@ -589,7 +590,10 @@ Perform another [[post-treatment assay]] or view your [[post-treatment assay res
 (if: $metalsTreatment is true)[[Post-treatment rapid panel]]
 }
 
-View [[post-treatment assay results]].</tw-passagedata><tw-passagedata pid="41" name="post-treatment assay results" tags="" position="1800,825" size="100,100">{
+View [[post-treatment assay results]].</tw-passagedata><tw-passagedata pid="40" name="post-treatment assay results" tags="" position="1800,825" size="100,100">{
+(if: $postbacteriaTest is true)[
+|bacteria_result)[(text-colour:green)[No bacteria were detected.]]]
+
 (if: $postrapidPanel is true)[
 |nitrates)[Nitrates were detected.]
 |metals)[(text-colour:red)[Heavy metals were detected.]]
@@ -630,19 +634,47 @@ View [[post-treatment assay results]].</tw-passagedata><tw-passagedata pid="41" 
 }
 
 {
+(if: $postbacteriaTest is true)[(show:?bacteria_result)]
 (if: $postrapidPanel is true)[(show:?rapid_result)]
 (if: $postnitratesAssay is true)[(show:?nitrates_result)]
 (if: $postphTest is true)[(show:?pH_result)]
 (if: $postsalinityAssay is true)[(show:?salinity_result)]
 (if: $postturbidityTest is true)[(show:?turbidity_result)]
 }
-Perform another [[post-treatment assay]], choose a[[treatment]], or continue to [[final report]].
+Perform another [[post-treatment assay]], choose a [[treatment]], or continue to [[final report]].
 
-$budgetString $budget</tw-passagedata><tw-passagedata pid="42" name="final report" tags="" position="1800,1200" size="100,100">Measure the final volume of your water sample.
+$budgetString $budget</tw-passagedata><tw-passagedata pid="41" name="final report" tags="" position="1800,1200" size="100,100">Measure the final volume of your water sample.
 
 Calculate the percent yield of your water treatment method.
 
-Generate [[results]].</tw-passagedata><tw-passagedata pid="43" name="results" tags="" position="1800,1325" size="100,100">This page will reveal the answers of which contaminants your water source had. It will also summarize which treatments you applied, and which were necessary.
+Generate [[results]].</tw-passagedata><tw-passagedata pid="42" name="results" tags="" position="1800,1325" size="100,100">You chose $waterSource to provide water for your community. This source had the following contaminants:
+
+* Harmful bacteria
+{(if: $waterSource is &quot;rainfall catchments&quot;)[|result&gt;[
+* Heavy metals, such as iron, from rusty catchment pipes
+* Low pH, from acid rain.]]
+(if: $waterSource is &quot;a coastal aquifer&quot;)[|result&gt;[
+* Salt water, from destabilization of the freshwater lens.]]
+(if: $waterSource is &quot;the river&quot;)[|result&gt;[
+* Silt and other particulates, from turbulent rapids upstream.
+* Nitrates, from farm runoff upstream.]]
+}
+You performed the following assays:
+{
+(if: $rapidPanel is true)[
+* Rapid Panel]
+(if: $nitratesAssay is true)[
+* Nitrates Assay]
+(if: $phTest is true)[
+* pH Test]
+(if: $salinityAssay is true)[
+* Salinity Assay]
+(if: $turbidityTest is true)[
+* Turbidity Test]
+}
+and applied these treatments:
+
+
 
 If you didn&#39;t perform enough treatments, you&#39;ll go to [[performance review 3]].
 
@@ -650,23 +682,13 @@ If you have extra budget, there will be options to [[spend remaining budget]].
 
 If your yield was low, you&#39;ll go to [[performance review 1]].
 
-If you&#39;re totally out of budget you&#39;ll go to [[performance review 2]].</tw-passagedata><tw-passagedata pid="44" name="spend remaining budget" tags="" position="1800,1450" size="100,100">How do you want to spend your leftover budget?
+If you&#39;re totally out of budget you&#39;ll go to [[performance review 2]].</tw-passagedata><tw-passagedata pid="43" name="spend remaining budget" tags="" position="1800,1450" size="100,100">How do you want to spend your leftover budget?
 
 Build a new [[sports complex]].
 
 Upgrade the treatment plan to use [[renewable energy sources]].
 
-Build [[new infrastructure]] to more efficiently deliver water to peoples&#39; houses.</tw-passagedata><tw-passagedata pid="45" name="performance review 1" tags="" position="2000,1275" size="100,100">You treated the water well, but your yield was incredibly low. The community doesn&#39;t have enough water. Your team&#39;s contract with the council will not be renewed. :(
-
-Bool: you caused a lot of pollution, too :(</tw-passagedata><tw-passagedata pid="46" name="performance review 2" tags="" position="2000,1400" size="100,100">The water is safe, but everyone is kinda mad that you spend so much money on this project. Your team&#39;s contract with the council will definitely not be renewed. :(
-
-Bool: you caused a lot of pollution, too :(</tw-passagedata><tw-passagedata pid="47" name="performance review 3" tags="" position="1600,1325" size="100,100">You did not remove all the contaminants from the water! A lot of people got really sick and ended up in hospital. They hospital staff were completely overwhelmed, and none of the sick people could go to their jobs. This was a total disaster and everything is REALLY bad.
-
-Bool: you caused a lot of pollution, too :(</tw-passagedata><tw-passagedata pid="48" name="sports complex" tags="" position="1800,1575" size="100,100">The community really likes the new sports complex, but the council is pretty upset you spent the water treatment budget on this project...
-
-Bool: you caused a lot of pollution, too :(</tw-passagedata><tw-passagedata pid="49" name="renewable energy sources" tags="" position="1925,1575" size="100,100">This improved your energy score! Everyone is really glad to have clean water with such a low environmental impact. The council was impressed with your water treatment plan and mind for sustainability. They&#39;ve renewed your team&#39;s contract!</tw-passagedata><tw-passagedata pid="50" name="new infrastructure" tags="" position="1675,1575" size="100,100">Because of this new infrastructure, it&#39;s way easier for community members to access clean, treated water! The council is very happy with how this project went, and has decided to renew your contract.
-
-Bool: you caused a lot of pollution, tho :(</tw-passagedata></tw-storydata>
+Build [[new infrastructure]] to more efficiently deliver water to peoples&#39; houses.</tw-passagedata><tw-passagedata pid="44" name="performance review 1" tags="" position="2000,1275" size="100,100">You treated the water well, but your yield was incredibly low. </tw-passagedata><tw-passagedata pid="45" name="performance review 2" tags="" position="2000,1400" size="100,100">The water is safe, but you went over budget.</tw-passagedata><tw-passagedata pid="46" name="performance review 3" tags="" position="1600,1325" size="100,100">You did not remove all the contaminants from the water! A lot of people got really sick and ended up in hospital. They hospital staff were completely overwhelmed, and none of the sick people could go to their jobs. </tw-passagedata><tw-passagedata pid="47" name="sports complex" tags="" position="1800,1575" size="100,100">The community really likes the new sports complex.</tw-passagedata><tw-passagedata pid="48" name="renewable energy sources" tags="" position="1925,1575" size="100,100">This improved your energy score! </tw-passagedata><tw-passagedata pid="49" name="new infrastructure" tags="" position="1675,1575" size="100,100">Because of this new infrastructure, it&#39;s way easier for community members to access clean, treated water! </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
