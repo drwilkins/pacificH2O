@@ -99,6 +99,7 @@ Actually, we do want to perform some [[assays]]...]
 (if: $acidCont)[(text-colour:red)[pH is outside drinkable range.]]
 ]
 
+(if: $assayPerformed is true)[
 (if: $nitratesAssay AND $nitrateCont)[(text-colour:red)[Nitrates were detected.]]
 
 (if: $phTest AND $acidCont)[(text-colour:red)[Sample has a pH of $pHVal.]]
@@ -106,6 +107,7 @@ Actually, we do want to perform some [[assays]]...]
 (if: $salinityAssay AND $saltCont)[(text-colour:red)[Water is salty.]]
 
 (if: $turbidityTest AND $particulateCont)[(text-colour:red)[Sample is contaminated with particulates and should be treated for turbidity.]]
+]
 }
 {
 (if: $bacterialTreatment is true)[(text-colour:blue)[Water has been treated for bacteria.]]
@@ -246,11 +248,11 @@ $environmentString $enviroPoints EP] (if: $nitrateResult is not 0 OR $metalResul
 
 </tw-passagedata><tw-passagedata pid="10" name="pH test" tags="" position="550,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested pH. The result was:]]
 (if: visits is 1 AND $pHResult is not &quot;fail&quot;)[(set: $phTest to true)(set: $budget to $budget - $phCost)
-(set: num-type $pHVal to (num: (prompt: [Ask your teacher for a small strip of pH paper. It is recommended to dip the paper into your water sample then instantly compare the resulting colour to the colour chart provided. Make a note of the result in your labe notebook.
+(set: num-type $pHVal to (num: (prompt: [Ask your teacher for a small strip of pH paper. It is recommended to dip the paper into your water sample then instantly compare the resulting colour to the colour chart provided. Make a note of the result in your lab notebook.
 
 What is the pH of the sample? Enter a number.], &quot;&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;)))]
 (if: visits &gt;1 AND $pHResult is &quot;fail&quot;)[(set: $budget to $budget - $phCost)
-(set: num-type $pHVal to (num: (prompt: [Ask your teacher for a small strip of pH paper. It is recommended to dip the paper into your water sample then instantly compare the resulting colour to the colour chart provided. Make a note of the result in your labe notebook.
+(set: num-type $pHVal to (num: (prompt: [Ask your teacher for a small strip of pH paper. It is recommended to dip the paper into your water sample then instantly compare the resulting colour to the colour chart provided. Make a note of the result in your lab notebook.
 
 What is the pH of the sample? Enter a number.], &quot;&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;)))]
 (if: $pHVal &lt; 6.5 AND $pHVal &gt;= 0)[(set: str-type $pHResult to &quot;acid&quot;)]
@@ -384,6 +386,7 @@ $environmentString $enviroPoints EP] (if: $turResult is not 0)[(show:?info)]</tw
 (if: visits &gt;1 AND $boiled is true)[(text-colour:blue)[Water has already been boiled.]]
 }
 (text-size:1.2)[Boiling]
+
 This technique is a common water treatment process used throughout the world. This method of adding heat to the water causes damage to bacteria, viruses, and pathogens, effectively killing these organisms. Boiling is only effective if the water has been boiling for 20 minutes. As a result, this method has a somewhat high environmental impact score due to the energy required to heat the water.
 
 Boiling treats for pathogens, including bacterial contaminants.
@@ -417,37 +420,43 @@ Return to [[treatment]] types.]]]
 []&lt;result|
 
 $budgetString [$$budget]&lt;oldBudget| 
-$environmentString [$enviroPoints EP]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="20" name="Reverse osmosis" tags="" position="1475,125" size="100,100">Here&#39;s a description of reverse osmosis.
+$environmentString [$enviroPoints EP]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="20" name="Reverse osmosis" tags="" position="1475,125" size="100,100">(text-size:1.2)[Reverse Osmosis]
+
+Reverse osmosis uses a semipermeable membrane with very small pores that trap contaminants as water is pushed through. This process is able to remove sediments, salt, nitrates, iron, bacteria, viruses, and parasites. Reverse osmosis systems often begin with a filtration step, followed by multiple membranes to clean the water. Reverse osmosis is a complex and costly system, but has a somewhat low environmental impact score.
 
 Reverse osmosis desalinates, removes turbidity caused by particulates, and eliminates heavy metals and nitrates.
 
-Do you want to treat your sample using reverse osmosis? It will cost $$reverseosmosisCost and have a $reverseosmosisEP environmental impact.
+&#39;&#39;Do you want to treat your sample using reverse osmosis?&#39;&#39; It will cost $$reverseosmosisCost and have a $reverseosmosisEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $reverseosmosisCost)(set: $enviroPoints to $enviroPoints + $reverseosmosisEP)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[Water has been treated by reverse osmosis. Return to [[treatment]] types.]]]
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $reverseosmosisCost)(set: $enviroPoints to $enviroPoints + $reverseosmosisEP)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[You must perform [[paper filter filtration]] first, which will not impact your budget or environmental impact score.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
 []&lt;result|
 
 $budgetString [$budget]&lt;oldBudget| 
-$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="21" name="Distillation" tags="" position="1600,125" size="100,100">Here&#39;s a description of distillation.
+$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="21" name="Distillation" tags="" position="1600,125" size="100,100">(text-size:1.2)[Distillation]
+
+Distillation relies on evaporation to purify water. Contaminated water is heated to form steam, then the steam cools and is captured as purified water. This process effectively removes bacteria, viruses, parasites, salt, iron, nitrates, and sediments. Distillation is a somewhat complex and costly system and has a high environmental impact score due to the heat that is required for evaporation. 
 
 Distillation treats for pathogens (including bacterial contaminations), desalinates, removes turbidity caused by particulates, and elimnates heavy metals and nitrates.
 
-Do you want to treat your sample with distillation? It will cost $$distillationCost and have a $distillationEP environmental impact.
+&#39;&#39;Do you want to treat your sample with distillation?&#39;&#39; It will cost $$distillationCost and have a $distillationEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $distillationCost)(set: $enviroPoints to $enviroPoints + $distillationEP)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)(set: $bacterialTreatment to true)(replace: ?oldBudget)[$budget](replace: ?oldPoints)[$enviroPoints](replace: ?result)[(text-colour:blue)[Water has been distilled. Return to [[treatment]] types.]]]
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $distillationCost)(set: $enviroPoints to $enviroPoints + $distillationEP)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)(set: $bacterialTreatment to true)(replace: ?oldBudget)[$$budget](replace: ?oldPoints)[$enviroPoints EP](replace: ?result)[(text-colour:blue)[Ask your teacher for a bunsen burner or hot plate and distillation supplies. Make a note of this treatment in your lab notebook.
+
+Return to [[treatment]] types.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
 []&lt;result|
 
-$budgetString [$budget]&lt;oldBudget| 
-$environmentString [$enviroPoints]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="22" name="pH-raising tablet" tags="" position="1250,125" size="100,100">(text-size:1.2)[pH Treatment: (text-style:&quot;underline&quot;)[Raising]]
+$budgetString [$$budget]&lt;oldBudget| 
+$environmentString [$enviroPoints EP]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="22" name="pH-raising tablet" tags="" position="1250,125" size="100,100">(text-size:1.2)[pH Treatment: (text-style:&quot;underline&quot;)[Raising]]
 
 The optimal pH for drinking water is in the range of 6.5-8.5. Water with a pH above or below this range is not considered safe. To change the pH, tablets can be added to the water which causes a chemical reaction. This reaction results in an optimal pH for water. Tablets have a very low environmental impact score.
 
 &#39;&#39;Do you want to treat your sample with a pH-(text-style:&quot;underline&quot;)[raising] tablet?&#39;&#39; It will cost $$pHCost and have a $pHEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $acidityTreatment to true)(replace: ?oldBudget)[$$budget](replace: ?oldPoints)[$enviroPoints EP](replace: ?result)[(text-colour:blue)[Water pH has been raised. Return to [[treatment]] types.]]]
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $acidityTreatment to true)(replace: ?oldBudget)[$$budget](replace: ?oldPoints)[$enviroPoints EP](replace: ?result)[(text-colour:blue)[Get a pH increaser from your teacher and add it to your sample. Be sure to follow lab safety instructions during this step. After treatment, you must [[test the sample’s pH again]]. Make a note about this treatment in your lab notebook.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
 []&lt;result|
@@ -459,9 +468,7 @@ The optimal pH for drinking water is in the range of 6.5-8.5. Water with a pH ab
 
 &#39;&#39;Do you want to treat your sample with a pH-(text-style:&quot;underline&quot;)[lowering] tablet?&#39;&#39; It will cost $$pHCost and have a $pHEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $basicityTreatment to true)(replace: ?oldBudget)[$$budget](replace: ?oldPoints)[$enviroPoints EP](replace: ?result)[(text-colour:blue)[Get a pH decreaser from your teacher and add it to your sample. Be sure to follow lab safety instructions during this step. After treatment, you must [[test the sample’s pH again]]. 
-
-Return to [[treatment]] types.]]]
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $basicityTreatment to true)(replace: ?oldBudget)[$$budget](replace: ?oldPoints)[$enviroPoints EP](replace: ?result)[(text-colour:blue)[Get a pH decreaser from your teacher and add it to your sample. Be sure to follow lab safety instructions during this step. After treatment, you must [[test the sample’s pH again]]. Make a note about this treatment in your lab notebook.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
 []&lt;result|
@@ -546,6 +553,7 @@ proceed directly to [[treatment]].
 (set: $phTest to false)
 (set: $salinityAssay to false)
 (set: $turbidityTest to false)
+(set: $assayPerformed to false)
 }
 
 $budgetString $$budget
@@ -570,11 +578,25 @@ Return to [[treatment]] types.]]]
 []&lt;result|
 
 $budgetString [$$budget]&lt;oldBudget| 
-$environmentString [$enviroPoints EP]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="30" name="Bottled drinking water" tags="" position="1825,525" size="100,100">Buy four times
+$environmentString [$enviroPoints EP]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="30" name="Bottled drinking water" tags="" position="1825,525" size="100,100">{(set: $purchaseString to &quot;Purchased bottled water.&quot;)}
+(text-size:1.2)[Bottled Drinking Water]
 
-You&#39;re out of money!
+Bottled water is a relatively cheap way to provide contaminant-free water to communities but this method can be severely impacted by supply chain issues, such as delays in delivery. Additionally, relying on bottled water poses environmental threats and thus has a high environmental impact score.
 
-Start again from [[your job]]. You&#39;ll have to start over.</tw-passagedata><tw-passagedata pid="31" name="Heavy metals treatments" tags="" position="1500,300" size="100,100">Options for treating water with heavy metals such as iron, copper, or lead:
+&#39;&#39;Do you want to purchase bottled water?&#39;&#39; It will cost $$bottleCost and have a $bottleEP environmental impact.
+
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP)(replace: ?oldBudget)[$$budget](replace: ?oldPoints)[$enviroPoints EP]
+(after: time)[(print: $purchaseString)](after: time+3s)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP)(replace: ?oldBudget)[$$budget](replace: ?oldPoints)[$enviroPoints EP] [=
+Purchased more bottled water.](after: time+5s)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP)(replace: ?oldBudget)[$$budget](replace: ?oldPoints)[$enviroPoints EP] [=
+Ran out of water, purchased more bottled water again.](after: time+7s)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP)(replace: ?oldBudget)[$$budget](replace: ?oldPoints)[$enviroPoints EP] [=
+Needed more water, purchased bottled water again.](after: time+9s)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP)(replace: ?oldBudget)[$$budget](replace: ?oldPoints)[$enviroPoints EP] [=
+Ran out of water again, purchased bottled water.]
+(after: time+10s)[= You&#39;re completely out of money! You will have to start over. :( (click: &quot;start over&quot;)[ [[your job]] ]
+]
+(link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
+
+$budgetString [$$budget]&lt;oldBudget| 
+$environmentString [$enviroPoints EP]&lt;oldPoints|</tw-passagedata><tw-passagedata pid="31" name="Heavy metals treatments" tags="" position="1500,300" size="100,100">Options for treating water with heavy metals such as iron, copper, or lead:
 (if: $metalsTreatment is true)[(text-colour:blue)[Water has already been treated for heavy metals.]]
 * [[Distillation]], $distillationEP EP, $$distillationCost
 * [[Reverse osmosis]], $reverseosmosisEP EP, $$reverseosmosisCost
@@ -783,8 +805,6 @@ If you didn&#39;t perform enough treatments, you&#39;ll go to [[performance revi
 
 If you have extra budget, there will be options to [[spend remaining budget]].
 
-If your yield was low, you&#39;ll go to [[performance review 1]].
-
 If you&#39;re totally out of budget you&#39;ll go to [[performance review 2]].</tw-passagedata><tw-passagedata pid="43" name="spend remaining budget" tags="" position="1800,1450" size="100,100">How do you want to spend your leftover budget?
 
 Build a new [[sports complex]].
@@ -794,9 +814,43 @@ Upgrade the treatment plan to use [[renewable energy sources]].
 Build [[new infrastructure]] to more efficiently deliver water to peoples&#39; houses.</tw-passagedata><tw-passagedata pid="44" name="performance review 1" tags="" position="2000,1275" size="100,100">You treated the water well, but your yield was incredibly low. </tw-passagedata><tw-passagedata pid="45" name="performance review 2" tags="" position="2000,1400" size="100,100">The water is safe, but you went over budget.</tw-passagedata><tw-passagedata pid="46" name="performance review 3" tags="" position="1600,1325" size="100,100">You did not remove all the contaminants from the water! A lot of people got really sick and ended up in hospital. They hospital staff were completely overwhelmed, and none of the sick people could go to their jobs. </tw-passagedata><tw-passagedata pid="47" name="sports complex" tags="" position="1800,1575" size="100,100">The community really likes the new sports complex.</tw-passagedata><tw-passagedata pid="48" name="renewable energy sources" tags="" position="1925,1575" size="100,100">This improved your energy score! </tw-passagedata><tw-passagedata pid="49" name="new infrastructure" tags="" position="1675,1575" size="100,100">Because of this new infrastructure, it&#39;s way easier for community members to access clean, treated water! </tw-passagedata><tw-passagedata pid="50" name="Intro" tags="" position="100,50" size="100,100">A local water authority council has hired your team to investigate a sample of contaminated water and find an &#39;&#39;optimised&#39;&#39; (most effective) way to deliver clean water to the local community. Your team consists of three people, each with different roles and motivations, all working together towards the overall goal of delivering clean water to the community.
 
 
-Enter the names of your [[players]].</tw-passagedata><tw-passagedata pid="51" name="test the sample’s pH again" tags="" position="1000,250" size="100,100">The optimal pH for drinking water is in the range of 6.5-8.5. Water with a pH above or below this range is not considered safe. To change the pH, tablets can be added to the water which causes a chemical reaction. This reaction results in an optimal pH for water. 
+Enter the names of your [[players]].</tw-passagedata><tw-passagedata pid="51" name="test the sample’s pH again" tags="" position="1000,250" size="100,100">{(set: $newpHResult to 0)(set: $newpHVal to -1000)}
+The optimal pH for drinking water is in the range of 6.5-8.5. Water with a pH above or below this range is not considered safe. To change the pH, tablets can be added to the water which causes a chemical reaction. This reaction results in an optimal pH for water. However, pH can be very sensitive, and attempts to raise or lower pH could easily overshoot the optimal drinking water range.
 
-</tw-passagedata></tw-storydata>
+After you&#39;ve used a pH tablet, you may perform a free pH test to determine the effect of the pH tablet.
+
+Ask your teacher for a small strip of pH paper. It is recommended to dip the paper into your water sample then instantly compare the resulting colour to the colour chart provided. Make a note of the result in your lab notebook. 
+
+(link: &quot;Enter result of pH test&quot;)[(set: num-type $newpHVal to (num: (prompt:[What is the pH of the sample? Enter a number.], &quot;&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;)))]
+{(event: when $newpHVal is not -1000)[
+(if: $newpHVal &lt; 6.5 AND $newpHVal &gt;= 0)[(set: str-type $newpHResult to &quot;acid&quot;)]
+(else-if: $newpHVal &gt; 8.5 AND $newpHVal &lt;=14)[(set: str-type $newpHResult to &quot;base&quot;)]
+(else-if: $newpHVal &gt;= 6.5 AND $newpHVal &lt;= 8.5)[(set: str-type $newpHResult to &quot;neutral&quot;)]
+(else-if: $newpHVal&lt;0 OR $newpHVal &gt; 14)[(set: str-type $newpHResult to &quot;inconclusive&quot;)]
+|acid)[Sample has a pH of $newpHVal. It is too acidic to drink. It will need to be treated for acidity.]
+|base)[Sample has a pH of $newpHVal. It is too basic to drink. It will need to be treated for basicity.]
+|neutral)[Sample has a pH of $newpHVal. It is drinkable. It does not need to be treated for acidity.]
+|fail)[Something went wrong again. You will need to (link: &quot;restart&quot;)[ [[test the sample’s pH again]] ].]
+|inconclusive)[|error&gt;[Something went wrong. Valid pH values are between 0 and 14. Reenter your result.](click: &quot; Reenter your result&quot;)[(set: num-type $newpHVal2 to (num: (prompt: [pH determined by test strip:], &quot;&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;)))]
+(event: when $newpHVal2 is not 0)[
+
+(if: $newpHVal2 &lt; 6.5 AND $newpHVal2 &gt;= 0)[(set: str-type $newpHResult2 to &quot;acid&quot;)]
+(else-if: $newpHVal2 &gt; 8.5 AND $newpHVal2 &lt;=14)[(set: str-type $newpHResult2 to &quot;base&quot;)]
+(else-if: $newpHVal2 &gt;= 6.5 AND $newpHVal2 &lt;= 8.5)[(set: str-type $newpHResult2 to &quot;neutral&quot;)]
+(else-if: $newpHVal2&lt;0 OR $newpHVal2 &gt; 14)[(set: str-type $newpHResult2 to &quot;fail&quot;)]
+(set: $newpHVal to $newpHVal2)
+(set: $newpHResult to $newpHResult2)
+(replace: ?error)[(rerun:?result)]
+]]]
+}(event: when $newpHResult is not 0)[(show:(hooks-named:$newpHResult))
+
+If you&#39;re happy with your latest pH test result, return to [[treatment]] options.
+If your sample&#39;s pH is still outside of drinking range, select either a [[pH-lowering tablet]] or [[pH-raising tablet]].]
+</tw-passagedata><tw-passagedata pid="52" name="paper filter filtration" tags="" position="1550,0" size="100,100">Before performing reverse osmosis, the water must be filtered to remove large particles. Get a paper filter from your teacher and perform the filtration. Make a note of this treament in your lab notebook.
+
+Because reverse osmosis requires a special semipermeable membrane, this treatment technology is not available in our classroom. For the purpose of this game, you can consider your sample to be successfully treated for sediments, salt, nitrates, iron, and pathogens.
+
+Return to [[treatment]] options.</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
