@@ -16,14 +16,68 @@
   width: 20%; /* padding-right of the tw-story element. */
   max-height: 100%;
   margin-top: 5%; /* padding-top of the tw-story element. */
-  padding: 0 0.5em 0.5em 0.5em;
+  padding: 0 1em 0.5em 0.5em;
   text-align: left;
   background-color: transparent;
+  tw-expression{
+	margin-bottom: 0.8rem;
+  }
 }
 tw-icon {
   text-align: right;
   padding-right: 0.75em;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="River Water" tags="" position="750,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
+  margin: 0;
+}
+
+tw-link{
+
+}
+
+tw-passage,tw-dialog{
+font-family: "Montserrat", sans-serif;
+a:link{
+  color: #54C8FF;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+  }
+ a:visited{
+   color: #379DF5;
+  }
+  a:active{
+    color: #2FECFF;
+  }
+  a:hover{
+    color: #2FECFF;
+    text-decoration: underline;
+
+  }   
+}
+
+tw-dialog{
+  max-width: 90vw;
+  margin: 10px;
+  input{
+    margin-top: 0.5rem !important;
+  }
+    .ttl {
+  		font-size: 1.5em;
+    	font-weight: 500;
+      	margin-bottom: 0.6rem;
+		}
+  	.def{
+      font-style: italic;
+  		}
+  ul{
+    margin-top: 3px;
+    margin-bottom: 6px;
+  }
+  
+ }
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="River Water" tags="" position="750,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
 (set: $bacterialCont to true)
 (set: $particulateCont to true)
 (set: $saltCont to false)
@@ -482,14 +536,35 @@ Return to [[treatment]] types.]]]
 []&lt;result|
 
   
-   </tw-passagedata><tw-passagedata pid="25" name="players" tags="" position="300,50" size="100,100">{(set: $Player1 to (prompt: [&#39;&#39;The Analytical Chemist.&#39;&#39; Analytical chemistry is the science of obtaining and communicating information about the composition of a sample. In this investigation, the analytical chemist is responsible for measuring the quality of the water sample by conducting assays (tests) and communicating this information to their team. Their motivation is to optimise for overall water quality: the less contaminants in the water, the better. 
-The analytical chemist on our team is named:
+   </tw-passagedata><tw-passagedata pid="25" name="players" tags="" position="300,50" size="100,100">{(set: $Player1 to (prompt: [&lt;span class=&quot;ttl&quot;&gt;The Analytical Chemist&lt;/span&gt;
+&lt;span class=&quot;def&quot;&gt;Analytical chemistry is the science of obtaining and communicating information about the composition of a sample. &lt;/span&gt;
+
+In this investigation, the analytical chemist is responsible for: 
+* Measuring the quality of the water sample by conducting assays (tests)
+* Communicating this information to their team. 
+
+Mission Focus:
+* Optimise overall water quality! Clean water is worth the expense. 
+&#39;&#39;The analytical chemist on our team is named:&#39;&#39;
 ], &quot;Player 1&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;))
-(set: $Player2 to (prompt: [&#39;&#39;The Chemical &amp; Process Engineer.&#39;&#39; Chemical and process engineering is about turning raw materials into products that can be useful to people. The chemical and process engineer is responsible for deciding which treatment technologies should be used to clean the water sample. Their motivation is to optimise the environmental impact score: the closer the environmental impact score is to zero, the better.
-The chemical and process engineer on our team is named:
+(set: $Player2 to (prompt: [&lt;span class=&quot;ttl&quot;&gt;The Chemical &amp; Process Engineer&lt;/span&gt;
+&lt;span class=&quot;def&quot;&gt;Chemical and process engineering is about turning raw materials into products that can be useful to people.&lt;/span&gt;
+The chemical and process engineer is responsible for:
+* Deciding which treatment technologies should be used to clean the water sample. 
+
+Mission Focus:
+* Minimize the environmental impact score! Cost and water purity should not come at a cost to ecosystem health.
+&#39;&#39;The chemical and process engineer on our team is named:&#39;&#39;
 ], &quot;Player 2&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;))
-(set: $Player3 to (prompt: [&#39;&#39;The Project Manager.&#39;&#39; Project management is about leading a team to achieve project goals within the given constraints. In this case, the project manager is responsible for ensuring that the water treatment process is useful to the local community while paying attention to the budget. Their motivations are to successfully deliver clean water to the community and to optimise the overall budget: the greater the excess (leftover) funds after treatment, the more money there will be for additional community resources, which can be selected at the end. 
-The project manager on our team is named:
+(set: $Player3 to (prompt: [&lt;span class=&quot;ttl&quot;&gt;The Project Manager&lt;/span&gt;
+&lt;span class=&quot;def&quot;&gt;Project management is about leading a team to achieve project goals within the given constraints.&lt;/span&gt; 
+
+In this lab, the project manager is responsible for:
+* Ensuring that the water treatment process is useful to the local community while paying attention to the budget. 
+
+Mission Focus:
+* Successfully deliver clean water to the community and minimize cost! Excess (leftover) funds after treatment will be reallocated for community benefits at the end. 
+&#39;&#39;The project manager on our team is named:&#39;&#39;
 ], &quot;Player 3&quot;,  &quot;Cancel&quot;,&quot;Confirm&quot;))
 }
 
@@ -919,12 +994,7 @@ Links to real-world connections: &lt;a href=&quot;https://www.met.gov.fj/index.p
 
 Play again to choose a different path. (click: &quot;Play again&quot;)[(reload:)]
 (There are nine possible endings!)</tw-passagedata><tw-passagedata pid="56" name="Footer" tags="footer" position="50,250" size="100,100">(append: ?sidebar)[
-(if: $Player1 is not 0)[(print: &quot;Analytical Chemist: $Player1&quot;)]
-(if: $Player2 is not 0)[(print: &quot;Chemical Engineer: $Player2&quot;)]
-(if: $Player3 is not 0)[(print: &quot;Project Manager: $Player3&quot;)]
-(append: ?sidebar)[(if: $budgetString is not 0)[(meter: bind $budget, 50, &quot;X&quot;, &quot;Remaining budget: $$budget&quot;, (gradient: 25, 0, red, 1, green))]]
-(append: ?sidebar)[(if: $environmentString is not 0)[(print: &quot; &quot;)]]
-]
+(if: $Player1 is not 0)[(print: &quot;Analytical Chemist: $Player1&quot;)](if: $Player2 is not 0)[(print: &quot;Chemical Engineer: $Player2&quot;)](if: $Player3 is not 0)[(print: &quot;Project Manager: $Player3&quot;)](append: ?sidebar)[(if: $budgetString is not 0)[(meter: bind $budget, 50, &quot;X&quot;, &quot;Remaining budget: $$budget&quot;, (gradient: 25, 0, red, 1, green))]](append: ?sidebar)[(if: $environmentString is not 0)[(print: &quot; &quot;)]]]
 
 {
 (set: num-type $rapidCost to 1)
