@@ -16,68 +16,14 @@
   width: 20%; /* padding-right of the tw-story element. */
   max-height: 100%;
   margin-top: 5%; /* padding-top of the tw-story element. */
-  padding: 0 1em 0.5em 0.5em;
+  padding: 0 0.5em 0.5em 0.5em;
   text-align: left;
   background-color: transparent;
-  tw-expression{
-	margin-bottom: 0.8rem;
-  }
 }
 tw-icon {
   text-align: right;
   padding-right: 0.75em;
-  margin: 0;
-}
-
-tw-link{
-
-}
-
-tw-passage,tw-dialog{
-font-family: "Montserrat", sans-serif;
-a:link{
-  color: #54C8FF;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s ease;
-  }
- a:visited{
-   color: #379DF5;
-  }
-  a:active{
-    color: #2FECFF;
-  }
-  a:hover{
-    color: #2FECFF;
-    text-decoration: underline;
-
-  }   
-}
-
-tw-dialog{
-  max-width: 90vw;
-  margin: 10px;
-  input{
-    margin-top: 0.5rem !important;
-  }
-    .ttl {
-  		font-size: 1.5em;
-    	font-weight: 500;
-      	margin-bottom: 0.6rem;
-		}
-  	.def{
-      font-style: italic;
-  		}
-  ul{
-    margin-top: 3px;
-    margin-bottom: 6px;
-  }
-  
- }
-
-
-
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="River Water" tags="" position="750,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="River Water" tags="" position="750,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
 (set: $bacterialCont to true)
 (set: $particulateCont to true)
 (set: $saltCont to false)
@@ -87,6 +33,8 @@ tw-dialog{
 }
 //About the Kolo River//
 New Georgia is a big, mountainous island with raised barrier reefs that define the large Marovo Lagoon. Rainfall occurs at high altitudes and replenishes the supply of the Kolo River. The river flows towards the coast into the Marovo Lagoon. 
+
+&lt;img src=&quot;images/kolo_river.png&quot;&gt;
 
 //Threats to the Kolo River//
 Decades ago, commercial logging operations began in the inland tropical forests of the island, bringing economic gains and employment opportunities for some residents. However, the deforestation had profound ecological consequences. Deforestation caused agricultural runoff, resulting in an algal bloom in the lagoon. This led to widespread mortality of marine organisms. Additionally, the high levels of soil erosion severely impacted downstream water quality, compromising access to clean drinking water. 
@@ -122,10 +70,12 @@ Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="3" name="Rainfal
 //What is rainwater catchment?//
 Rainwater catchment is a system that catches, stores, and distributes rainwater for household use. In many local communities, residents rely on rainwater catchment systems for their freshwater needs, especially when groundwater reserves are over-extracted (over-used).
 
-&lt;img src=&quot;images/rainwater_catchment.png&quot;&gt;
+&lt;img src=&quot;images/rainwater_catchment_diagram.png&quot;&gt;
 
 //Threats to rainwater catchment//
 While rainwater serves as a good source of clean water, maintaining efficient catchment systems is challenging and costly. Systems need to be properly designed, maintained, and water may need to be treated before drinking. Additionally, extreme weather events such as cyclones and storm surges can cause significant damage to rainwater catchment systems. Residents can face longer dry periods and droughts, making long-term water management challenging.
+
+&lt;img src=&quot;images/rainwater_catchment_image.png&quot;&gt;
 
 (text-size: 0.6)[//Sources: University of Hawai’i &lt;a href=&quot;https://www.ctahr.hawaii.edu/hawaiirain/Library/Guides&amp;Manuals/A_Guide_for_Rainwater_Catchment_Systems_in_the_Pacific_Portia_Franz.pdf&quot; target=&quot;_blank&quot;&gt;&quot;A guide for rainwater catchment systems in the Pacific&quot;&lt;/a&gt; (image taken from guide), and &lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021WR030350&quot; target=&quot;_blank&quot;&gt;&quot;Contending with water shortages in the Pacific: Performance of private rainwater tanks versus communal rainwater tanks in rural Vanuatu&quot;&lt;/a&gt;.//]
 
@@ -233,7 +183,7 @@ Perform more [[assays]] or continue to [[treatment]].
 
  
  </tw-passagedata><tw-passagedata pid="7" name="Salinity assay" tags="" position="675,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for salinity. The result was:]]
-(if: visits is 1)[(set: $salinityAssay to true)(set: $budget to $budget - $salinityCost)]
+(if: visits is 1)[(set: $salinityAssay to true)(set: $budget to $budget - $salinityCost)(set: $step to $step+1)]
 (if: visits is 1)[(dialog: bind $salVal, &quot;Ask your teacher for a saline test strip and a small test tube. It is recommended to pour about 10mL of amount of your water sample into the test tube, so that the water level is about 2cm in height. Place the saline test strip into the vial and let it sit for 3-12 minutes. Remove the test strip and set it on the bench. Compare to the reference chart provided to determine the concentration of salt in the sample. Record the concentration on your lab notebook in units of parts per million (ppm).
 
 Is the salt content of your sample greater than 100 ppm?&quot;,&quot;Yes&quot;,&quot;No&quot;)
@@ -250,7 +200,7 @@ Is the salt content of your sample greater than 100 ppm?&quot;,&quot;Yes&quot;,&
 
  
  ] (if: $salResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="8" name="Rapid panel" tags="" position="300,750" size="100,100">{|recap)[(text-colour:orange)[You have already performed the rapid panel. The result was:]]
-(if: visits is 1)[(set: $rapidPanel to true)(set: $budget to $budget - $rapidCost)
+(if: visits is 1)[(set: $rapidPanel to true)(set: $budget to $budget - $rapidCost)(set: $step to $step+1)
 (set: _promptstring to &quot;Ask your teacher for a test tube and one test strip. It is recommended to pour a small amount of your water sample into a test tube, then immerse the test strip into the test tube for 2 seconds. Remove the test strip and hold it horizontally for 30-60 seconds. After the wait time, compare the colours of the test strip to the comparison chart provided using the camera app.
 
 Make notes in your lab notebook about the levels of nitrites (mg/L), nitrates (mg/L), chlorine (mg/L), and the pH value.
@@ -280,7 +230,7 @@ Check all contaminants identified by the rapid panel:&quot;)
 ] (if: $nitrateResult is not 0 OR $nitriteResult is not 0 OR $pHrapResult is not 0 OR $chlorineResult is not 0 OR $none is not 0)[(show:?info)]
 
 </tw-passagedata><tw-passagedata pid="9" name="pH test" tags="" position="550,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested pH. The result was:]]
-(if: visits is 1 AND $pHResult is not &quot;fail&quot;)[(set: $phTest to true)(set: $budget to $budget - $phCost)
+(if: visits is 1 AND $pHResult is not &quot;fail&quot;)[(set: $phTest to true)(set: $budget to $budget - $phCost)(set: $step to $step+1)
 (set: num-type $pHVal to (num: (prompt: [Ask your teacher for a small strip of pH paper. It is recommended to dip the paper into your water sample then instantly compare the resulting colour to the colour chart provided. Make a note of the result in your lab notebook.
 
 What is the pH of the sample? Enter a number.], &quot;&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;)))]
@@ -316,7 +266,7 @@ What is the pH of the sample? Enter a number.], &quot;&quot;, &quot;Cancel&quot;
 
  
  ] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="10" name="Nitrates assay" tags="" position="425,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for nitrates. The result was:]]
-(if: visits is 1)[(set: $nitratesAssay to true)(set: $budget to $budget - $nitratesCost)]
+(if: visits is 1)[(set: $nitratesAssay to true)(set: $budget to $budget - $nitratesCost)(set: $step to $step+1)]
 (if: visits is 1)[(dialog: bind $nitVal, &quot;Ask your teacher for a nitrate tablet and a test tube with a lid. It is recommended to pour a small amount of your water sample into a test tube, then add the nitrate tablet and close the lid. Dissolve the tablet into the water sample for a few minutes. Then compare the colour of your sample with the colour chart provided. Make a note of the result (value and unit) in your lab notebook.
 
 Is the sample’s nitrate level greater than 20 mg/L?&quot;,&quot;Yes&quot;,&quot;No&quot;)
@@ -373,7 +323,7 @@ Return to [[treatment]] options.
 </tw-passagedata><tw-passagedata pid="14" name="Particulate treatments" tags="" position="1350,300" size="100,100">(text-size:1.2)[Options for treating water that is cloudy due to materials such as sand, clay, algae, oils, dirt, or bacteria:]
 (if: $particulateTreatment is true)[(text-colour:blue)[Water has already been treated for particulates]]
 * [[Paper filter]], $paperfilterEP EP, $$paperfilterCost
-* [[Nylon filter]], $finefilterEP EP, $$finefilterCost
+* [[Fine filter]], $finefilterEP EP, $$finefilterCost
 * [[Flocculation]], $flocculationEP EP, $$flocculationCost
 * [[Distillation]], $distillationEP EP, $$distillationCost
 * [[Reverse osmosis]], $reverseosmosisEP EP, $$reverseosmosisCost
@@ -396,7 +346,7 @@ Return to [[treatment]] options.
 
  
  </tw-passagedata><tw-passagedata pid="16" name="Turbidity test" tags="" position="800,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for turbidity. The result was:]]
-(if: visits is 1)[(set: $turbidityTest to true)(set: $budget to $budget - $turbidityCost)]
+(if: visits is 1)[(set: $turbidityTest to true)(set: $budget to $budget - $turbidityCost)(set: $step to $step+1)]
 (if: visits is 1)[(dialog: bind $turVal, &quot;Evaluate the transparency of your water sample. On a scale of 0 to 10, with 0 being transparent and 10 being opque, what do you rate your water sample? Consider whether you can identify particles in the water sample, as well. Paricles indicate a risk of microorganisms, algae, and bacteria.
 
 Make a note in your lab notebook of the value you assign the sample.&quot;,&quot;0-3 (transparent)&quot;,&quot;4-7 (cloudy)&quot;, &quot;8-10 (opaque)&quot;)
@@ -423,7 +373,7 @@ Boiling treats for pathogens, including bacterial contaminants.
 
 &#39;&#39;Do you want to treat your sample by boiling?&#39;&#39; It will cost $$boilingCost and have a $boilingEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $boilingCost)(set: $enviroPoints to $enviroPoints + $boilingEP)(set: $boiling to true)(set: $bacterialTreatment to true)(set: $boiled to true)[(text-colour:blue)[Ask your teacher for access to a hot plate and boil your water for 20 minutes. Make a note of the treatment in your lab notebook. Return to [[treatment]] types.]]]
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $boilingCost)(set: $enviroPoints to $enviroPoints + $boilingEP)(set: $step to $step+1)(set: $boiling to true)(set: $bacterialTreatment to true)(set: $boiled to true)[(text-colour:blue)[Ask your teacher for access to a hot plate and boil your water for 20 minutes. Make a note of the treatment in your lab notebook. Return to [[treatment]] types.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
 []&lt;result|
@@ -442,7 +392,7 @@ Chlorination treats for pathogens, including bacterial contaminants. Chlorinatio
 
 (link:&quot;Click here for a hint&quot;)[(text-color: green)[If you chlorinate the water after all other treatments have been completed, it will ensure that no bacteria grow in the sample between leaving the facility and being delivered to the community.]]
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $chlorinationCost)(set: $enviroPoints to $enviroPoints + $chlorinationEP)(set: $chlorination to true)(set: $bacterialTreatment to true)(set: $chlorinated to true)(replace: ?result)[(text-colour:blue)[Get a chlorination tablet from your teacher and dissolve it into your sample. Be sure to follow lab safety instructions during this treatment. Make note of the treatment in your lab notebook.
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $chlorinationCost)(set: $enviroPoints to $enviroPoints + $chlorinationEP)(set: $step to $step+1)(set: $chlorination to true)(set: $bacterialTreatment to true)(set: $chlorinated to true)(replace: ?result)[(text-colour:blue)[Get a chlorination tablet from your teacher and dissolve it into your sample. Be sure to follow lab safety instructions during this treatment. Make note of the treatment in your lab notebook.
 
 Return to [[treatment]] types.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
@@ -452,13 +402,19 @@ Return to [[treatment]] types.]]]
   
    </tw-passagedata><tw-passagedata pid="19" name="Reverse osmosis" tags="" position="1475,125" size="100,100">(text-size:1.2)[Reverse Osmosis]
 
-Reverse osmosis uses a semipermeable membrane with very small pores that trap contaminants as water is pushed through. This process is able to remove sediments, salt, nitrates, iron, bacteria, viruses, and parasites. Reverse osmosis systems often begin with a filtration step, followed by multiple membranes to clean the water. Reverse osmosis is a complex and costly system, but has a somewhat low environmental impact score.
+Reverse osmosis uses a semipermeable membrane with very small pores that trap contaminants as water is pushed through. 
+
+&lt;img src=&quot;images/reverse_osmosis_image_of_filter.png&quot;&gt;
+
+This process is able to remove sediments, salt, nitrates, iron, bacteria, viruses, and parasites. Reverse osmosis systems often begin with a filtration step, followed by multiple membranes to clean the water. Reverse osmosis is a complex and costly system, but has a somewhat low environmental impact score.
 
 Reverse osmosis desalinates, removes turbidity caused by particulates, and eliminates heavy metals and nitrates.
 
+&lt;img src=&quot;images/reverse_osmosis.png&quot;&gt;
+
 &#39;&#39;Do you want to treat your sample using reverse osmosis?&#39;&#39; It will cost $$reverseosmosisCost and have a $reverseosmosisEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $reverseosmosisCost)(set: $enviroPoints to $enviroPoints + $reverseosmosisEP)(set: $reverseOsmosis to true)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)[(text-colour:blue)[You must perform [[paper filter filtration]] first, which will not impact your budget or environmental impact score.]]]
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $reverseosmosisCost)(set: $enviroPoints to $enviroPoints + $reverseosmosisEP)(set: $step to $step+1)(set: $reverseOsmosis to true)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)[(text-colour:blue)[You must perform [[paper filter filtration]] first, which will not impact your budget or environmental impact score.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
 []&lt;result|
@@ -466,11 +422,13 @@ Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $reverseosmosisCost)(set
 
 Distillation relies on evaporation to purify water. Contaminated water is heated to form steam, then the steam cools and is captured as purified water. This process effectively removes bacteria, viruses, parasites, salt, iron, nitrates, and sediments. Distillation is a somewhat complex and costly system and has a high environmental impact score due to the heat that is required for evaporation. 
 
+&lt;img src=&quot;images/distillation.png&quot;&gt;
+
 Distillation treats for pathogens (including bacterial contaminations), desalinates, removes turbidity caused by particulates, and elimnates heavy metals and nitrates.
 
 &#39;&#39;Do you want to treat your sample with distillation?&#39;&#39; It will cost $$distillationCost and have a $distillationEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $distillationCost)(set: $enviroPoints to $enviroPoints + $distillationEP)(set: $distillation to true)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)(set: $bacterialTreatment to true)[(text-colour:blue)[Ask your teacher for a bunsen burner or hot plate and distillation supplies. Make a note of this treatment in your lab notebook.
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $distillationCost)(set: $enviroPoints to $enviroPoints + $distillationEP)(set: $step to $step+1)(set: $distillation to true)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)(set: $bacterialTreatment to true)[(text-colour:blue)[Ask your teacher for a bunsen burner or hot plate and distillation supplies. Make a note of this treatment in your lab notebook.
 
 Return to [[treatment]] types.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
@@ -482,9 +440,11 @@ Return to [[treatment]] types.]]]
 
 The optimal pH for drinking water is in the range of 6.5-8.5. Water with a pH above or below this range is not considered safe. To change the pH, tablets can be added to the water which causes a chemical reaction. This reaction results in an optimal pH for water. Tablets have a very low environmental impact score.
 
+&lt;img src=&quot;images/pH_image.png&quot;&gt;
+
 &#39;&#39;Do you want to treat your sample with a pH-(text-style:&quot;underline&quot;)[raising] tablet?&#39;&#39; It will cost $$pHCost and have a $pHEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $acidityTreatment to true)(replace: ?result)[(text-colour:blue)[Get a pH increaser from your teacher and add it to your sample. Be sure to follow lab safety instructions during this step. After treatment, you must [[test the sample’s pH again]]. Make a note about this treatment in your lab notebook.]]]
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $step to $step+1)(set: $acidityTreatment to true)(replace: ?result)[(text-colour:blue)[Get a pH increaser from your teacher and add it to your sample. Be sure to follow lab safety instructions during this step. After treatment, you must [[test the sample’s pH again]]. Make a note about this treatment in your lab notebook.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
 []&lt;result|
@@ -494,9 +454,11 @@ Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoi
 
 The optimal pH for drinking water is in the range of 6.5-8.5. Water with a pH above or below this range is not considered safe. To change the pH, tablets can be added to the water which causes a chemical reaction. This reaction results in an optimal pH for water. Tablets have a very low environmental impact score.
 
+&lt;img src=&quot;images/pH_image.png&quot;&gt;
+
 &#39;&#39;Do you want to treat your sample with a pH-(text-style:&quot;underline&quot;)[lowering] tablet?&#39;&#39; It will cost $$pHCost and have a $pHEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $basicityTreatment to true)(replace: ?result)[(text-colour:blue)[Get a pH decreaser from your teacher and add it to your sample. Be sure to follow lab safety instructions during this step. After treatment, you must [[test the sample’s pH again]]. Make a note about this treatment in your lab notebook.]]]
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $step to $step+1)(set: $basicityTreatment to true)(replace: ?result)[(text-colour:blue)[Get a pH decreaser from your teacher and add it to your sample. Be sure to follow lab safety instructions during this step. After treatment, you must [[test the sample’s pH again]]. Make a note about this treatment in your lab notebook.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
 []&lt;result|
@@ -510,9 +472,11 @@ This technique relies on gravity and filter paper to separate substances from on
 
 Filtration treats for turbidity by capturing large particles in the filter and letting the water pass through.
 
+&lt;img src=&quot;images/filtration_diagram.png&quot;&gt;
+
 &#39;&#39;Do you want to filter your sample with a paper filter?&#39;&#39; It will cost $$paperfilterCost and have a $paperfilterEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $paperfilterCost)(set: $enviroPoints to $enviroPoints + $paperfilterEP)(set: $particulateTreatment to true)(set: $paperFilter to true)(replace: ?result)[(text-colour:blue)[Get a coffee filter from your teacher and perform the filtration. Make note of the treatment in your lab notebook. 
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $paperfilterCost)(set: $enviroPoints to $enviroPoints + $paperfilterEP)(set: $step to $step+1)(set: $particulateTreatment to true)(set: $paperFilter to true)(replace: ?result)[(text-colour:blue)[Get a coffee filter from your teacher and perform the filtration. Make note of the treatment in your lab notebook. 
 
 Return to [[treatment]] types.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
@@ -520,15 +484,15 @@ Return to [[treatment]] types.]]]
 []&lt;result|
 
   
-   </tw-passagedata><tw-passagedata pid="24" name="Nylon filter" tags="" position="1425,0" size="100,100">(text-size:1.2)[Filtration: fine mesh]
+   </tw-passagedata><tw-passagedata pid="24" name="Fine filter" tags="" position="1425,0" size="100,100">(text-size:1.2)[Filtration: fine mesh]
 
 This technique relies on gravity and filter paper to separate substances from one another. Ultimately, differences in particle size will determine the result of the filtration. Fine filters have a pore size of 5 microns and will separate nearly all sediments and animals from water, but they have a slightly higher environmental impact score than a paper filter.
 
 Filtration treats for turbidity by capturing large particles in the filter and letting the water pass through.
 
-&#39;&#39;Do you want to filter your sample with a fine nylon filter?&#39;&#39;It will cost $$finefilterCost and have a $finefilterEP environmental impact.
+&#39;&#39;Do you want to filter your sample with a fine filter?&#39;&#39;It will cost $$finefilterCost and have a $finefilterEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $finefilterCost)(set: $enviroPoints to $enviroPoints + $finefilterEP)(set: $particulateTreatment to true)(set: $fineFilter to true)(replace: ?result)[(text-colour:blue)[Get a fine filter from your teacher and perform the filtration. Make a note of the treatment in your lab notebook.
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $finefilterCost)(set: $enviroPoints to $enviroPoints + $finefilterEP)(set: $step to $step+1)(set: $particulateTreatment to true)(set: $fineFilter to true)(replace: ?result)[(text-colour:blue)[Get a fine filter from your teacher and perform the filtration. Make a note of the treatment in your lab notebook.
 
 Return to [[treatment]] types.]]]
 (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
@@ -536,35 +500,14 @@ Return to [[treatment]] types.]]]
 []&lt;result|
 
   
-   </tw-passagedata><tw-passagedata pid="25" name="players" tags="" position="300,50" size="100,100">{(set: $Player1 to (prompt: [&lt;span class=&quot;ttl&quot;&gt;The Analytical Chemist&lt;/span&gt;
-&lt;span class=&quot;def&quot;&gt;Analytical chemistry is the science of obtaining and communicating information about the composition of a sample. &lt;/span&gt;
-
-In this investigation, the analytical chemist is responsible for: 
-* Measuring the quality of the water sample by conducting assays (tests)
-* Communicating this information to their team. 
-
-Mission Focus:
-* Optimise overall water quality! Clean water is worth the expense. 
-&#39;&#39;The analytical chemist on our team is named:&#39;&#39;
+   </tw-passagedata><tw-passagedata pid="25" name="players" tags="" position="300,50" size="100,100">{(set: $Player1 to (prompt: [&#39;&#39;The Analytical Chemist.&#39;&#39; Analytical chemistry is the science of obtaining and communicating information about the composition of a sample. In this investigation, the analytical chemist is responsible for measuring the quality of the water sample by conducting assays (tests) and communicating this information to their team. Their motivation is to optimise for overall water quality: the less contaminants in the water, the better. 
+The analytical chemist on our team is named:
 ], &quot;Player 1&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;))
-(set: $Player2 to (prompt: [&lt;span class=&quot;ttl&quot;&gt;The Chemical &amp; Process Engineer&lt;/span&gt;
-&lt;span class=&quot;def&quot;&gt;Chemical and process engineering is about turning raw materials into products that can be useful to people.&lt;/span&gt;
-The chemical and process engineer is responsible for:
-* Deciding which treatment technologies should be used to clean the water sample. 
-
-Mission Focus:
-* Minimize the environmental impact score! Cost and water purity should not come at a cost to ecosystem health.
-&#39;&#39;The chemical and process engineer on our team is named:&#39;&#39;
+(set: $Player2 to (prompt: [&#39;&#39;The Chemical &amp; Process Engineer.&#39;&#39; Chemical and process engineering is about turning raw materials into products that can be useful to people. The chemical and process engineer is responsible for deciding which treatment technologies should be used to clean the water sample. Their motivation is to optimise the environmental impact score: the closer the environmental impact score is to zero, the better.
+The chemical and process engineer on our team is named:
 ], &quot;Player 2&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;))
-(set: $Player3 to (prompt: [&lt;span class=&quot;ttl&quot;&gt;The Project Manager&lt;/span&gt;
-&lt;span class=&quot;def&quot;&gt;Project management is about leading a team to achieve project goals within the given constraints.&lt;/span&gt; 
-
-In this lab, the project manager is responsible for:
-* Ensuring that the water treatment process is useful to the local community while paying attention to the budget. 
-
-Mission Focus:
-* Successfully deliver clean water to the community and minimize cost! Excess (leftover) funds after treatment will be reallocated for community benefits at the end. 
-&#39;&#39;The project manager on our team is named:&#39;&#39;
+(set: $Player3 to (prompt: [&#39;&#39;The Project Manager.&#39;&#39; Project management is about leading a team to achieve project goals within the given constraints. In this case, the project manager is responsible for ensuring that the water treatment process is useful to the local community while paying attention to the budget. Their motivations are to successfully deliver clean water to the community and to optimise the overall budget: the greater the excess (leftover) funds after treatment, the more money there will be for additional community resources, which can be selected at the end. 
+The project manager on our team is named:
 ], &quot;Player 3&quot;,  &quot;Cancel&quot;,&quot;Confirm&quot;))
 }
 
@@ -597,7 +540,9 @@ OR
 
 proceed directly to [[treatment]].
 
-{(set: $budgetString to &quot;Remaining budget:&quot;)(set: num-type $budget to 50)(set: $environmentString to &quot;Environmental impact:&quot;)(set: num-type $enviroPoints to 0)}
+{(set: $budgetString to &quot;Remaining budget:&quot;)(set: num-type $budget to 50)(set: $environmentString to &quot;Environmental impact:&quot;)(set: num-type $enviroPoints to 0)
+(set: num-type $step to 0)
+}
 {
 (set: $rapidPanel to false)
 (set: $nitratesAssay to false)
@@ -621,9 +566,11 @@ This technique is a chemical process where a coagulant (substance that causes pa
 
 Flocculation treats for turbidity by causing contaminants to clump together so they can later be filtered out.
 
+&lt;img src=&quot;images/flocculation_diagram.png&quot;&gt;
+
 &#39;&#39;Do you want to treat your sample by flocculating?&#39;&#39; It will cost $$flocculationCost and have a $flocculationEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $flocculationCost)(set: $enviroPoints to $enviroPoints + $flocculationEP)(set: $flocculation to true)(set: $particulateTreatment to true)(set: $flocculated to true)(replace: ?result)[(text-colour:blue)[Get flocculation supplies from your teacher and follow the instructions given. Make a note of the treatment in your lab notebook. 
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $flocculationCost)(set: $enviroPoints to $enviroPoints + $flocculationEP)(set: $step to $step+1)(set: $flocculation to true)(set: $particulateTreatment to true)(set: $flocculated to true)(replace: ?result)[(text-colour:blue)[Get flocculation supplies from your teacher and follow the instructions given. Make a note of the treatment in your lab notebook. 
 
 (link:&quot;Click here for a hint&quot;)[(text-color: green)[It&#39;s a good idea to filter your sample after it has been flocculated.]]
 
@@ -643,8 +590,8 @@ Bottled water is a relatively cheap way to provide contaminant-free water to com
 Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP)
 (after: time)[(print: $purchaseString)](after: time+3s)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP)[=
 Purchased more bottled water.](after: time+5s)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP)[=
-Ran out of water, purchased more bottled water again.](after: time+7s)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP)[$enviroPoints EP] [=
-Needed more water, purchased bottled water again.](after: time+9s)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP)[$enviroPoints EP] [=
+Ran out of water, purchased more bottled water again.](after: time+7s)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP) [=
+Needed more water, purchased bottled water again.](after: time+9s)[(set: $budget to $budget - $bottleCost)(set: $enviroPoints to $enviroPoints + $bottleEP) [=
 Ran out of water again, purchased bottled water.]
 (after: time+10s)[= You&#39;re completely out of money! You will have to start over. :( (click: &quot;start over&quot;)[ (go-to: &quot;your job&quot; )]
 ]
@@ -695,7 +642,7 @@ Post-treatment rapid panel results:
  ] (if: $nitrateResult is not 0 OR $metalResult is not 0 OR $salrapResult is not 0 OR $pHrapResult is not 0 OR $none is not 0)[(show:?info)]
 
 </tw-passagedata><tw-passagedata pid="33" name="Post-treatment turbidity test" tags="" position="1350,975" size="100,100">{
-(if: visits is 1)[(set: $postturbidityTest to true)
+(if: visits is 1)[(set: $postturbidityTest to true)(set: $step to $step+1)
 (dialog: bind $turVal, &quot;Evaluate the transparency of your water sample. On a scale of 0 to 10, with 0 being transparent and 10 being opque, what do you rate your water sample? Consider whether you can identify particles in the water sample, as well. Paricles indicate a risk of microorganisms, algae, and bacteria.
 
 Make a note in your lab notebook of the value you assign the sample.&quot;,&quot;0-3 (transparent)&quot;,&quot;4-7 (cloudy)&quot;, &quot;8-10 (opaque)&quot;)
@@ -710,7 +657,7 @@ Make a note in your lab notebook of the value you assign the sample.&quot;,&quot
 |info)[Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].
 
  
- ] (if: $turResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="34" name="Post-treatment pH test" tags="" position="1100,975" size="100,100">{(if: visits is 1 AND $pHResult is not &quot;fail&quot;)[(set: $postphTest to true)
+ ] (if: $turResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="34" name="Post-treatment pH test" tags="" position="1100,975" size="100,100">{(if: visits is 1 AND $pHResult is not &quot;fail&quot;)[(set: $postphTest to true)(set: $step to $step+1)
 (set: num-type $pHVal to (num: (prompt: [Ask your teacher for a small strip of pH paper. It is recommended to dip the paper into your water sample then instantly compare the resulting colour to the colour chart provided. Make a note of the result in your lab notebook.
 
 What is the pH of the sample? Enter a number.], &quot;&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;)))]
@@ -745,7 +692,7 @@ What is the pH of the sample? Enter a number.], &quot;&quot;, &quot;Cancel&quot;
 
  
  ] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="35" name="Post-treatment salinity test" tags="" position="1225,975" size="100,100">{
-(if: visits is 1)[(set: $postsalinityAssay to true)
+(if: visits is 1)[(set: $postsalinityAssay to true)(set: $step to $step+1)
 (dialog: bind $salVal, &quot;Ask your teacher for a saline test strip and a small test tube. It is recommended to pour about 10mL of amount of your water sample into the test tube, so that the water level is about 2cm in height. Place the saline test strip into the vial and let it sit for 3-12 minutes. Remove the test strip and set it on the bench. Compare to the reference chart provided to determine the concentration of salt in the sample. Record the concentration on your lab notebook in units of parts per million (ppm).
 
 Is the salt content of your sample greater than 100 ppm?&quot;,&quot;Yes&quot;,&quot;No&quot;)
@@ -761,7 +708,7 @@ Is the salt content of your sample greater than 100 ppm?&quot;,&quot;Yes&quot;,&
 
  
  ] (if: $salResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="36" name="Post-treatment nitrates assay" tags="" position="975,975" size="100,100">{
-(if: visits is 1)[(set:$postnitratesAssay to true)
+(if: visits is 1)[(set:$postnitratesAssay to true)(set: $step to $step+1)
 (dialog: bind $nitVal, &quot;Ask your teacher for a nitrate tablet and a test tube with a lid. It is recommended to pour a small amount of your water sample into a test tube, then add the nitrate tablet and close the lid. Dissolve the tablet into the water sample for a few minutes. Then compare the colour of your sample with the colour chart provided. Make a note of the result (value and unit) in your lab notebook.
 
 Is the sample’s nitrate level greater than 20 mg/L?&quot;,&quot;Yes&quot;,&quot;No&quot;)
@@ -994,7 +941,13 @@ Links to real-world connections: &lt;a href=&quot;https://www.met.gov.fj/index.p
 
 Play again to choose a different path. (click: &quot;Play again&quot;)[(reload:)]
 (There are nine possible endings!)</tw-passagedata><tw-passagedata pid="56" name="Footer" tags="footer" position="50,250" size="100,100">(append: ?sidebar)[
-(if: $Player1 is not 0)[(print: &quot;Analytical Chemist: $Player1&quot;)](if: $Player2 is not 0)[(print: &quot;Chemical Engineer: $Player2&quot;)](if: $Player3 is not 0)[(print: &quot;Project Manager: $Player3&quot;)](append: ?sidebar)[(if: $budgetString is not 0)[(meter: bind $budget, 50, &quot;X&quot;, &quot;Remaining budget: $$budget&quot;, (gradient: 25, 0, red, 1, green))]](append: ?sidebar)[(if: $environmentString is not 0)[(print: &quot; &quot;)]]]
+(if: $Player1 is not 0)[(print: &quot;Analytical Chemist: $Player1&quot;)]
+(if: $Player2 is not 0)[(print: &quot;Chemical Engineer: $Player2&quot;)]
+(if: $Player3 is not 0)[(print: &quot;Project Manager: $Player3&quot;)]]
+(append: ?sidebar)[(if: $budgetString is not 0)[(meter: bind $budget, 50, &quot;X&quot;, &quot;Remaining budget: $$budget&quot;, (gradient: 25, 0, red, 1, green))]]
+(append: ?sidebar)[(if: $environmentString is not 0)[(print: &quot;Environmental Impact: $enviroPoints EP&quot;)]]
+(append: ?sidebar)[(if: $environmentString is not 0)[(print: &quot;Step #$step&quot;)]]
+
 
 {
 (set: num-type $rapidCost to 1)
