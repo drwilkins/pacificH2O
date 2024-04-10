@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Pacific H2O v2.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Pacific H2O v2" startnode="43" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="1610a8bd-13d6-452d-a76a-db8db8fd337b" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar {
+<tw-storydata name="Pacific H2O v2" startnode="57" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="1610a8bd-13d6-452d-a76a-db8db8fd337b" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -33,8 +33,17 @@ tw-link{
 
 }
 
-tw-passage,tw-dialog{
+tw-passage,tw-dialog{ 
 font-family: "Montserrat", sans-serif;
+.bg-image{
+  position: absolute;
+  z-index: 0;
+  }
+.start-button{
+  font-size: 1.5rem;
+  z-index: 2;
+  }
+  
 a:link{
   color: #54C8FF;
   text-decoration: none;
@@ -563,7 +572,7 @@ Return to [[treatment]] types.]]]
 []&lt;result|
 
   
-   </tw-passagedata><tw-passagedata pid="25" name="players" tags="" position="300,50" size="100,100">{(set: $Player1 to (prompt: [&lt;span class=&quot;ttl&quot;&gt;The Analytical Chemist&lt;/span&gt;
+   </tw-passagedata><tw-passagedata pid="25" name="players" tags="" position="400,50" size="100,100">{(set: $Player1 to (prompt: [&lt;span class=&quot;ttl&quot;&gt;The Analytical Chemist&lt;/span&gt;
 &lt;span class=&quot;def&quot;&gt;Analytical chemistry is the science of obtaining and communicating information about the composition of a sample. &lt;/span&gt;
 
 In this investigation, the analytical chemist is responsible for: 
@@ -880,7 +889,7 @@ By installing solar panels on the water treatment facility, you were able to off
 
 {(if: $enviroPoints &lt;-15)[Your treatments also had a significant impact on the environment, and will likely contribute to degradation of the local ecosystem.]}
 
-[[The End]]</tw-passagedata><tw-passagedata pid="43" name="Intro" tags="" position="100,50" size="100,100">A local water authority council has hired your team to investigate a sample of contaminated water and find an &#39;&#39;optimised&#39;&#39; (most effective) way to deliver clean water to the local community. Your team consists of three people, each with different roles and motivations, all working together towards the overall goal of delivering clean water to the community.
+[[The End]]</tw-passagedata><tw-passagedata pid="43" name="Intro" tags="" position="250,50" size="100,100">A local water authority council has hired your team to investigate a sample of contaminated water and find an &#39;&#39;optimised&#39;&#39; (most effective) way to deliver clean water to the local community. Your team consists of three people, each with different roles and motivations, all working together towards the overall goal of delivering clean water to the community.
 
 
 Enter the names of your [[players]].
@@ -1071,7 +1080,9 @@ Play again to choose a different path. (click: &quot;Play again&quot;)[(reload:)
 (set: num-type $reverseosmosisCost to 25)
 (set: num-type $bottleEP to -25)
 (set: num-type $bottleCost to 12)
-}</tw-passagedata></tw-storydata>
+}</tw-passagedata><tw-passagedata pid="57" name="Cover" tags="" position="100,50" size="100,100">&lt;img class=&quot;bg-image&quot; src=&quot;images/cover.png&quot;/&gt;
+&lt;button class=&quot;start-button&quot;&gt; [[Start-&gt;Intro]] &lt;/button&gt;
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
