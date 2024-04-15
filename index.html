@@ -384,6 +384,7 @@ Return to [[treatment]] options.
 (if: $nitratesTreatment is true)[(text-colour:blue)[Water has already been treated for nitrates.]]
 * [[Distillation]], $distillationEP environmental impact points, $$distillationCost
 * [[Reverse osmosis]], $reverseosmosisEP environmental impact points, $$reverseosmosisCost
+* [[Flocculation]], $flocculationEP environmental impact points, $$flocculationCost
 * [[Bottled drinking water]], $bottleEP environmental impact points, $$bottleCost
 
 //Click on a treatment type to learn more about the method and what kind of contaminants it can effectively remove. On the treatment description page you will be prompted to confirm purchase of the treatment.//
@@ -589,7 +590,7 @@ The chemical and process engineer is responsible for:
 * Deciding which treatment technologies should be used to clean the water sample. 
 
 Mission Focus:
-* Minimize the environmental impact score! Cost and water purity should not come at a cost to ecosystem health.
+* Minimise the environmental impact score! Cost and water purity should not come at a cost to ecosystem health.
 &#39;&#39;The chemical and process engineer on our team is named:&#39;&#39;
 ], &quot;Player 2&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;))
 (set: $Player3 to (prompt: [&lt;span class=&quot;ttl&quot;&gt;The Project Manager&lt;/span&gt;
@@ -663,7 +664,7 @@ Flocculation treats for turbidity by causing contaminants to clump together so t
 
 &#39;&#39;Do you want to treat your sample by flocculating?&#39;&#39; It will cost $$flocculationCost and have a $flocculationEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $flocculationCost)(set: $enviroPoints to $enviroPoints + $flocculationEP)(set: $step to $step+1)(set: $flocculation to true)(set: $particulateTreatment to true)(set: $flocculated to true)(replace: ?result)[(text-colour:blue)[Get flocculation supplies and instructions from your teacher. Make a note of the treatment in your lab notebook. 
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $flocculationCost)(set: $enviroPoints to $enviroPoints + $flocculationEP)(set: $step to $step+1)(set: $flocculation to true)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $flocculated to true)(replace: ?result)[(text-colour:blue)[Get flocculation supplies and instructions from your teacher. Make a note of the treatment in your lab notebook. 
 
 (link:&quot;Click here for a hint&quot;)[(text-color: green)[It&#39;s a good idea to filter your sample after it has been flocculated.]]
 
