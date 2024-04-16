@@ -23,6 +23,7 @@
 	margin-bottom: 0.8rem;
   }
 }
+
 tw-icon {
   text-align: right;
   padding-right: 0.75em;
@@ -61,11 +62,29 @@ tw-link{
 	flex-direction: column;
 }
 
+.position-relative{
+	position: relative;
+}
+
 tw-passage,tw-dialog{ 
 font-family: "Montserrat", sans-serif;
+  
+.intro-img-container{
+  height: 350px;
+}
+  
+@media(max-width: 576px){
+.intro-img-container{
+  	height: 200px;
+}  
+}
+  
 .bg-image{
   position: absolute;
   z-index: 0;
+  width: 100%;
+  transform: translateY(-15%);
+  border-radius: .3em;
 }
   
 .bg-red{
@@ -75,17 +94,23 @@ font-family: "Montserrat", sans-serif;
 .start-button{
   font-size: 1.5rem;
   z-index: 2;
-  background: none;
+  background: #D3D3D3;
   border: 1px #D3D3D3 solid;
   padding: 0 15px;
   border-radius: .3em;
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+  
 .start-button *{
-	color: #D3D3D3;  
-}  
+	color: #4169E1;  
+}
+  
 a:link{
   color: #54C8FF;
   text-decoration: none;
@@ -125,6 +150,16 @@ tw-dialog{
   }
   
  }
+
+@media(max-width: 576px){
+	.start-button{
+		padding: 0px 10px !important;  
+	}
+  
+  	.start-button *{
+		font-size: 18px;  
+	}
+}
 
 
 
@@ -1122,11 +1157,9 @@ Play again to choose a different path. (click: &quot;Play again&quot;)[(reload:)
 (set: num-type $reverseosmosisCost to 25)
 (set: num-type $bottleEP to -25)
 (set: num-type $bottleCost to 12)
-}</tw-passagedata><tw-passagedata pid="57" name="Cover" tags="" position="100,50" size="100,100">
-&lt;div class=&quot;w-100 h-100 txt-center flex-column d-flex justify-content-center align-items-center&quot;&gt;
-	&lt;h1&gt;Pacific Water Lab&lt;/h1&gt;
-    &lt;img class=&quot;bg-image&quot; src=&quot;images/cover.png&quot;/&gt;
-	&lt;button class=&quot;start-button&quot;&gt; [[Start-&gt;Intro]] &lt;/button&gt;
+}</tw-passagedata><tw-passagedata pid="57" name="Cover" tags="" position="100,50" size="100,100">&lt;div class=&quot;w-100 position-relative intro-img-container&quot;&gt;
+	&lt;img class=&quot;bg-image&quot; src=&quot;images/cover-2.png&quot;/&gt;
+	&lt;button class=&quot;start-button&quot;&gt; [[Start-&gt;Intro]]&lt;/button&gt;
 &lt;/div&gt;
 </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
