@@ -23,6 +23,7 @@
 	margin-bottom: 0.8rem;
   }
 }
+
 tw-icon {
   text-align: right;
   padding-right: 0.75em;
@@ -33,16 +34,82 @@ tw-link{
 
 }
 
+.w-100{
+	width: 100%
+}
+
+.h-100{
+	height: 100%
+}
+
+.d-flex{
+	display: flex;
+}
+
+.txt-center{
+	text-align: center;
+}
+
+.justify-content-center{
+	justify-content: center
+}
+
+.align-items-center{
+	align-items: center
+}
+
+.flex-column{
+	flex-direction: column;
+}
+
+.position-relative{
+	position: relative;
+}
+
 tw-passage,tw-dialog{ 
 font-family: "Montserrat", sans-serif;
+  
+.intro-img-container{
+  height: 350px;
+}
+  
+@media(max-width: 576px){
+.intro-img-container{
+  	height: 200px;
+}  
+}
+  
 .bg-image{
   position: absolute;
   z-index: 0;
-  }
+  width: 100%;
+  transform: translateY(-15%);
+  border-radius: .3em;
+}
+  
+.bg-red{
+	background-color: red  
+}  
+ 
 .start-button{
   font-size: 1.5rem;
   z-index: 2;
-  }
+  background: #D3D3D3;
+  border: 1px #D3D3D3 solid;
+  padding: 0 15px;
+  border-radius: .3em;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+  
+.start-button *{
+	color: #4169E1;  
+}
   
 a:link{
   color: #54C8FF;
@@ -83,6 +150,12 @@ tw-dialog{
   }
   
  }
+
+@media(max-width: 576px){
+  	.start-button *{
+		font-size: 18px;  
+	}
+}
 
 
 
@@ -384,7 +457,6 @@ Return to [[treatment]] options.
 (if: $nitratesTreatment is true)[(text-colour:blue)[Water has already been treated for nitrates.]]
 * [[Distillation]], $distillationEP environmental impact points, $$distillationCost
 * [[Reverse osmosis]], $reverseosmosisEP environmental impact points, $$reverseosmosisCost
-* [[Flocculation]], $flocculationEP environmental impact points, $$flocculationCost
 * [[Bottled drinking water]], $bottleEP environmental impact points, $$bottleCost
 
 //Click on a treatment type to learn more about the method and what kind of contaminants it can effectively remove. On the treatment description page you will be prompted to confirm purchase of the treatment.//
@@ -590,7 +662,7 @@ The chemical and process engineer is responsible for:
 * Deciding which treatment technologies should be used to clean the water sample. 
 
 Mission Focus:
-* Minimise the environmental impact score! Cost and water purity should not come at a cost to ecosystem health.
+* Minimize the environmental impact score! Cost and water purity should not come at a cost to ecosystem health.
 &#39;&#39;The chemical and process engineer on our team is named:&#39;&#39;
 ], &quot;Player 2&quot;, &quot;Cancel&quot;,&quot;Confirm&quot;))
 (set: $Player3 to (prompt: [&lt;span class=&quot;ttl&quot;&gt;The Project Manager&lt;/span&gt;
@@ -664,7 +736,7 @@ Flocculation treats for turbidity by causing contaminants to clump together so t
 
 &#39;&#39;Do you want to treat your sample by flocculating?&#39;&#39; It will cost $$flocculationCost and have a $flocculationEP environmental impact.
 
-Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $flocculationCost)(set: $enviroPoints to $enviroPoints + $flocculationEP)(set: $step to $step+1)(set: $flocculation to true)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $flocculated to true)(replace: ?result)[(text-colour:blue)[Get flocculation supplies and instructions from your teacher. Make a note of the treatment in your lab notebook. 
+Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $flocculationCost)(set: $enviroPoints to $enviroPoints + $flocculationEP)(set: $step to $step+1)(set: $flocculation to true)(set: $particulateTreatment to true)(set: $flocculated to true)(replace: ?result)[(text-colour:blue)[Get flocculation supplies and instructions from your teacher. Make a note of the treatment in your lab notebook. 
 
 (link:&quot;Click here for a hint&quot;)[(text-color: green)[It&#39;s a good idea to filter your sample after it has been flocculated.]]
 
@@ -1081,8 +1153,10 @@ Play again to choose a different path. (click: &quot;Play again&quot;)[(reload:)
 (set: num-type $reverseosmosisCost to 25)
 (set: num-type $bottleEP to -25)
 (set: num-type $bottleCost to 12)
-}</tw-passagedata><tw-passagedata pid="57" name="Cover" tags="" position="100,50" size="100,100">&lt;img class=&quot;bg-image&quot; src=&quot;images/cover.png&quot;/&gt;
-&lt;button class=&quot;start-button&quot;&gt; [[Start-&gt;Intro]] &lt;/button&gt;
+}</tw-passagedata><tw-passagedata pid="57" name="Cover" tags="" position="100,50" size="100,100">&lt;div class=&quot;w-100 position-relative intro-img-container&quot;&gt;
+	&lt;img class=&quot;bg-image&quot; src=&quot;images/cover-2.png&quot;/&gt;
+	&lt;button class=&quot;start-button&quot;&gt; [[Start-&gt;Intro]]&lt;/button&gt;
+&lt;/div&gt;
 </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
