@@ -10,475 +10,557 @@
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Pacific H2O v2.5.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Pacific H2O v2.5" startnode="57" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="6dd82385-013c-4a18-b409-a0a9bff0279a" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 20%; /* padding-right of the tw-story element. */
-  max-height: 100%;
-  padding: 0 0.5em 0.5em 0.5em;
-  text-align: left;
-  background-color: transparent;
-}
-
-.img-contain{
-	object-fit: contain;
-}
-
-.background-img{
-	height: 275px;
-}
-
-tw-sidebar tw-hook:nth-of-type(2) > tw-expression,
-tw-sidebar tw-hook:nth-of-type(3) > tw-expression{
-	margin-top: 20px;
-}
-
-
-tw-sidebar tw-hook:nth-of-type(3) > tw-expression,
-tw-sidebar tw-hook:nth-of-type(3) > tw-expression{
-	margin-bottom: 35px; 	
-}
-
-tw-sidebar tw-hook:nth-of-type(4){
-  	padding-top: 20px;
-	border-top: solid 1px grey;
-}
-
-tw-sidebar tw-hook:nth-of-type(5){
-	margin-top: 20px;
-}
-
-tw-sidebar tw-hook:nth-of-type(5) > tw-expression > tw-meter br{
-  	display: none;
-}
-
-tw-sidebar tw-hook:nth-of-type(6){
-  	margin-top: 30px;
-}
-
-tw-sidebar tw-hook:nth-of-type(7){
-  	margin-top: 30px;
-}
-
-tw-sidebar tw-meter #text{
-	top: 100%;
-}
-
-tw-sidebar tw-hook > tw-expression{
-	display: flex;
-  	flex-direction: column; 
-}
-
-tw-sidebar br{
-	display: none;
-}
-
-tw-passage tw-sidebar tw-hook{
-	margin-left: 10px;
-}
-
-tw-icon[title="Redo"]{
-	display: none;
-}
-
-tw-icon[title="Undo"]{
-	margin-top: 5px;
-  	margin-bottom: 5px;
-}
-
-@media(min-width: 768px) and (max-width: 991px){
-  tw-sidebar {
-  	width: 25%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%; /* padding-right of the tw-story element. */
+    max-height: 100%;
+    padding: 0 0.5em 0.5em 0.5em;
+    text-align: left;
+    background-color: transparent;
   }
   
-  tw-story tw-passage > tw-hook{
-    display: block;
-	border: solid 1px pink;
-    max-width: 75vw;
-    bottom: 10%;
-    padding-bottom: 50px;
+  .img-contain{
+      object-fit: contain;
   }
-}
-
-@media(min-width: 768px) and (max-width: 991px){
-	tw-dialog{
-  		bottom: 25%;
-  	}
-}
-
-@media(min-width: 992px) and (max-width: 1024px){
-	tw-dialog{
-  		bottom: 15%;
-  	}
-}
-
-.position-relative{
-	position: relative;
-}
-
-.icon-container-li{
-}
-
-.roles-list li{
-  	display: inline-flex;
-}
-
-.roles-list li:not(:first-of-type){
-  	margin-top: 65px;
-}
-
-.roles-list li:before {
-    content: "";
-    position: absolute;
-    transform: translate(-150%,-50%);
-    top: 75%;
-    border-radius: 50%;
-    margin-top: -7px; /* half bullet height */
-    width: 14px;
-    height: 14px;
-    background: white;
-}
-
-.roles-list li > div{
-  	width: 80px;
-  	position: relative;
-}
-
-.roles-list li img{
-	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	transform: translate(-40%, -50%);
-}
-
-.roles-list li:first-of-type img{
-	width: 100px;
-  	height: 100px;
-}
-
-.roles-list li:not(:first-of-type) img{
-	width: 125px;
-  	height: 125px;
-}
-
-tw-story{
-  	position: relative;
-}
-
-
-tw-icon {
-  text-align: right;
-  padding-right: 0.75em;
-}
-
-.decide-roles-slide{
-	padding-top: 5%;
-}
-
-.position-fixed{
-	position: fixed;
-}
-
-.position-absolute{
-	position: absolute;
-}
-
-.w-100{
-	width: 100%
-}
-
-.h-100{
-	height: 100%
-}
-
-.vh-100{
-	height: 100vh;
-}
-
-.vw-100{
-	width: 100vw;  
-}
-
-.d-flex{
-	display: flex;
-}
-
-.txt-center{
-	text-align: center;
-}
-
-.justify-content-center{
-	justify-content: center
-}
-
-.align-items-center{
-	align-items: center
-}
-
-.flex-column{
-	flex-direction: column;
-}
-
-.position-relative{
-	position: relative;
-}
-
-.role-img-container img{
-	width: 200px;
-  	height: 200px;
-}
-
-tw-passage,tw-dialog{ 
-font-family: "Montserrat", sans-serif;
   
-
+  .background-img{
+      height: 275px;
+  }
   
-a:link{
-  color: #54C8FF;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s ease;
+  tw-sidebar tw-hook:nth-of-type(2) > tw-expression,
+  tw-sidebar tw-hook:nth-of-type(3) > tw-expression{
+      margin-top: 20px;
   }
- a:visited{
-   color: #379DF5;
-  }
-  a:active{
-    color: #2FECFF;
-  }
-  a:hover{
-    color: #2FECFF;
-    text-decoration: underline;
-
-  }   
-}
-
-tw-dialog{
-  max-width: 90vw;
-  margin: 10px;
-  input{
-    margin-top: 0.5rem !important;
-  }
-    .ttl {
-  		font-size: 1.5em;
-    	font-weight: 500;
-      	margin-bottom: 0.6rem;
-		}
-  	.def{
-      font-style: italic;
-  		}
-  ul{
-    margin-top: 3px;
-    margin-bottom: 6px;
-  }
- }
-
   
-.bg-image{
-  z-index: 0;
-  width: 100%;
-  border-radius: .3em;
-}
   
-.bg-red{
-	background-color: red  
-}
-
-.proverb-word-container div{
-	color: #3599F0;
-  	text-align: center;
-}
-
-.proverb-word-container div:first-of-type{
-	font-size: 3.3em;
-  	margin-top: 40px;
-}
-
-.proverb-word-container div:nth-of-type(2){
-	font-size: 2em;
-  	margin-top: 60px;
-}
-
-.proverb-word-container div:nth-of-type(3){
-	font-size: 1.25em;
-  	margin-top: 40px;
-}
-
-@media(min-width: 768px) and (max-width: 1024px){
+  tw-sidebar tw-hook:nth-of-type(3) > tw-expression,
+  tw-sidebar tw-hook:nth-of-type(3) > tw-expression{
+      margin-bottom: 35px; 	
+  }
+  
+  tw-sidebar tw-hook:nth-of-type(4){
+        padding-top: 20px;
+      border-top: solid 1px grey;
+  }
+  
+  tw-sidebar tw-hook:nth-of-type(5){
+      margin-top: 20px;
+  }
+  
+  tw-sidebar tw-hook:nth-of-type(5) > tw-expression > tw-meter br{
+        display: none;
+  }
+  
+  tw-sidebar tw-hook:nth-of-type(6){
+        margin-top: 30px;
+  }
+  
+  tw-sidebar tw-hook:nth-of-type(7){
+        margin-top: 30px;
+  }
+  
+  tw-sidebar tw-meter #text{
+      top: 100%;
+  }
+  
+  tw-sidebar tw-hook > tw-expression{
+      display: flex;
+        flex-direction: column; 
+  }
+  
+  tw-sidebar br{
+      display: none;
+  }
+  
+  tw-passage tw-sidebar tw-hook{
+      margin-left: 10px;
+  }
+  
+  tw-icon[title="Redo"]{
+      display: none;
+  }
+  
+  tw-icon[title="Undo"]{
+      margin-top: 5px;
+        margin-bottom: 5px;
+  }
+  
+  @media(min-width: 768px) and (max-width: 1100px){
+    tw-sidebar {
+        width: 20%;
+    }
+    
+    tw-story tw-passage{
+        font-size: 16px;
+    }
+    
+    tw-story tw-passage > tw-hook{
+      display: block;
+      max-width: 75vw;
+      font-size: 16px !important;
+      bottom: 10%;
+    }
+    
+    .background-img{
+        height: 135px;
+    }
+    
+    
+  }
+  
+  @media(min-width: 768px) and (max-width: 991px){
+      tw-dialog{
+            bottom: 20%;
+     }
+    
+    .catchment-txt-container > div{
+        width: 60%;
+    }
+  }
+  
+  @media(min-width: 992px) and (max-width: 1024px){
+      tw-dialog{
+            bottom: 25%;
+        }
+    
+    .background-img{
+        height: 175px;
+    }
+    
+    .catchment-txt-container > div{
+        width: 55%;
+    }
+    
+    .catchment-txt-container img{
+        margin-left: 15px;
+    }
+  }
+  
+  .position-relative{
+      position: relative;
+  }
+  
+  .icon-container-li{
+  }
+  
+  .roles-list li{
+        display: inline-flex;
+  }
+  
+  .roles-list li:not(:first-of-type){
+        margin-top: 65px;
+  }
+  
+  .roles-list li:before {
+      content: "";
+      position: absolute;
+      transform: translate(-150%,-50%);
+      top: 75%;
+      border-radius: 50%;
+      margin-top: -7px; /* half bullet height */
+      width: 14px;
+      height: 14px;
+      background: white;
+  }
+  
+  .roles-list li > div{
+        width: 80px;
+        position: relative;
+  }
+  
+  .roles-list li img{
+      position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-40%, -50%);
+  }
+  
+  .roles-list li:first-of-type img{
+      width: 80px;
+        height: 80px;
+  }
+  
+  .roles-list li:not(:first-of-type) img{
+      width: 125px;
+        height: 125px;
+  }
+  
+  tw-story{
+        position: relative;
+  }
+  
+  
+  tw-icon {
+    text-align: right;
+    padding-right: 0.75em;
+  }
+  
+  .decide-roles-slide{
+      padding-top: 5%;
+  }
+  
+  .position-fixed{
+      position: fixed;
+  }
+  
+  .position-absolute{
+      position: absolute;
+  }
+  
+  .w-100{
+      width: 100%
+  }
+  
+  .h-100{
+      height: 100%
+  }
+  
+  .vh-100{
+      height: 100vh;
+  }
+  
+  .vw-100{
+      width: 100vw;  
+  }
+  
+  .d-flex{
+      display: flex;
+  }
+  
+  .txt-center{
+      text-align: center;
+  }
+  
+  .justify-content-center{
+      justify-content: center
+  }
+  
+  .align-items-center{
+      align-items: center
+  }
+  
+  .flex-column{
+      flex-direction: column;
+  }
+  
+  .position-relative{
+      position: relative;
+  }
+  
+  .role-img-container img{
+      width: 200px;
+        height: 200px;
+  }
+  
+  tw-passage,tw-dialog{ 
+  font-family: "Montserrat", sans-serif;
+    
+  
+    
+  a:link{
+    color: #54C8FF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+    }
+   a:visited{
+     color: #379DF5;
+    }
+    a:active{
+      color: #2FECFF;
+    }
+    a:hover{
+      color: #2FECFF;
+      text-decoration: underline;
+  
+    }   
+  }
+  
+  tw-dialog{
+    max-width: 90vw;
+    margin: 10px;
+    input{
+      margin-top: 0.5rem !important;
+    }
+      .ttl {
+            font-size: 1.5em;
+          font-weight: 500;
+            margin-bottom: 0.6rem;
+          }
+        .def{
+        font-style: italic;
+            }
+    ul{
+      margin-top: 3px;
+      margin-bottom: 6px;
+    }
+   }
+  
+    
+  .bg-image{
+    z-index: 0;
+    width: 100%;
+    border-radius: .3em;
+  }
+    
+  .bg-red{
+      background-color: red  
+  }
+  
+  .proverb-word-container div{
+      color: #3599F0;
+        text-align: center;
+  }
+  
   .proverb-word-container div:first-of-type{
-  	font-size: 2.3em;
+      font-size: 3.3em;
+        margin-top: 40px;
   }
   
   .proverb-word-container div:nth-of-type(2){
-	font-size: 1.8em;
-}
-}
-
-@media(min-width: 768px) and (max-width: 991px){
-  .proverb-word-container div:first-of-type{
-  	font-size: 2.2em;
-  }
-}
-
-.proverb-word-container{
-    width: 100%;
-  	border-radius: .3em;
-  	background-color: black;
-  	height: 80vh;
-  	max-height: 600px;
-  	display: flex;
-  	align-items: center;
-  	flex-direction: column;
-  	padding: 70px 10px 0px 10px;
-}
- 
-.start-button{
-  font-size: 1.5rem;
-  z-index: 2;
-  background: #D3D3D3;
-  border: 1px #D3D3D3 solid;
-  padding: 0 15px;
-  border-radius: .3em;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  position: absolute;
-  bottom: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.water-is-life-btn{
-  font-size: 1.5rem;
-  z-index: 2;
-  background: #D3D3D3;
-  border: 1px #D3D3D3 solid;
-  padding: 0 15px;
-  border-radius: .3em;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  margin-top: 70px;
-}
-
-.icon-mobile{
-    display: none;
-}
-
-.desktop-icon-container{
-	display: flex;
-  	justify-content: center;
-  	padding-top: 25px;
-}
-
-.def-txt-mobile{
-	display: none;
-}
-
-.role-info-slide ul{
-	margin: 0px !important;
-}
-
-.role-info-slide li{
-	margin-top: 10px !important;
-}
-
-.role-txt-container > span:nth-of-type(2){
-	margin-top: 15px;
-}
-
-@media(max-width: 991px){
-  .role-img-container{
-	margin-top: 30px;
-}
-  
-  tw-story{
-  	line-height: normal;
+      font-size: 2em;
+        margin-top: 60px;
   }
   
-  .role-img-container{
-  	margin-top: 0px;
+  .proverb-word-container div:nth-of-type(3){
+      font-size: 1.25em;
+        margin-top: 40px;
   }
-  .role-img-container > div{
-    display: flex;
-    flex-direction: column;
-  }
-  .icon-mobile{
-  	display: block;
-  }
-  .icon-desktop{
-  	display: none;
-  }
-  .role-txt-container{
-  	flex-direction: row;
-  }
-  .role-txt-container > span:nth-of-type(2){
-  	display: none;
-  }
-  .role-txt-container > span:nth-of-type(1){
-  	display: inline-flex;
-    align-items: center;
-  }
-  .def-txt-mobile{
-  	display: block;
-    line-height: 1.2em;
-  }
-  .role-img-container img{
-	width: 125px;
-  	height: 125px;
-  }
-}
-
-
   
-.start-button *{
-	color: #4169E1;  
-}
+  @media(min-width: 768px) and (max-width: 1024px){
+    .proverb-word-container div:first-of-type{
+        font-size: 2.3em;
+    }
+    
+    .assays-container *{
+    	font-size: 16px;
+    }
+    
+    .proverb-word-container div:nth-of-type(2){
+      font-size: 1.8em;
+    }
+    
+    .water-info-container *{
+        font-size: 16px;
+    }
+    
+    .slide-container{
+        left: 10%;
+    }
+    .water-info-container{
+      left: 15%;
+      max-width: 78vw;
+    }
 
-@media(max-width: 576px){
- 	.start-button *{
-   		font-size: 18px;
-	}
-}
+    .welcome-team-txt-cont{
+        max-width: 73vw;
+    }
+    
+    .water-info-txt-container br{
+        display: none;
+    }
+    
+    .river-water-passage{
+        left: 15%;
+      transform: translateY(-5%);
+    }
+    
+    .catchment-txt-container{
+        display: flex;
+    }
+    
+    .your-job-txt-container{
+        width: 70vw;
+    }
+  }
 
-tw-story{
-	display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    font: 100% Georgia, serif;
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 100%;
-    font-size: 1.5em;
-    line-height: 1.4em;
-    padding: 5% 5%;
-    overflow: visible;
-    background-color: #000;
-    color: #fff;
-}
-
-@media (min-width: 576px) {
-    tw-story {
-        padding: 0% 20%;
-      	line-height: normal;
+@media(min-width:992px) and (max-width: 1024px){
+	.water-info-container{
+      left: 15%;
+      max-width: 73vw;
     }
 }
-
-@media(min-width: 768px) and (max-width: 991px){
-	tw-story{
-  		padding: 0% 10%;
-  	}
-}
-
-.proverb{
-	position: absolute;
-  	width: 100vw;
-  	height: 100%;
-  	margin-left: calc(-1 * ((100vw - 100%) / 2));
-  	margin-right: calc(-1 * ((100vw - 100%) / 2));
-}
-
-
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="River Water" tags="" position="750,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
+  
+  .float-right{
+      float: right
+  }
+  
+  @media(min-width: 768px) and (max-width: 991px){
+    .proverb-word-container div:first-of-type{
+        font-size: 2.2em;
+    }
+  }
+  
+  .proverb-word-container{
+      width: 100%;
+        border-radius: .3em;
+        background-color: black;
+        height: 80vh;
+        max-height: 600px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 70px 10px 0px 10px;
+  }
+   
+  .start-button{
+    font-size: 1.5rem;
+    z-index: 2;
+    background: #D3D3D3;
+    border: 1px #D3D3D3 solid;
+    padding: 0 15px;
+    border-radius: .3em;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .water-is-life-btn{
+    font-size: 1.5rem;
+    z-index: 2;
+    background: #D3D3D3;
+    border: 1px #D3D3D3 solid;
+    padding: 0 15px;
+    border-radius: .3em;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    margin-top: 70px;
+  }
+  
+  .icon-mobile{
+      display: none;
+  }
+  
+  .desktop-icon-container{
+      display: flex;
+        justify-content: center;
+        padding-top: 25px;
+  }
+  
+  .def-txt-mobile{
+      display: none;
+  }
+  
+  .role-info-slide ul{
+      margin: 0px !important;
+  }
+  
+  .role-info-slide li{
+      margin-top: 10px !important;
+  }
+  
+  .role-txt-container > span:nth-of-type(2){
+      margin-top: 15px;
+  }
+  
+  @media(max-width: 991px){
+    .role-img-container{
+      margin-top: 30px;
+  }
+    
+    tw-story{
+        line-height: normal;
+    }
+    
+    .role-img-container{
+        margin-top: 0px;
+    }
+    .role-img-container > div{
+      display: flex;
+      flex-direction: column;
+    }
+    .icon-mobile{
+        display: block;
+    }
+    .icon-desktop{
+        display: none;
+    }
+    .role-txt-container{
+        flex-direction: row;
+    }
+    .role-txt-container > span:nth-of-type(2){
+        display: none;
+    }
+    .role-txt-container > span:nth-of-type(1){
+        display: inline-flex;
+      align-items: center;
+    }
+    .def-txt-mobile{
+        display: block;
+      line-height: 1.2em;
+    }
+    .role-img-container img{
+      width: 125px;
+      height: 125px;
+    }
+  }
+  
+  
+    
+  .start-button *{
+      color: #4169E1;  
+  }
+  
+  @media(max-width: 576px){
+       .start-button *{
+             font-size: 18px;
+      }
+  }
+  
+  tw-story{
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      font: 100% Georgia, serif;
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 100%;
+      font-size: 1.5em;
+      line-height: 1.4em;
+      padding: 5% 5%;
+      background-color: #000;
+      color: #fff;
+  }
+  
+  @media (min-width: 576px) {
+      tw-story {
+          padding: 0% 20%;
+            line-height: normal;
+      }
+  }
+  
+  @media(min-width: 768px) and (max-width: 991px){
+      tw-story{
+            padding: 0% 10%;
+        }
+  }
+  
+  @media(min-width: 768px) and (max-width: 1100px){
+    tw-story{
+        padding: 0% 10%;
+    }
+    tw-passage{
+        font-size: 16px;
+    }
+    
+  }
+  
+  .proverb{
+      position: absolute;
+        width: 100vw;
+        height: 100%;
+        margin-left: calc(-1 * ((100vw - 100%) / 2));
+        margin-right: calc(-1 * ((100vw - 100%) / 2));
+  }
+  
+  
+  </style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="River Water" tags="" position="750,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to true)
       (set: $saltCont to false)
@@ -486,20 +568,21 @@ tw-story{
       (set: $nitrateCont to true)
       (set: $acidCont to false)
       }
+      &lt;div class=&quot;water-info-container river-water-passage&quot;&gt;
       //About the Kolo River//
       New Georgia is a big, mountainous island with raised barrier reefs that define the large Marovo Lagoon. Rainfall
       occurs at high altitudes and replenishes the supply of the Kolo River. The river flows towards the coast into the
       Marovo Lagoon.
-
-      &lt;img class=&quot;diag&quot; src=&quot;images/kolo_river.png&quot;&gt;
-
+      &lt;img class=&quot;diag background-img img-contain&quot; src=&quot;images/kolo_river.png&quot;&gt;
+      
       //Threats to the Kolo River//
+      &lt;div class=&#39;water-info-txt-container&#39;&gt;
       Decades ago, commercial logging operations began in the inland tropical forests of the island, bringing economic
       gains and employment opportunities for some residents. However, the deforestation had profound ecological
       consequences. Deforestation caused agricultural runoff, resulting in an algal bloom in the lagoon. This led to
       widespread mortality of marine organisms. Additionally, the high levels of soil erosion severely impacted
       downstream water quality, compromising access to clean drinking water.
-
+      &lt;/div&gt;
       (text-size: 0.6)[//Sources: Environmental research letter about the Solomon Islands (2018), &lt;a
       href=&quot;https://iopscience.iop.org/article/10.1088/1748-9326/aab9eb/pdf&quot;
       target=&quot;_blank&quot;&gt;“Predicting the impact of logging activities on soil erosion and water quality in
@@ -509,8 +592,8 @@ tw-story{
       href=&quot;https://www.jstor.org/stable/j.ctv47wfn1.7&quot; target=&quot;_blank&quot;&gt;&quot;The River, the
       Water and the Crocodile in Marovo Lagoon&quot;&lt;/a&gt; by Edvard Hviding (2018) (image taken from book chapter).
       //]
-
-      Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="2" name="Coastal Aquifer" tags="" position="600,200" size="100,100">{(set: $waterSource to &quot;a coastal aquifer&quot;)
+      Now, about [[your job]]...
+      &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Coastal Aquifer" tags="" position="600,200" size="100,100">{(set: $waterSource to &quot;a coastal aquifer&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to false)
       (set: $saltCont to true)
@@ -518,6 +601,7 @@ tw-story{
       (set: $nitrateCont to false)
       (set: $acidCont to false)
       }
+	&lt;div class=&quot;water-info-container&quot;&gt;
       //What is a coastal aquifer?//
       Water in coastal aquifers is found underground and is pumped to the surface in wells. Aquifers are delicate, thin
       freshwater lenses that float atop denser seawater. Rainfall replenishes the freshwater aquifers and is important
@@ -535,7 +619,8 @@ tw-story{
       target=&quot;_blank&quot;&gt;&quot;UNDP’s Managing Coastal Aquifer Project&quot;&lt;/a&gt; in Republic of Palau,
       Tuvalu, and Republic of Marshall Islands (2020).//]
 
-      Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="3" name="Rainfall Catchment" tags="" position="450,200" size="100,100">{(set: $waterSource to &quot;rainfall catchments&quot;)
+      Now, about [[your job]]...
+	&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Rainfall Catchment" tags="" position="450,200" size="100,100">{(set: $waterSource to &quot;rainfall catchments&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to false)
       (set: $saltCont to false)
@@ -543,21 +628,28 @@ tw-story{
       (set: $nitrateCont to false)
       (set: $acidCont to true)
       }
+      &lt;div class=&#39;water-info-container&#39;&gt;
       //What is rainwater catchment?//
+      &lt;div class=&quot;water-info-txt-container catchment-txt-container&quot;&gt;
+      &lt;div&gt;
       Rainwater catchment is a system that catches, stores, and distributes rainwater for household use. In many local
       communities, residents rely on rainwater catchment systems for their freshwater needs, especially when groundwater
       reserves are over-extracted (over-used).
-
+      &lt;/div&gt;
       &lt;img class=&quot;diag background-img img-contain&quot; src=&quot;images/Rainwater_Collection.png&quot; /&gt;
+      &lt;/div&gt;
 
-      //Threats to rainwater catchment//
+	//Threats to rainwater catchment//
+      &lt;div class=&#39;water-info-txt-container catchment-txt-container&#39;&gt;
+      &lt;div&gt;
       While rainwater serves as a good source of clean water, maintaining efficient catchment systems is challenging and
       costly. Systems need to be properly designed, maintained, and water may need to be treated before drinking.
       Additionally, extreme weather events such as cyclones and storm surges can cause significant damage to rainwater
       catchment systems. Residents can face longer dry periods and droughts, making long-term water management
       challenging.
-
-      &lt;img class=&quot;diag&quot; src=&quot;images/rainwater_catchment_image.png&quot; &gt;
+      &lt;/div&gt;
+      &lt;img class=&quot;diag background-img img-contain&quot; src=&quot;images/rainwater_catchment_image.png&quot; &gt;
+      &lt;/div&gt;
 
       (text-size: 0.6)[//Sources: University of Hawai’i &lt;a
       href=&quot;https://www.ctahr.hawaii.edu/hawaiirain/Library/Guides&amp;Manuals/A_Guide_for_Rainwater_Catchment_Systems_in_the_Pacific_Portia_Franz.pdf&quot;
@@ -567,7 +659,9 @@ tw-story{
       target=&quot;_blank&quot;&gt;&quot;Contending with water shortages in the Pacific: Performance of private
       rainwater tanks versus communal rainwater tanks in rural Vanuatu&quot;&lt;/a&gt;.//]
 
-      Now, about [[your job]]...</tw-passagedata><tw-passagedata pid="4" name="assays" tags="" position="600,500" size="100,100">Select from the following assays:
+      Now, about [[your job]]...
+      &lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="assays" tags="" position="600,500" size="100,100">&lt;div class=&quot;water-info-container assays-container&quot;&gt;
+Select from the following assays:
 
       &#39;&#39;Clicking on test will purchase the assay.&#39;&#39;
 
@@ -590,7 +684,8 @@ tw-story{
       sand, clay, algae, oils, dirt, or bacteria. The water sample visually assessed to determine its turbidity, or
       cloudiness. This test takes a few minutes to complete and is an inexpensive test.
 
-      View [[assay results]] or continue to [[treatment-&gt;making decisions]] options.</tw-passagedata><tw-passagedata pid="5" name="treatment" tags="" position="1275,525" size="100,100">(if: $assayPerformed is false)[A recent water quality
+      View [[assay results]] or continue to [[treatment-&gt;making decisions]] options.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="treatment" tags="" position="1275,525" size="100,100">(if: $assayPerformed is false)[A recent water quality
       survey found that the water contains harmful bacteria, most likely introduced from animal waste upstream.
       (text-colour:red)[You will need to treat for bacteria.]
 
@@ -677,6 +772,7 @@ tw-story{
       |turbidity_result)[(show:(hooks-named:$turResult))]]
       }
       (set: $assayPerformed to true)
+      &lt;div class=&#39;water-info-container&#39;&gt;
       A recent water quality survey found that the water contains harmful bacteria, most likely introduced from animal
       waste upstream. (text-colour:red)[You will need to treat for bacteria.]
       {
@@ -687,6 +783,7 @@ tw-story{
       (if: $turbidityTest is true)[(show:?turbidity_result)]
       }
       Perform more [[assays]] or continue to [[treatment-&gt;making decisions]].
+      &lt;/div&gt;
 
 
     </tw-passagedata><tw-passagedata pid="7" name="Salinity assay" tags="" position="675,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for salinity. The result was:]]
@@ -1112,7 +1209,7 @@ tw-story{
       &#39;&#39;The project manager on our team is named:&#39;&#39;
       ], &quot;Player 3&quot;, &quot;&quot;,&quot;Confirm&quot;))
       }
-
+&lt;div class=&quot;water-info-container welcome-team-txt-cont&quot;&gt;
       [Welcome to the Water Treatment Team, $Player1, $Player2, and $Player3! Everyone is excited to see what plan you
       implement to provide clean water to the community.
       
@@ -1126,8 +1223,9 @@ tw-story{
       ](Welcome|
 
       (if: $Player3 is not 0)(show: ?Welcome)
-
-    </tw-passagedata><tw-passagedata pid="26" name="background" tags="" position="700,50" size="100,100">(text-size:1.2)[&#39;&#39;Coastal Aquifer Sample &#39;&#39;]
+&lt;/div&gt;
+    </tw-passagedata><tw-passagedata pid="26" name="background" tags="" position="700,50" size="100,100">&lt;div class=&quot;water-info-container&quot;&gt;
+(text-size:1.2)[&#39;&#39;Coastal Aquifer Sample &#39;&#39;]
       This sample was taken from a coastal aquifer. Communities in Tuvalu, Republic of Marshall Islands, Kiribati, Niue,
       Tonga, Fiji, and Samoa rely on coastal aquifers for their water supply needs.
 
@@ -1146,7 +1244,9 @@ tw-story{
 
       [[Coastal Aquifer]]
       [[River Water]]
-      [[Rainfall Catchment]] </tw-passagedata><tw-passagedata pid="27" name="your job" tags="" position="600,350" size="100,100">Your team&#39;s job is to treat the water so that it can be used by community members. Remember,
+      [[Rainfall Catchment]] 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="your job" tags="" position="600,350" size="100,100">	&lt;div class=&quot;water-info-container your-job-txt-container&quot;&gt;
+Your team&#39;s job is to treat the water so that it can be used by community members. Remember,
       $Player1, your priority is to ensure the water is as clean as possible by performing all necessary tests and
       treatments. $Player2, you must monitor your team&#39;s environmental impact and try to keep your Environmental
       Points as close to zero as possible. Finally, $Player3, don&#39;t forget about the budget! Your team has been
@@ -1158,6 +1258,7 @@ tw-story{
       OR
 
       proceed directly to [[treatment-&gt;making decisions]].
+      &lt;/div&gt;
 
       {(set: $budgetString to &quot;Remaining budget:&quot;)(set: num-type $budget to 50)(set: $environmentString to
       &quot;Environmental impact points:&quot;)(set: num-type $enviroPoints to 0)
