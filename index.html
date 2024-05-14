@@ -28,7 +28,7 @@ tw-sidebar {
 
 tw-passage{
   	margin-left: 2rem;
-    margin-top: 10px;
+    margin-top: 30px;
 }
   
   .img-contain{
@@ -690,28 +690,7 @@ tw-passage{
       margin-left: 10px;
   }
   
-  tw-icon[title="Redo"]{
-      display: none;
-  }
-  tw-icon{
-  font-family: Montserrat; sans-serif;
-  text-align: left;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  padding: 2rem 1rem;
-  border-bottom: 1px lightgray solid;
-	}
 
-
-  tw-icon[title="Undo"] *{
-    font-size: 30px !important;
-    height: 30px;
-    width: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    color: lightgray;
-  }
-  
   @media(min-width: 768px) and (max-width: 1100px){
     tw-sidebar {
         width: 20%;
@@ -1190,20 +1169,20 @@ tw-passage{
   
   @media (min-width: 576px) {
       tw-story {
-          padding: 5% 20%;
+          padding: 0 20%;
             line-height: normal;
       }
   }
   
   @media(min-width: 768px) and (max-width: 991px){
       tw-story{
-            padding: 0% 10%;
+            padding: 0 20%;
         }
   }
   
   @media(min-width: 768px) and (max-width: 1100px){
     tw-story{
-        padding: 0% 10%;
+        padding: 0 20%;
     }
     tw-passage{
         font-size: 16px;
@@ -1778,7 +1757,7 @@ This process is able to remove sediments, salt, nitrates, iron, bacteria, viruse
       [[Coastal Aquifer]]
       [[River Water]]
       [[Rainfall Catchment]] 
-</tw-passagedata><tw-passagedata pid="27" name="your job" tags="" position="1000,475" size="100,100">	&lt;div class=&quot;water-info-container your-job-txt-container&quot;&gt;&lt;div class=&quot;rounded-box&quot;&gt;Your team&#39;s job is to treat the water so that it can be used by community members. &lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="27" name="your job" tags="" position="1000,475" size="100,100">&lt;div class=&quot;rounded-box&quot;&gt;Your team&#39;s job is to treat the water so that it can be used by community members. &lt;/div&gt;
 
 Remember, $Player1, your priority is to ensure the water is clean. 
 
@@ -1793,7 +1772,7 @@ $Player3, don&#39;t forget about the budget! Your team has been trusted with fun
       OR
 
       proceed directly to [[treatment-&gt;making decisions]].
-      &lt;/div&gt;
+
 
       {(set: $budgetString to &quot;Remaining budget:&quot;)(set: num-type $budget to 50)(set: $environmentString to
       &quot;Environmental impact points:&quot;)(set: num-type $enviroPoints to 0)
@@ -2379,9 +2358,7 @@ Learn about [[the roles-&gt;Analytical Chemist]]
    
 [[Continue-&gt;Pick]]
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="64" name="Pick" tags="" position="275,550" size="100,100">&lt;div class=&#39;slide-container decide-roles-slide&#39;&gt;
-&lt;div class=&#39;ttl&#39;&gt;Decide who will take each role: &lt;/div&gt;
-&lt;ul class=&quot;roles-list&quot;&gt;
+</tw-passagedata><tw-passagedata pid="64" name="Pick" tags="" position="275,550" size="100,100">&lt;div class=&#39;slide-container decide-roles-slide&#39;&gt;&lt;div class=&#39;ttl&#39;&gt;Decide who will take each role: &lt;/div&gt;&lt;ul class=&quot;roles-list&quot;&gt;
 &lt;li&gt;Analytical Chemist&lt;div class=&quot;position-relative icon-container-li img-contain&quot;&gt;&lt;img src=&quot;images/Analytical_Chemist_icon.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;Chemical &amp; Process Engineer &lt;div class=&quot;position-relative icon-container-li img-contain&quot;&gt;&lt;img src=&quot;images/Chemical_Engineer_icon.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;Project Manager &lt;div class=&quot;position-relative icon-container-li img-contain&quot;&gt;&lt;img src=&quot;images/Project_Manager_icon.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
