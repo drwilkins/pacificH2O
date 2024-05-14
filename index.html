@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Pacific H2O v3.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Pacific H2O v3" startnode="57" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="6dd82385-013c-4a18-b409-a0a9bff0279a" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar {
+<tw-storydata name="Pacific H2O v3" startnode="57" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="6dd82385-013c-4a18-b409-a0a9bff0279a" options="" tags="" zoom="0.3" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar {
     position: fixed;
     top: 0;
     left: 0;
@@ -22,6 +22,7 @@
 
 tw-passage{
   	margin-left: 2rem;
+    margin-top: 10px;
 }
   
   .img-contain{
@@ -80,14 +81,29 @@ tw-passage{
   tw-passage tw-sidebar tw-hook{
       margin-left: 10px;
   }
+
+tw-meter{
+padding-top: 5px;
+}
   
   tw-icon[title="Redo"]{
       display: none;
   }
-  
-  tw-icon[title="Undo"]{
-      margin-top: 5px;
-        margin-bottom: 5px;
+  tw-icon{
+  font-family: Montserrat; sans-serif;
+  font-size: 30px !important;
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 6px;
+  padding: 8px 4px;
+  border-bottom: 1px lightgray solid;
+	}
+
+
+  tw-icon[title="Undo"] *{
+    
+    color: lightgray;
   }
   
   @media(min-width: 768px) and (max-width: 1100px){
@@ -145,9 +161,7 @@ tw-passage{
       position: relative;
   }
   
-  .icon-container-li{
-  }
-  
+   
   .roles-list li{
         display: inline-flex;
   }
@@ -182,20 +196,16 @@ tw-passage{
       top: 50%;
       left: 50%;
       transform: translate(-40%, -50%);
-      width: 125px;
-      height: 125px;
+      width: 90px;
+      height: 90px;
   }
-  
+ 
   tw-story{
         position: relative;
   }
   
   
-  tw-icon {
-    text-align: right;
-    padding-right: 0.75em;
-  }
-  
+
   .decide-roles-slide{
       padding-top: 5%;
   }
@@ -296,6 +306,606 @@ tw-passage{
       margin-bottom: 6px;
     }
    }
+ .ttl {
+  		font-size: 1.5em;
+    	font-weight: 500;
+      	margin-bottom: 0.6rem;
+		}
+  
+    
+  .bg-image{
+    z-index: 0;
+    width: 100%;
+    border-radius: .3em;
+  }
+    
+  .bg-red{
+      background-color: red  
+  }
+  
+.treatments-word-container div{
+	  color: #3599F0;
+      text-align: center;
+}
+
+.treatments-word-container div:first-of-type{
+      font-size: 2.5em;
+  }
+  
+  .treatments-word-container div:nth-of-type(2){
+      font-size: 2em;
+        margin-top: 60px;
+  }
+  
+  .treatments-word-container div:nth-of-type(3){
+      font-size: 1.25em;
+        margin-top: 40px;
+  }
+
+.treatments-word-container{
+	width: 100%;
+    border-radius: .3em;
+    background-color: black;
+    height: 80vh;
+    max-height: 600px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 70px 10px 0px 10px;
+}
+
+  .proverb-word-container div{
+      color: #3599F0;
+      text-align: center;
+  }
+  
+  .proverb-word-container div:first-of-type{
+      font-size: 3.3em;
+      margin-top: 40px;
+  }
+  
+  .proverb-word-container div:nth-of-type(2){
+      font-size: 2em;
+        margin-top: 60px;
+  }
+  
+  .proverb-word-container div:nth-of-type(3){
+      font-size: 1.25em;
+        margin-top: 40px;
+  }
+  
+  @media(min-width: 768px) and (max-width: 1024px){
+    .proverb-word-container div:first-of-type{
+        font-size: 2.3em;
+    }
+    
+    .assays-container *{
+    	font-size: 16px;
+    }
+    
+    .proverb-word-container div:nth-of-type(2){
+      font-size: 1.8em;
+    }
+    
+    .water-info-container *{
+        font-size: 16px;
+    }
+    
+    .slide-container{
+        left: 10%;
+    }
+    .water-info-container{
+      left: 15%;
+      max-width: 78vw;
+    }
+
+    .welcome-team-txt-cont{
+        max-width: 73vw;
+    }
+    
+    .water-info-txt-container br{
+        display: none;
+    }
+    
+    .river-water-passage{
+        left: 15%;
+      transform: translateY(-5%);
+    }
+    
+    .catchment-txt-container{
+        display: flex;
+    }
+    
+    .your-job-txt-container{
+        width: 70vw;
+    }
+  }
+
+@media(min-width:992px) and (max-width: 1024px){
+	.water-info-container{
+      left: 15%;
+      max-width: 73vw;
+    }
+}
+  
+  .float-right{
+      float: right
+  }
+  
+  @media(min-width: 768px) and (max-width: 991px){
+    .proverb-word-container div:first-of-type{
+        font-size: 2.5em;
+    }
+  }
+  
+  .proverb-word-container{
+      width: 100%;
+        border-radius: .3em;
+        background-color: black;
+        height: 80vh;
+        max-height: 600px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 70px 10px 0px 10px;
+  }
+   
+  .start-button{
+    font-size: 1.5rem;
+    z-index: 2;
+    background: #D3D3D3;
+    border: 1px #D3D3D3 solid;
+    padding: 0 15px;
+    border-radius: .3em;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .water-is-life-btn{
+    font-size: 1.5rem;
+    z-index: 2;
+    background: #D3D3D3;
+    border: 1px #D3D3D3 solid;
+    padding: 0 15px;
+    border-radius: .3em;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    margin-top: 70px;
+  }
+
+	.treatments-btn {
+    	font-size: 1.5rem;
+    	z-index: 2;
+    	background: #D3D3D3;
+    	border: 1px #D3D3D3 solid;
+    	padding: 0 15px;
+    	border-radius: .3em;
+    	font: inherit;
+    	cursor: pointer;
+    	outline: inherit;
+      	margin-top: 20px;
+  	}
+  
+  .icon-mobile{
+      display: none;
+  }
+  
+  .desktop-icon-container{
+      display: flex;
+        justify-content: center;
+        padding-top: 25px;
+  }
+  
+  .def-txt-mobile{
+      display: none;
+  }
+  
+  .role-info-slide ul{
+      margin: 0px !important;
+  }
+  
+  .role-info-slide li{
+      margin-top: 10px !important;
+  }
+  
+  .role-txt-container > span:nth-of-type(2){
+      margin-top: 15px;
+  }
+  
+  @media(max-width: 991px){
+    .role-img-container{
+      margin-top: 30px;
+  }
+    
+    tw-story{
+        line-height: normal;
+    }
+    
+    .role-img-container{
+        margin-top: 0px;
+    }
+    .role-img-container > div{
+      display: flex;
+      flex-direction: column;
+    }
+    .icon-mobile{
+        display: block;
+    }
+    .icon-desktop{
+        display: none;
+    }
+    .role-txt-container{
+        flex-direction: row;
+    }
+    .role-txt-container > span:nth-of-type(2){
+        display: none;
+    }
+    .role-txt-container > span:nth-of-type(1){
+        display: inline-flex;
+      align-items: center;
+    }
+    .def-txt-mobile{
+        display: block;
+      line-height: 1.2em;
+    }
+    .role-img-container img{
+      width: 125px;
+      height: 125px;
+    }
+  }
+  
+  
+    
+  .start-button *{
+      color: #4169E1;  
+  }
+  
+  @media(max-width: 576px){
+       .start-button *{
+             font-size: 18px;
+      }
+  }
+  
+  tw-story{
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      font: 100% Montserrat, sans-serif;
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 100%;
+      font-size: 1.5em;
+      line-height: 1.4em;
+      padding: 5% 5%;
+      background-color: #000;
+      color: #fff;
+  }
+  
+  @media (min-width: 576px) {
+
+  }
+  
+ // @media(min-width: 768px) and (max-width: 991px){
+
+  }
+  
+  @media(min-width: 768px) and (max-width: 1100px){
+
+    tw-passage{
+        font-size: 16px;
+    }
+    
+  }
+  
+  .proverb{
+      position: absolute;
+        width: 100vw;
+        height: 100%;
+        margin-left: calc(-1 * ((100vw - 100%) / 2));
+        margin-right: calc(-1 * ((100vw - 100%) / 2));
+  }
+  
+  
+  w-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%; /* padding-right of the tw-story element. */
+    max-height: 100%;
+    padding: 0 0.5em 0.5em 0.5em;
+    text-align: left;
+    background-color: transparent;
+  }
+
+tw-passage{
+  	margin-left: 2rem;
+}
+  
+  .img-contain{
+      object-fit: contain;
+  }
+  
+  .background-img{
+      height: 275px;
+  }
+  
+  tw-sidebar tw-hook:nth-of-type(2) > tw-expression,
+  tw-sidebar tw-hook:nth-of-type(3) > tw-expression{
+      margin-top: 20px;
+  }
+  
+  
+  tw-sidebar tw-hook:nth-of-type(3) > tw-expression,
+  tw-sidebar tw-hook:nth-of-type(3) > tw-expression{
+      margin-bottom: 35px; 	
+  }
+  
+  tw-sidebar tw-hook:nth-of-type(4){
+        padding-top: 20px;
+      border-top: solid 1px grey;
+  }
+  
+  tw-sidebar tw-hook:nth-of-type(5){
+      margin-top: 20px;
+  }
+  
+  tw-sidebar tw-hook:nth-of-type(5) > tw-expression > tw-meter br{
+        display: none;
+  }
+  
+  tw-sidebar tw-hook:nth-of-type(6){
+        margin-top: 30px;
+  }
+  
+  tw-sidebar tw-hook:nth-of-type(7){
+        margin-top: 30px;
+  }
+  
+  tw-sidebar tw-meter #text{
+      top: 100%;
+  }
+  
+  tw-sidebar tw-hook > tw-expression{
+      display: flex;
+        flex-direction: column; 
+  }
+  
+  tw-sidebar br{
+      display: none;
+  }
+  
+  tw-passage tw-sidebar tw-hook{
+      margin-left: 10px;
+  }
+  
+  tw-icon[title="Redo"]{
+      display: none;
+  }
+  tw-icon{
+  font-family: Montserrat; sans-serif;
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 2rem 1rem;
+  border-bottom: 1px lightgray solid;
+	}
+
+
+  tw-icon[title="Undo"] *{
+    font-size: 30px !important;
+    height: 30px;
+    width: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: lightgray;
+  }
+  
+  @media(min-width: 768px) and (max-width: 1100px){
+    tw-sidebar {
+        width: 20%;
+    }
+    
+    tw-story tw-passage{
+        font-size: 16px;
+    }
+    
+    tw-story tw-passage > tw-hook{
+      display: block;
+      max-width: 75vw;
+      font-size: 16px !important;
+      bottom: 10%;
+    }
+    
+    .background-img{
+        height: 135px;
+    }
+    
+    
+  }
+  
+  @media(min-width: 768px) and (max-width: 991px){
+      tw-dialog{
+            bottom: 20%;
+     }
+    
+    .catchment-txt-container > div{
+        width: 60%;
+    }
+  }
+  
+  @media(min-width: 992px) and (max-width: 1024px){
+      tw-dialog{
+            bottom: 25%;
+        }
+    
+    .background-img{
+        height: 175px;
+    }
+    
+    .catchment-txt-container > div{
+        width: 55%;
+    }
+    
+    .catchment-txt-container img{
+        margin-left: 15px;
+    }
+  }
+  
+  .position-relative{
+      position: relative;
+  }
+  
+   
+  .roles-list li{
+        display: inline-flex;
+  }
+  
+  .roles-list li:not(:first-of-type){
+        margin-top: 65px;
+  }
+  
+  .roles-list li:before {
+      content: "";
+      position: absolute;
+      transform: translate(-150%,-50%);
+      top: 75%;
+      border-radius: 50%;
+      margin-top: -7px; /* half bullet height */
+      width: 14px;
+      height: 14px;
+      background: white;
+  }
+  
+  .roles-list li > div{
+        width: 80px;
+        position: relative;
+  }
+
+	.role-info-slide > br:first-of-type{
+		display: none;
+	}
+  
+  .roles-list li img{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-40%, -50%);
+      width: 90px;
+      height: 90px;
+  }
+ 
+  tw-story{
+        position: relative;
+  }
+  
+  
+
+  .decide-roles-slide{
+      padding-top: 5%;
+  }
+  
+  .position-fixed{
+      position: fixed;
+  }
+  
+  .position-absolute{
+      position: absolute;
+  }
+  
+  .w-100{
+      width: 100%
+  }
+  
+  .h-100{
+      height: 100%
+  }
+  
+  .vh-100{
+      height: 100vh;
+  }
+  
+  .vw-100{
+      width: 100vw;  
+  }
+  
+  .d-flex{
+      display: flex;
+  }
+  
+  .txt-center{
+      text-align: center;
+  }
+  
+  .justify-content-center{
+      justify-content: center
+  }
+  
+  .align-items-center{
+      align-items: center
+  }
+  
+  .flex-column{
+      flex-direction: column;
+  }
+  
+  .position-relative{
+      position: relative;
+  }
+  
+  .role-img-container img{
+      width: 200px;
+        height: 200px;
+  }
+  
+  tw-passage,tw-dialog{ 
+  font-family: "Montserrat", sans-serif;
+    
+  
+    
+  a:link{
+    color: #54C8FF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+    }
+   a:visited{
+     color: #379DF5;
+    }
+    a:active{
+      color: #2FECFF;
+    }
+    a:hover{
+      color: #2FECFF;
+      text-decoration: underline;
+  
+    }   
+  }
+  
+  tw-dialog{
+    max-width: 90vw;
+    margin: 10px;
+    input{
+      margin-top: 0.5rem !important;
+    }
+    ul{
+      margin-top: 3px;
+      margin-bottom: 6px;
+    }
+   }
+ .ttl {
+  		font-size: 1.5em;
+    	font-weight: 500;
+      	margin-bottom: 0.6rem;
+		}
+.def{
+    font-style: italic;
+    }
   
     
   .bg-image{
@@ -606,7 +1216,7 @@ tw-passage{
   
   </style><script role="script" id="twine-user-script" type="text/twine-javascript">var metatags = '<meta property=“og:title” content=“pacific water: choose-your-own-adventure lab” /><meta property=“og:type” content=“website” /><meta property=“og:url” content=“https://pacific-h2o.galacticpolymath.com/” /><meta property=“og:image” content=“https://pacific-h2o.galacticpolymath.com/images/PacificH2O-meta-image.png” /><meta property=“og:image:width” content=“1200” /><meta property=“og:image:height” content=“630” /><meta property=“og:description” content=“Students perform a hands-on water purification lab in a nonlinear way. Uses Pacific island narratives to encourages authentic engineering thinking.” />'
 
-$(document.head).append(metatags);</script><tw-passagedata pid="1" name="River Water" tags="" position="750,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
+$(document.head).append(metatags);</script><tw-passagedata pid="1" name="River Water" tags="" position="1175,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to true)
       (set: $saltCont to false)
@@ -626,7 +1236,7 @@ $(document.head).append(metatags);</script><tw-passagedata pid="1" name="River W
       (text-size: 0.6)[//Sources: Environmental research letter about the Solomon Islands (2018), &lt;a href=&quot;https://iopscience.iop.org/article/10.1088/1748-9326/aab9eb/pdf&quot;
       target=&quot;_blank&quot;&gt;“Predicting the impact of logging activities on soil erosion and water quality in steep, forested tropical islands&quot;&lt;/a&gt;, information from &lt;a href=&quot;https://wateractionhub.org/geos/country/200/d/solomon-islands/&quot;  target=&quot;_blank&quot;&gt;&quot;UN Global Impact Water Action Hub.&quot;&lt;/a&gt;, and book chapter, &lt;a href=&quot;https://www.jstor.org/stable/j.ctv47wfn1.7&quot; target=&quot;_blank&quot;&gt;&quot;The River, the Water and the Crocodile in Marovo Lagoon&quot;&lt;/a&gt; by Edvard Hviding (2018) (image taken from book chapter).//]
       &lt;button class=&quot;water-is-life-btn&quot;&gt;[[Continue-&gt;water has life]]&lt;/button&gt;
-      &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Coastal Aquifer" tags="" position="600,200" size="100,100">{(set: $waterSource to &quot;a coastal aquifer&quot;)
+      &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Coastal Aquifer" tags="" position="1025,200" size="100,100">{(set: $waterSource to &quot;a coastal aquifer&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to false)
       (set: $saltCont to true)
@@ -646,7 +1256,7 @@ $(document.head).append(metatags);</script><tw-passagedata pid="1" name="River W
       (text-size: 0.6)[//Sources: &lt;a href=&quot;https://info.undp.org/docs/pdc/Documents/FJI/PIMS%206196%20MCAP%20UNDP%20Project%20Document%20_14June20.pdf&quot; target=&quot;_blank&quot;&gt;&quot;UNDP’s Managing Coastal Aquifer Project&quot;&lt;/a&gt; in Republic of Palau, Tuvalu, and Republic of Marshall Islands (2020).//]
 
       &lt;button class=&quot;water-is-life-btn&quot;&gt;[[Continue-&gt;water has life]]&lt;/button&gt;
-	&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Rainfall Catchment" tags="" position="450,200" size="100,100">{(set: $waterSource to &quot;rainfall catchments&quot;)
+	&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Rainfall Catchment" tags="" position="875,200" size="100,100">{(set: $waterSource to &quot;rainfall catchments&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to false)
       (set: $saltCont to false)
@@ -675,7 +1285,7 @@ $(document.head).append(metatags);</script><tw-passagedata pid="1" name="River W
       href=&quot;https://www.ctahr.hawaii.edu/hawaiirain/Library/Guides&amp;Manuals/A_Guide_for_Rainwater_Catchment_Systems_in_the_Pacific_Portia_Franz.pdf&quot; target=&quot;_blank&quot;&gt;&quot;A guide for rainwater catchment systems in the Pacific&quot;&lt;/a&gt; (image taken from guide), and &lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021WR030350&quot; target=&quot;_blank&quot;&gt;&quot;Contending with water shortages in the Pacific: Performance of private rainwater tanks versus communal rainwater tanks in rural Vanuatu&quot;&lt;/a&gt;.//]
 
       &lt;button class=&quot;water-is-life-btn&quot;&gt;[[Continue-&gt;water has life]]&lt;/button&gt;
-      &lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="assays" tags="" position="575,600" size="100,100">&lt;div class=&quot;water-info-container assays-container&quot;&gt;
+      &lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="assays" tags="" position="1000,600" size="100,100">&lt;div class=&quot;water-info-container assays-container&quot;&gt;
 Select from the following assays:
 
       &#39;&#39;Clicking on test will purchase the assay.&#39;&#39;
@@ -689,7 +1299,7 @@ Select from the following assays:
       * [[Turbidity test]], $1: Turbidity is the measure of a liquid’s clarity. Highly turbid liquid has an opaque, cloudy appearance, while low-turbid liquid is clear and transparent. Turbidity is caused by materials such as sand, clay, algae, oils, dirt, or bacteria. The water sample visually assessed to determine its turbidity, or cloudiness. This test takes a few minutes to complete and is an inexpensive test.
 
 View [[assay results]] or continue to [[treatment-&gt;making decisions]] options.
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="treatment" tags="" position="1275,525" size="100,100">(if: $assayPerformed is false)[A recent water quality survey found that the water contains harmful bacteria, most likely introduced from animal waste upstream.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="treatment" tags="" position="1800,525" size="100,100">(if: $assayPerformed is false)[A recent water quality survey found that the water contains harmful bacteria, most likely introduced from animal waste upstream.
 (text-colour:#FF3DAC)[You will need to treat for bacteria.]
 
 (text-size:1.2)[What do you want to do?]
@@ -751,7 +1361,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
 (text-size:1.1)[We&#39;re [[finished with treatments-&gt;Treatments complete.]] and ready to see if they worked.]
       
-}</tw-passagedata><tw-passagedata pid="6" name="assay results" tags="" position="900,550" size="100,100">{
+}</tw-passagedata><tw-passagedata pid="6" name="assay results" tags="" position="1325,550" size="100,100">{
       (if: $rapidPanel is true)[
       |metal)[(text-colour:#FF3DAC)[Unsafe levels of heavy metals were detected.]]
       |nitrites)[(text-colour:#FF3DAC)[Unsafe levels of nitrites were detected.]]
@@ -807,7 +1417,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       &lt;/div&gt;
 
 
-    </tw-passagedata><tw-passagedata pid="7" name="Salinity assay" tags="" position="675,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for salinity. The result was:]]
+    </tw-passagedata><tw-passagedata pid="7" name="Salinity assay" tags="" position="1100,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for salinity. The result was:]]
       (if: visits is 1)[(set: $salinityAssay to true)(set: $budget to $budget - $salinityCost)(set: $step to $step+1)]
       (if: visits is 1)[(dialog: bind $salVal, &quot;Ask your teacher for salinity assay supplies and instructions.
 
@@ -826,7 +1436,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       |info)[Perform more [[assays]] or view your [[assay results]].
 
 
-      ] (if: $salResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="8" name="Rapid panel" tags="" position="300,750" size="100,100">{|recap)[(text-colour:orange)[You have already performed the rapid panel. The result was:]]
+      ] (if: $salResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="8" name="Rapid panel" tags="" position="725,750" size="100,100">{|recap)[(text-colour:orange)[You have already performed the rapid panel. The result was:]]
       (if: visits is 1)[(set: $rapidPanel to true)(set: $budget to $budget - $rapidCost)(set: $step to $step+1)
       (set: _promptstring to &quot;Ask your teacher for the rapid panel supplies and instructions.
 
@@ -863,7 +1473,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       |info)[Perform more [[assays]] or view your [[assay results]].
       ] (if: $metalResult is not 0 OR $nitrateResult is not 0 OR $nitriteResult is not 0 OR $pHrapResult is not 0 OR $chlorineResult is not 0 OR $none is not 0)[(show:?info)]
 
-    </tw-passagedata><tw-passagedata pid="9" name="pH test" tags="" position="550,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested pH. The result was:]]
+    </tw-passagedata><tw-passagedata pid="9" name="pH test" tags="" position="975,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested pH. The result was:]]
       (if: visits is 1 AND $pHResult is not &quot;fail&quot;)[(set: $phTest to true)(set: $budget to $budget - $phCost)(set: $step to $step+1)
       (set: num-type $pHVal to (num: (prompt: [Ask your teacher for pH test supplies and instructions.
 
@@ -905,7 +1515,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       |info)[Perform more [[assays]] or view your [[assay results]].
 
 
-      ] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="10" name="Nitrates assay" tags="" position="425,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for nitrates. The result
+      ] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="10" name="Nitrates assay" tags="" position="850,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for nitrates. The result
       was:]]
       (if: visits is 1)[(set: $nitratesAssay to true)(set: $budget to $budget - $nitratesCost)(set: $step to $step+1)]
       (if: visits is 1)[(dialog: bind $nitVal, &quot;Ask your teacher for the nitrate assay supplies and instructions.
@@ -925,7 +1535,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       |info)[Perform more [[assays]] or view your [[assay results]].
 
 
-      ] (if: $nitResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="11" name="Bacterial treatments" tags="" position="1950,300" size="100,100">(text-size:1.2)[Options for treating bacterial contamination:]
+      ] (if: $nitResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="11" name="Bacterial treatments" tags="" position="2475,300" size="100,100">(text-size:1.2)[Options for treating bacterial contamination:]
       (if: $bacterialTreatment is true)[(text-colour:blue)[Water has already been treated for bacteria.]]
       * [[Boiling]], $boilingEP environmental impact points, $$boilingCost
       * [[Distillation]], $distillationEP environmental impact points, $$distillationCost
@@ -942,7 +1552,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
 
 
-    </tw-passagedata><tw-passagedata pid="12" name="Salinity treatments" tags="" position="1800,300" size="100,100">(text-size:1.2)[Options for desalinating water:]
+    </tw-passagedata><tw-passagedata pid="12" name="Salinity treatments" tags="" position="2325,300" size="100,100">(text-size:1.2)[Options for desalinating water:]
       (if: $salinityTreatment is true)[(text-colour:blue)[Water has already been desalinated.]]
       * [[Distillation]], $distillationEP environmental impact points, $$distillationCost
       * [[Reverse osmosis]], $reverseosmosisEP environmental impact points, $$reverseosmosisCost
@@ -953,7 +1563,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       Return to [[treatment]] options.
 
 
-    </tw-passagedata><tw-passagedata pid="13" name="Nitrates treatments" tags="" position="1625,300" size="100,100">(text-size:1.2)[Options for treating water contaminated by nitrates:]
+    </tw-passagedata><tw-passagedata pid="13" name="Nitrates treatments" tags="" position="2150,300" size="100,100">(text-size:1.2)[Options for treating water contaminated by nitrates:]
       (if: $nitratesTreatment is true)[(text-colour:blue)[Water has already been treated for nitrates.]]
       * [[Distillation]], $distillationEP environmental impact points, $$distillationCost
       * [[Ion-exchange]], $ionEP environmental impact points, $$ionCost
@@ -966,7 +1576,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
 
 
-    </tw-passagedata><tw-passagedata pid="14" name="Particulate treatments" tags="" position="1350,300" size="100,100">(text-size:1.2)[Options for treating water that is cloudy due to materials such as sand, clay, algae, oils, dirt, or bacteria:]
+    </tw-passagedata><tw-passagedata pid="14" name="Particulate treatments" tags="" position="1875,300" size="100,100">(text-size:1.2)[Options for treating water that is cloudy due to materials such as sand, clay, algae, oils, dirt, or bacteria:]
       (if: $particulateTreatment is true)[(text-colour:blue)[Water has already been treated for particulates]]
       * [[Paper filter]], $paperfilterEP environmental impact points, $$paperfilterCost
       * [[Fine filter]], $finefilterEP environmental impact points, $$finefilterCost
@@ -981,7 +1591,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       Return to [[treatment]] options.
 
 
-    </tw-passagedata><tw-passagedata pid="15" name="pH treatments" tags="" position="1200,300" size="100,100">(text-size:1.2)[Options for treating water with an unbalanced pH:]
+    </tw-passagedata><tw-passagedata pid="15" name="pH treatments" tags="" position="1725,300" size="100,100">(text-size:1.2)[Options for treating water with an unbalanced pH:]
 (if: $acidityTreatment is true)[(text-colour:blue)[Water has already been treated for acidity.]]
       * [[pH-raising tablet]], $pHEP environmental impact points, $$pHCost
       * [[pH-lowering tablet]], $pHEP environmental impact points, $$pHCost
@@ -993,7 +1603,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       Return to [[treatment]] options.
 
 
-    </tw-passagedata><tw-passagedata pid="16" name="Turbidity test" tags="" position="800,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for turbidity. The result was:]]
+    </tw-passagedata><tw-passagedata pid="16" name="Turbidity test" tags="" position="1225,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for turbidity. The result was:]]
       (if: visits is 1)[(set: $turbidityTest to true)(set: $budget to $budget - $turbidityCost)(set: $step to $step+1)]
       (if: visits is 1)[(dialog: bind $turVal, &quot;Ask your teacher for turbidity test instructions.
 
@@ -1010,7 +1620,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       |info)[Perform more [[assays]] or view your [[assay results]].
 
 
-      ] (if: $turResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="17" name="Boiling" tags="" position="1675,0" size="100,100">{
+      ] (if: $turResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="17" name="Boiling" tags="" position="2200,0" size="100,100">{
       (if: visits &gt;1 AND $boiled is true)[(text-colour:blue)[Water has already been boiled.]]
       }
       (text-size:1.2)[Boiling]
@@ -1027,7 +1637,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       []&lt;result|
 
 
-    </tw-passagedata><tw-passagedata pid="18" name="Chlorination" tags="" position="1800,0" size="100,100">{
+    </tw-passagedata><tw-passagedata pid="18" name="Chlorination" tags="" position="2325,0" size="100,100">{
       (if: visits &gt;1 AND $chlorinated is true)[(text-colour:blue)[Water has already been chlorinated.]]
       }
       (text-size:1.2)[Chlorination]
@@ -1048,7 +1658,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       []&lt;result|
 
 
-    </tw-passagedata><tw-passagedata pid="19" name="Reverse osmosis" tags="" position="2150,775" size="100,100">(text-size:1.2)[Reverse Osmosis]
+    </tw-passagedata><tw-passagedata pid="19" name="Reverse osmosis" tags="" position="2675,775" size="100,100">(text-size:1.2)[Reverse Osmosis]
 
       Reverse osmosis uses a semipermeable membrane with very small pores that trap contaminants as water is pushed
       through.
@@ -1074,7 +1684,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
       []&lt;result|
-    </tw-passagedata><tw-passagedata pid="20" name="Distillation" tags="" position="1600,125" size="100,100">(text-size:1.2)[Distillation]
+    </tw-passagedata><tw-passagedata pid="20" name="Distillation" tags="" position="2125,125" size="100,100">(text-size:1.2)[Distillation]
 
       Distillation relies on evaporation to purify water. Contaminated water is heated to form steam, then the steam cools and is captured as purified water. This process effectively removes bacteria, viruses, parasites, salt, heavy metals, nitrates, and sediments. Distillation is a somewhat complex and costly system and has a high environmental impact score due to the heat that is required for evaporation.
 
@@ -1092,7 +1702,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       []&lt;result|
 
 
-    </tw-passagedata><tw-passagedata pid="21" name="pH-raising tablet" tags="" position="1250,125" size="100,100">(text-size:1.2)[pH Treatment: (text-style:&quot;underline&quot;)[Raising]]
+    </tw-passagedata><tw-passagedata pid="21" name="pH-raising tablet" tags="" position="1775,125" size="100,100">(text-size:1.2)[pH Treatment: (text-style:&quot;underline&quot;)[Raising]]
 
       The optimal pH for drinking water is in the range of 6.5-8.5. Water with a pH above or below this range is not considered safe. To change the pH, droplets can be added to the water which causes a chemical reaction. This reaction results in an optimal pH for water. Droplets have a very low environmental impact score.
 
@@ -1107,7 +1717,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       []&lt;result|
 
 
-    </tw-passagedata><tw-passagedata pid="22" name="pH-lowering tablet" tags="" position="1125,125" size="100,100">(text-size:1.2)[pH Treatment: (text-style:&quot;underline&quot;)[Lowering]]
+    </tw-passagedata><tw-passagedata pid="22" name="pH-lowering tablet" tags="" position="1650,125" size="100,100">(text-size:1.2)[pH Treatment: (text-style:&quot;underline&quot;)[Lowering]]
 
       The optimal pH for drinking water is in the range of 6.5-8.5. Water with a pH above or below this range is not considered safe. To change the pH, droplets can be added to the water which causes a chemical reaction. This reaction results in an optimal pH for water. Droplets have a very low environmental impact score.
 
@@ -1123,7 +1733,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
 
 
-    </tw-passagedata><tw-passagedata pid="23" name="Paper filter" tags="" position="1300,0" size="100,100">(text-size:1.2)[Filtration: paper]
+    </tw-passagedata><tw-passagedata pid="23" name="Paper filter" tags="" position="1825,0" size="100,100">(text-size:1.2)[Filtration: paper]
 
       This technique relies on gravity and filter paper to separate substances from one another. Ultimately, differences in particle size will determine the result of the filtration. Paper filters, such as a coffee filter, have a pore size of 10-20 microns and will separate most sediments from water. Paper filters have a low environmental impact score.
 
@@ -1141,7 +1751,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       []&lt;result|
 
 
-    </tw-passagedata><tw-passagedata pid="24" name="Fine filter" tags="" position="1425,0" size="100,100">(text-size:1.2)[Filtration: fine mesh]
+    </tw-passagedata><tw-passagedata pid="24" name="Fine filter" tags="" position="1950,0" size="100,100">(text-size:1.2)[Filtration: fine mesh]
 
       This technique relies on gravity and filter paper to separate substances from one another. Ultimately, differences in particle size will determine the result of the filtration. Fine filters have a pore size of 5 microns and will separate nearly all sediments and animals from water, but they have a slightly higher environmental impact score than a paper filter.
 
@@ -1157,7 +1767,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       []&lt;result|
 
 
-    </tw-passagedata><tw-passagedata pid="25" name="players" tags="" position="550,50" size="100,100">{(set: $Player1 to(prompt: [&lt;span class=&quot;ttl&quot;&gt;The Analytical Chemist&lt;/span&gt; 
+    </tw-passagedata><tw-passagedata pid="25" name="players" tags="" position="475,300" size="100,100">{(set: $Player1 to(prompt: [&lt;span class=&quot;ttl&quot;&gt;The Analytical Chemist&lt;/span&gt; 
 &lt;span class=&quot;def&quot;&gt;Analytical chemistry is the science of obtaining and communicating information about the composition of a sample. &lt;/span&gt;
 
       &#39;&#39;The analytical chemist on our team is named:&#39;&#39;
@@ -1174,21 +1784,12 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       ], &quot;Player 3&quot;, &quot;&quot;,&quot;Confirm&quot;))
       }
 &lt;div class=&quot;water-info-container welcome-team-txt-cont&quot;&gt;
-      [Welcome to the Water Treatment Team, $Player1, $Player2, and $Player3! Everyone is excited to see what plan you implement to provide clean water to the community.
-      
-      $Player1, your mission focus: Optimise overall water quality! Clean water is worth the expense.
-      
-      $Player2, your mission focus: Minimize the environmental impact score! Cost and water purity should not come at a cost to ecosystem health.
-      
-      And finally, $Player3, your mission focus: Successfully deliver clean water to the community and minimize cost! Excess (leftover) funds after treatment will be reallocated for community benefits at the end.
-
-      Here&#39;s a little [[background]] about our community.
-      ](Welcome|
+      [&lt;div class=&#39;ttl&#39;&gt;Welcome to the Water Treatment Team $Player1, $Player2, and $Player3!  &lt;/div&gt;  Everyone is excited for you to improve water quality for the community!&lt;br&gt;&lt;br&gt;But don&#39;t forget–[[you each have different goals!-&gt;reminder]]](Welcome|
 
       (if: $Player3 is not 0)(show: ?Welcome)
 &lt;/div&gt;
-    </tw-passagedata><tw-passagedata pid="26" name="background" tags="" position="700,50" size="100,100">&lt;div class=&quot;water-info-container&quot;&gt;
-(text-size:1.2)[&#39;&#39;Coastal Aquifer Sample &#39;&#39;]
+
+</tw-passagedata><tw-passagedata pid="26" name="background" tags="" position="1125,50" size="100,100">(text-size:1.2)[&#39;&#39;Coastal Aquifer Sample &#39;&#39;]
       This sample was taken from a coastal aquifer. Communities in Tuvalu, Republic of Marshall Islands, Kiribati, Niue, Tonga, Fiji, and Samoa rely on coastal aquifers for their water supply needs.
 
       (text-size:1.2)[&#39;&#39;River Sample &#39;&#39;]
@@ -1202,7 +1803,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       [[Coastal Aquifer]]
       [[River Water]]
       [[Rainfall Catchment]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="your job" tags="" position="575,475" size="100,100">	&lt;div class=&quot;water-info-container your-job-txt-container&quot;&gt;
+</tw-passagedata><tw-passagedata pid="27" name="your job" tags="" position="1000,475" size="100,100">	&lt;div class=&quot;water-info-container your-job-txt-container&quot;&gt;
 Your team&#39;s job is to treat the water so that it can be used by community members. Remember, $Player1, your priority is to ensure the water is as clean as possible by performing all necessary tests and treatments. $Player2, you must monitor your team&#39;s environmental impact and try to keep your Environmental Points as close to zero as possible. Finally, $Player3, don&#39;t forget about the budget! Your team has been trusted with funds to complete this project, and leftover money can be allocated to other uses in the community.
 
 (text-size:1.2)[What do you want to do?]
@@ -1232,7 +1833,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
       (set: $basicityTreatment to false)
       (set: $particulateTreatment to false)
       (set: $metalsTreatment to false)
-      }</tw-passagedata><tw-passagedata pid="28" name="Flocculation" tags="" position="1850,125" size="100,100">{
+      }</tw-passagedata><tw-passagedata pid="28" name="Flocculation" tags="" position="2375,125" size="100,100">{
       (if: visits &gt;1 AND $flocculated is true)[(text-colour:blue)[Water has already been flocculated.]]
       }
       (text-size:1.2)[Flocculation]
@@ -1255,7 +1856,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
       []&lt;result|
 
 
-    </tw-passagedata><tw-passagedata pid="29" name="Bottled drinking water" tags="" position="1825,525" size="100,100">{(set: $purchaseString to &quot;Purchased bottled water.&quot;)}
+    </tw-passagedata><tw-passagedata pid="29" name="Bottled drinking water" tags="" position="2350,525" size="100,100">{(set: $purchaseString to &quot;Purchased bottled water.&quot;)}
       (text-size:1.2)[Bottled Drinking Water]
 
       Bottled water is a relatively cheap way to provide contaminant-free water to communities but this method can be
@@ -1282,7 +1883,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
       (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
 
-    </tw-passagedata><tw-passagedata pid="30" name="Heavy metals treatments" tags="" position="1500,300" size="100,100">(text-size:1.2)[Options for treating water with heavy metals such as iron, copper, or lead:]
+    </tw-passagedata><tw-passagedata pid="30" name="Heavy metals treatments" tags="" position="2025,300" size="100,100">(text-size:1.2)[Options for treating water with heavy metals such as iron, copper, or lead:]
       (if: $metalsTreatment is true)[(text-colour:blue)[Water has already been treated for heavy metals.]]
       * [[Distillation]], $distillationEP environmental impact points, $$distillationCost
       * [[Ion-exchange]], $ionEP environmental impact points, $$ionCost
@@ -1296,11 +1897,11 @@ Your team&#39;s job is to treat the water so that it can be used by community me
 
 
 
-    </tw-passagedata><tw-passagedata pid="31" name="Treatments complete." tags="" position="1275,700" size="100,100">Great! Each treatment you completed came with a free [[post-treatment assay]] to ensure the
+    </tw-passagedata><tw-passagedata pid="31" name="Treatments complete." tags="" position="1800,700" size="100,100">Great! Each treatment you completed came with a free [[post-treatment assay]] to ensure the
       treatment was successful.
 
 
-    </tw-passagedata><tw-passagedata pid="32" name="Post-treatment rapid panel" tags="" position="975,975" size="100,100">{
+    </tw-passagedata><tw-passagedata pid="32" name="Post-treatment rapid panel" tags="" position="1500,975" size="100,100">{
       (if: visits is 1)[(set:$postrapidPanel to true)
       (set: _promptstring to &quot;Check all contaminants identified by the rapid panel.&quot;)
       (dialog: [(print: _promptstring)
@@ -1328,7 +1929,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
       ] (if: $nitrateResult is not 0 OR $metalResult is not 0 OR $salrapResult is not 0 OR $pHrapResult is not 0 OR
       $none is not 0)[(show:?info)]
 
-    </tw-passagedata><tw-passagedata pid="33" name="Post-treatment turbidity test" tags="" position="1350,975" size="100,100">{
+    </tw-passagedata><tw-passagedata pid="33" name="Post-treatment turbidity test" tags="" position="1875,975" size="100,100">{
       (if: visits is 1)[(set: $postturbidityTest to true)(set: $step to $step+1)
       (dialog: bind $turVal, &quot;Ask your teacher for turbidity test instructions.
 
@@ -1346,7 +1947,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
       |info)[Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].
 
 
-      ] (if: $turResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="34" name="Post-treatment pH test" tags="" position="1100,975" size="100,100">{(if: visits is 1 AND $pHResult is not &quot;fail&quot;)[(set:
+      ] (if: $turResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="34" name="Post-treatment pH test" tags="" position="1625,975" size="100,100">{(if: visits is 1 AND $pHResult is not &quot;fail&quot;)[(set:
       $postphTest to true)(set: $step to $step+1)
       (set: num-type $pHVal to (num: (prompt: [Ask your teacher for pH test supplies and instructions.
 
@@ -1387,7 +1988,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
       |info)[Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].
 
 
-      ] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="35" name="Post-treatment salinity test" tags="" position="1225,975" size="100,100">{
+      ] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="35" name="Post-treatment salinity test" tags="" position="1750,975" size="100,100">{
       (if: visits is 1)[(set: $postsalinityAssay to true)(set: $step to $step+1)
       (dialog: bind $salVal, &quot;Ask your teacher for salinity assay supplies and instructions.
 
@@ -1405,7 +2006,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
       |info)[Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].
 
 
-      ] (if: $salResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="36" name="Post-treatment nitrates assay" tags="" position="975,975" size="100,100">{
+      ] (if: $salResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="36" name="Post-treatment nitrates assay" tags="" position="1500,975" size="100,100">{
       (if: visits is 1)[(set:$postnitratesAssay to true)(set: $step to $step+1)
       (dialog: bind $nitVal, &quot;Ask your teacher for the nitrate assay supplies and instructions.
 
@@ -1423,12 +2024,12 @@ Your team&#39;s job is to treat the water so that it can be used by community me
 
       |info)[Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].
 
-      ] (if: $nitResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="37" name="Post-treatment bacterial assay" tags="" position="1475,975" size="100,100">{(set: $postbacteriaTest to
+      ] (if: $nitResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="37" name="Post-treatment bacterial assay" tags="" position="2000,975" size="100,100">{(set: $postbacteriaTest to
       true)}
       Result: The lab you sent your sample to reported no bacterial contamination.
 
       Perform another [[post-treatment assay]] or view your [[post-treatment assay
-      results]].</tw-passagedata><tw-passagedata pid="38" name="post-treatment assay" tags="" position="1275,825" size="100,100">Treatments may have to be repeated if the contaminant was not efficiently removed the first time.
+      results]].</tw-passagedata><tw-passagedata pid="38" name="post-treatment assay" tags="" position="1800,825" size="100,100">Treatments may have to be repeated if the contaminant was not efficiently removed the first time.
       {
       (if: $bacterialTreatment is true)[[Post-treatment bacterial assay]]
       (if: $nitratesTreatment is true)[[Post-treatment nitrates assay]]
@@ -1440,7 +2041,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
       View [[post-treatment assay results]].
 
 
-    </tw-passagedata><tw-passagedata pid="39" name="post-treatment assay results" tags="" position="1800,825" size="100,100">{
+    </tw-passagedata><tw-passagedata pid="39" name="post-treatment assay results" tags="" position="2325,825" size="100,100">{
       (if: $postbacteriaTest is true)[
       |bacteria_result)[(text-colour:#31FFA2)[No bacteria were detected.]]]
 
@@ -1484,16 +2085,16 @@ Your team&#39;s job is to treat the water so that it can be used by community me
       Perform another [[post-treatment assay]], choose a [[treatment]], or continue to [[final report]].
 
 
-    </tw-passagedata><tw-passagedata pid="40" name="final report" tags="" position="1800,1200" size="100,100">Generating your final report(after: time+1.5s)[.](after: time+3s)[.](after: time+4.5s)[.]
+    </tw-passagedata><tw-passagedata pid="40" name="final report" tags="" position="2325,1200" size="100,100">Generating your final report(after: time+1.5s)[.](after: time+3s)[.](after: time+4.5s)[.]
 
-      (after: time+7s)[ View your [[results]] ]</tw-passagedata><tw-passagedata pid="41" name="sports complex" tags="" position="2200,1325" size="100,100">Everyone loves to use the new sports complex, and there&#39;s been talk of
+      (after: time+7s)[ View your [[results]] ]</tw-passagedata><tw-passagedata pid="41" name="sports complex" tags="" position="2725,1325" size="100,100">Everyone loves to use the new sports complex, and there&#39;s been talk of
       starting a local professional team. When other teams visit the complex, it brings visitors and excitement to the
       community.
 
       {(if: $enviroPoints &lt;-15)[But your treatments also had a significant impact on the environment, and will likely
       contribute to degradation of the local ecosystem.]}
 
-      [[The End]]</tw-passagedata><tw-passagedata pid="42" name="renewable energy sources" tags="" position="2200,1200" size="100,100">{(set: $enviroPoints to $enviroPoints + 12)}
+      [[The End]]</tw-passagedata><tw-passagedata pid="42" name="renewable energy sources" tags="" position="2725,1200" size="100,100">{(set: $enviroPoints to $enviroPoints + 12)}
       By installing solar panels on the water treatment facility, you were able to offset a large percentage of the
       energy necessary to treat the water!
 
@@ -1508,7 +2109,7 @@ Your team consists of three people, each with different roles and motivations, a
 Read about your [[roles]].
 &lt;/div&gt;
 
-    </tw-passagedata><tw-passagedata pid="44" name="test the sample’s pH again" tags="" position="1000,250" size="100,100">{(set: $newpHResult to 0)(set: $newpHVal to -1000)}
+    </tw-passagedata><tw-passagedata pid="44" name="test the sample’s pH again" tags="" position="1525,250" size="100,100">{(set: $newpHResult to 0)(set: $newpHVal to -1000)}
       The optimal pH for drinking water is in the range of 6.5-8.5. Water with a pH above or below this range is not considered safe. To change the pH, tablets can be added to the water which causes a chemical reaction. This reaction results in an optimal pH for water. However, pH can be very sensitive, and attempts to raise or lower pH could easily overshoot the optimal drinking water range.
 
       After you&#39;ve used a pH tablet, you may perform a free pH test to determine the effect of the pH tablet.
@@ -1543,14 +2144,14 @@ Read about your [[roles]].
 
       If you&#39;re happy with your latest pH test result, return to [[treatment]] options.
       If your sample&#39;s pH is still outside of drinking range, select either a [[pH-lowering tablet]] or [[pH-raising tablet]].]
-    </tw-passagedata><tw-passagedata pid="45" name="paper filter filtration" tags="" position="2150,650" size="100,100">Before performing reverse osmosis, the water must be filtered to remove large particles. Get
+    </tw-passagedata><tw-passagedata pid="45" name="paper filter filtration" tags="" position="2675,650" size="100,100">Before performing reverse osmosis, the water must be filtered to remove large particles. Get
       paper filteration supplies and instructions from your teacher and perform the filtration. Make a note of this treament in your lab notebook.
 
       Because reverse osmosis requires a special semipermeable membrane, this treatment technology is not available in
       our classroom. For the purpose of this game, you can consider your sample to be successfully treated for
       sediments, salt, nitrates, iron, and pathogens.
 
-      Return to [[treatment]] options.</tw-passagedata><tw-passagedata pid="46" name="results" tags="" position="1800,1325" size="100,100">You chose $waterSource to provide water for your community. This source had the following contaminants:
+      Return to [[treatment]] options.</tw-passagedata><tw-passagedata pid="46" name="results" tags="" position="2325,1325" size="100,100">You chose $waterSource to provide water for your community. This source had the following contaminants:
 
       * Harmful bacteria
       {(if: $waterSource is &quot;rainfall catchments&quot;)[|result&gt;[
@@ -1618,11 +2219,11 @@ Read about your [[roles]].
       |debt)[You went [[over budget]]...]
       |leftover)[You have some remaining budget! Now you can [[choose how to spend]] it.]
       }
-      |result&gt;[(show:(hooks-named:$endGame))]</tw-passagedata><tw-passagedata pid="47" name="wasn&#39;t treated properly" tags="" position="1525,1250" size="100,100">Your didn&#39;t remove all of the contaminants from your water supply. A lot of people got sick and ended up in hospital. This caused many people to miss work, and hospital staff were overwhelmed.
+      |result&gt;[(show:(hooks-named:$endGame))]</tw-passagedata><tw-passagedata pid="47" name="wasn&#39;t treated properly" tags="" position="2050,1250" size="100,100">Your didn&#39;t remove all of the contaminants from your water supply. A lot of people got sick and ended up in hospital. This caused many people to miss work, and hospital staff were overwhelmed.
 
 {(if: $enviroPoints &lt;-15)[Your treatments also had a significant impact on the environment, and will likely contribute to degradation of the local ecosystem.]}
 
-[[The End]]</tw-passagedata><tw-passagedata pid="48" name="was properly treated" tags="" position="1800,1500" size="100,100">Great job on properly treating the water! Everyone in the community is glad to have safe drinking
+[[The End]]</tw-passagedata><tw-passagedata pid="48" name="was properly treated" tags="" position="2325,1500" size="100,100">Great job on properly treating the water! Everyone in the community is glad to have safe drinking
       water.
 
       You used most of your budget, so there&#39;s not enough leftover to allocate to other community initiatives.
@@ -1630,7 +2231,7 @@ Read about your [[roles]].
       {(if: $enviroPoints &lt;-15)[However your treatments had a significant impact on the environment, and will likely
       contribute to degradation of the local ecosystem.]}
 
-      [[The End]]</tw-passagedata><tw-passagedata pid="49" name="over budget" tags="" position="1525,1375" size="100,100">Great job on properly treating your water! The community is glad to have safe drinking water.
+      [[The End]]</tw-passagedata><tw-passagedata pid="49" name="over budget" tags="" position="2050,1375" size="100,100">Great job on properly treating your water! The community is glad to have safe drinking water.
 
       However, you went over budget. To cover the costs of water treatment, other initiatives for the community lost
       their funding.
@@ -1638,7 +2239,7 @@ Read about your [[roles]].
       {(if: $enviroPoints &lt;-15)[Your treatments also had a significant impact on the environment, and will likely
       contribute to degradation of the local ecosystem.]}
 
-      [[The End]]</tw-passagedata><tw-passagedata pid="50" name="choose how to spend" tags="" position="1975,1325" size="100,100">Great job properly treating the water! Everyone in the community is glad to have safe drinking
+      [[The End]]</tw-passagedata><tw-passagedata pid="50" name="choose how to spend" tags="" position="2500,1325" size="100,100">Great job properly treating the water! Everyone in the community is glad to have safe drinking
       water.
 
       You also have leftover budget which you can choose to invest in other initiatives for the community!
@@ -1652,13 +2253,13 @@ Read about your [[roles]].
       * Invest in [[research on seasonal rainfall]] and the effects of drought.
       * Support [[sustainable management of mangroves]].
       * Fund the development of a [[coastal adaptation plan]] to address rising sea
-      levels.</tw-passagedata><tw-passagedata pid="51" name="infrastructure" tags="" position="2200,1075" size="100,100">The updated infrastructure makes it way easier for community members to access the clean, treated
+      levels.</tw-passagedata><tw-passagedata pid="51" name="infrastructure" tags="" position="2725,1075" size="100,100">The updated infrastructure makes it way easier for community members to access the clean, treated
       water!
 
       {(if: $enviroPoints &lt;-15)[Your treatments had a significant impact on the environment, though, and will likely
       contribute to degradation of the local ecosystem.]}
 
-      [[The End]]</tw-passagedata><tw-passagedata pid="52" name="research on seasonal rainfall" tags="" position="2200,1450" size="100,100">{(set: $enviroPoints to $enviroPoints + 10)}
+      [[The End]]</tw-passagedata><tw-passagedata pid="52" name="research on seasonal rainfall" tags="" position="2725,1450" size="100,100">{(set: $enviroPoints to $enviroPoints + 10)}
 
 You chose to invest your excess funds in the Early Action Rainfall Watch: a
       monthly issued bulletin that monitors and predicts seasonal rainfall. Its aim is to prepare communities for the
@@ -1684,7 +2285,7 @@ You chose to invest your excess funds in the Early Action Rainfall Watch: a
       {(if: $enviroPoints &lt;-15)[But your treatments also had a significant impact on the environment, and will likely
       contribute to degradation of the local ecosystem.]}
 
-      [[The End]]</tw-passagedata><tw-passagedata pid="53" name="sustainable management of mangroves" tags="" position="2200,1575" size="100,100">{(set: $enviroPoints to $enviroPoints + 10)}
+      [[The End]]</tw-passagedata><tw-passagedata pid="53" name="sustainable management of mangroves" tags="" position="2725,1575" size="100,100">{(set: $enviroPoints to $enviroPoints + 10)}
 
 You&#39;ve used your extra funds to support &lt;a
       href=&quot;https://www.nature.org/en-us/about-us/where-we-work/asia-pacific/asia-and-the-pacific-women-in-conservation/women-guardians-of-the-mangroves/&quot;
@@ -1696,7 +2297,7 @@ You&#39;ve used your extra funds to support &lt;a
       contribute to degradation of the local ecosystem.]}
 
       [[The End]]
-    </tw-passagedata><tw-passagedata pid="54" name="coastal adaptation plan" tags="" position="2200,1700" size="100,100">{(set: $enviroPoints to $enviroPoints + 10)}
+    </tw-passagedata><tw-passagedata pid="54" name="coastal adaptation plan" tags="" position="2725,1700" size="100,100">{(set: $enviroPoints to $enviroPoints + 10)}
 
 You allocated the excess budget to fund &lt;a
       href=&quot;https://www.undp.org/blog/notes-tuvalu-leading-way-adapting-sea-level-rise&quot;
@@ -1707,7 +2308,7 @@ You allocated the excess budget to fund &lt;a
       {(if: $enviroPoints &lt;-15)[But your treatments also had a significant impact on the environment, and will likely
       contribute to degradation of the local ecosystem.]}
 
-      [[The End]]</tw-passagedata><tw-passagedata pid="55" name="The End" tags="" position="1800,1900" size="100,100">Thanks for playing the //Pacific H2O Water Lab//.
+      [[The End]]</tw-passagedata><tw-passagedata pid="55" name="The End" tags="" position="2325,1900" size="100,100">Thanks for playing the //Pacific H2O Water Lab//.
 
       Play again to choose a different path. (click: &quot;Play again&quot;)[(reload:)]
       (There are nine possible endings!)
@@ -1717,12 +2318,10 @@ You allocated the excess budget to fund &lt;a
       (if: $Player2 is not 0)[(print: &quot;ENGINEER: $Player2&quot;)]
       (if: $Player3 is not 0)[(print: &quot;MANAGER: $Player3&quot;)]]
       (append: ?sidebar)[(if: $waterSource is not 0)[(print: &quot;H2O SOURCE: $waterSource&quot;)]]
-      (append: ?sidebar)[(if: $budgetString is not 0)[(meter: bind $budget, 50, &quot;X&quot;, &quot;REMAINING:
-      $$budget&quot;, (gradient: 25, 0, #31FFA2, 1, #B2007C))]]
+      (append: ?sidebar)[(if: $budgetString is not 0)[(meter: bind $budget, 50, &quot;X&quot;, &quot;REMAINING:  $$budget&quot;, (gradient: 25, 0, #31FFA2, 1, #B2007C))]]
       (append: ?sidebar)[(if: $environmentString is not 0)[(print: &quot;ENVIR. IMPACT:
       $enviroPoints&quot;)]]
       (append: ?sidebar)[(if: $environmentString is not 0)[(print: &quot;STEP #$step&quot;)]]
-
 
       {
       (set: num-type $rapidCost to 1)
@@ -1755,6 +2354,7 @@ You allocated the excess budget to fund &lt;a
       &lt;button class=&quot;start-button&quot;&gt; [[Start-&gt;water is life]]&lt;/button&gt;
  &lt;/div&gt;
     </tw-passagedata><tw-passagedata pid="58" name="roles" tags="" position="400,50" size="100,100">&lt;div class=&#39;slide-container&#39;&gt;
+&lt;div class=&#39;ttl&#39;&gt;Roles:&lt;/div&gt;
 * Analytical Chemist
 * Chemical &amp; Process Engineer
 * Project Manager
@@ -1764,7 +2364,7 @@ Learn about [[the roles-&gt;Analytical Chemist]]
 &lt;div class=&quot;proverb-word-container&quot;&gt;
 	&lt;div class=&quot;pro_text&quot;&gt;&quot;Wata hem laef&quot;&lt;/div&gt;&lt;div class=&quot;pro_trans&quot;&gt;&lt;i&gt;&quot;Water is life&quot;&lt;/i&gt;&lt;/div&gt;&lt;div class=&quot;pro_source&quot;&gt;-Solomon Islands Pijin Proverb&lt;/div&gt;
     &lt;button class=&quot;water-is-life-btn&quot;&gt;[[Click To Begin-&gt;Intro]]&lt;/button&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="60" name="making decisions" tags="" position="825,375" size="100,100">&lt;img  src=&quot;images/poverb-img.png&quot; class=&#39;proverb&#39; /&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="60" name="making decisions" tags="" position="1250,375" size="100,100">&lt;img  src=&quot;images/poverb-img.png&quot; class=&#39;proverb&#39; /&gt;
 &lt;div class=&quot;treatments-word-container&quot;&gt;
 	&lt;div class=&quot;pro_text&quot;&gt;&quot;Ota decisions blo iumi ba determinim future blo iumi everiwan&quot;&quot;&lt;/div&gt;&lt;div class=&quot;pro_trans&quot;&gt;&quot;Choices are the hinges of destiny&quot;&lt;/div&gt;&lt;div class=&quot;pro_source&quot;&gt;-Solomon Islands Pijin Proverb&lt;/div&gt;&lt;button class=&quot;treatments-btn&quot;&gt;[[Choose treatments-&gt;treatment]]&lt;/button&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="61" name="Analytical Chemist" tags="" position="275,175" size="100,100">&lt;div class=&#39;role-info-slide&#39;&gt;
@@ -1803,18 +2403,25 @@ Learn about [[the roles-&gt;Analytical Chemist]]
 [[Continue-&gt;Pick]]
 &lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="64" name="Pick" tags="" position="275,550" size="100,100">&lt;div class=&#39;slide-container decide-roles-slide&#39;&gt;
-Decide who will take each role: 
+&lt;div class=&#39;ttl&#39;&gt;Decide who will take each role: &lt;/div&gt;
 &lt;ul class=&quot;roles-list&quot;&gt;
-&lt;li&gt;Analytical Chemist&lt;div class=&quot;position-relative icon-container-li&quot;&gt;&lt;img src=&quot;images/Analytical_Chemist_icon.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;Chemical &amp; Process Engineer &lt;div class=&quot;position-relative icon-container-li&quot;&gt;&lt;img src=&quot;images/Chemical_Engineer_icon.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;Project Manager &lt;div class=&quot;position-relative icon-container-li&quot;&gt;&lt;img src=&quot;images/Project_Manager_icon.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Analytical Chemist&lt;div class=&quot;position-relative icon-container-li img-contain&quot;&gt;&lt;img src=&quot;images/Analytical_Chemist_icon.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Chemical &amp; Process Engineer &lt;div class=&quot;position-relative icon-container-li img-contain&quot;&gt;&lt;img src=&quot;images/Chemical_Engineer_icon.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Project Manager &lt;div class=&quot;position-relative icon-container-li img-contain&quot;&gt;&lt;img src=&quot;images/Project_Manager_icon.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 Then enter the names of your [[players]].
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="65" name="water has life" tags="" position="575,350" size="100,100">&lt;img  src=&quot;images/poverb-img.png&quot; class=&#39;proverb&#39; /&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="65" name="water has life" tags="" position="1000,350" size="100,100">&lt;img  src=&quot;images/poverb-img.png&quot; class=&#39;proverb&#39; /&gt;
 &lt;div class=&quot;proverb-word-container&quot;&gt;
 	&lt;div class=&quot;pro_text&quot;&gt;&quot;O le vai ola&quot;&lt;/div&gt;&lt;div class=&quot;pro_trans&quot;&gt;&quot;Water lives / water has life&quot;&lt;/div&gt;&lt;div class=&quot;pro_source&quot;&gt;-Samoan Proverb&lt;/div&gt;
     &lt;button class=&quot;water-is-life-btn&quot;&gt;[[Learn about your job-&gt;your job]]&lt;/button&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="66" name="Ion-exchange" tags="" position="1550,0" size="100,100"></tw-passagedata></tw-storydata>
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="66" name="Ion-exchange" tags="" position="2075,0" size="100,100"></tw-passagedata><tw-passagedata pid="67" name="reminder" tags="" position="475,425" size="100,100">&lt;div class=&#39;ttl&#39;&gt;Mission Focus:&lt;/div&gt;     
+      - &lt;b&gt;$Player1:&lt;b&gt; &lt;em&gt;Optimise overall water quality! Clean water is worth the expense.&lt;/em&gt;
+      
+      - $Player2, your mission focus: Minimize the environmental impact score! Cost and water purity should not come at a cost to ecosystem health.
+      
+      - $Player3, your mission focus: Successfully deliver clean water to the community and minimize cost! Excess (leftover) funds after treatment will be reallocated for community benefits at the end.
+
+      Here&#39;s a little [[background]] about our community.</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
