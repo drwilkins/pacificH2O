@@ -9,7 +9,13 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Pacific H2O v3.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Pacific H2O v3" startnode="57" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="6dd82385-013c-4a18-b409-a0a9bff0279a" options="" tags="" zoom="0.3" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar {
+<tw-storydata name="Pacific H2O v3" startnode="57" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="6dd82385-013c-4a18-b409-a0a9bff0279a" options="" tags="" zoom="0.3" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+li{
+margin-bottom: 0.9rem;
+}
+
+tw-sidebar {
     position: fixed;
     top: 0;
     left: 0;
@@ -85,6 +91,14 @@ tw-passage{
 tw-meter{
 padding-top: 5px;
 }
+
+.rounded-box{
+  padding: 2rem;
+  border-radius: 16px;
+  border: 3px solid white;
+
+}
+
   
   tw-icon[title="Redo"]{
       display: none;
@@ -343,34 +357,37 @@ padding-top: 5px;
   }
 
 .treatments-word-container{
-	width: 100%;
+    width: 100%;
     border-radius: .3em;
     background-color: black;
     height: 80vh;
     max-height: 600px;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
-    padding: 70px 10px 0px 10px;
+    padding: 10px;
 }
 
   .proverb-word-container div{
+      //eats up margin for sidebar
+      margin-left: -10px; 
       color: #3599F0;
       text-align: center;
+      border-radius: 16px;
   }
   
   .proverb-word-container div:first-of-type{
-      font-size: 3.3em;
-      margin-top: 40px;
+      font-size: 3em;
   }
   
   .proverb-word-container div:nth-of-type(2){
-      font-size: 2em;
+      font-size: 1.6em;
         margin-top: 60px;
   }
   
   .proverb-word-container div:nth-of-type(3){
-      font-size: 1.25em;
+      font-size: 1.1em;
         margin-top: 40px;
   }
   
@@ -437,19 +454,7 @@ padding-top: 5px;
         font-size: 2.5em;
     }
   }
-  
-  .proverb-word-container{
-      width: 100%;
-        border-radius: .3em;
-        background-color: black;
-        height: 80vh;
-        max-height: 600px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        padding: 70px 10px 0px 10px;
-  }
-   
+
   .start-button{
     font-size: 1.5rem;
     z-index: 2;
@@ -607,8 +612,9 @@ padding-top: 5px;
       position: absolute;
         width: 100vw;
         height: 100%;
-        margin-left: calc(-1 * ((100vw - 100%) / 2));
-        margin-right: calc(-1 * ((100vw - 100%) / 2));
+        margin-left: calc(-1 * ((100vw - 100%) / 2) - 16px);
+        margin-top: -10px;
+        object-fit: cover;
   }
   
   
@@ -955,12 +961,12 @@ tw-passage{
   }
   
   .proverb-word-container div:first-of-type{
-      font-size: 3.3em;
-      margin-top: 40px;
+      font-size: 2.7em;
+
   }
   
   .proverb-word-container div:nth-of-type(2){
-      font-size: 2em;
+      font-size: 1.6em;
         margin-top: 60px;
   }
   
@@ -978,9 +984,7 @@ tw-passage{
     	font-size: 16px;
     }
     
-    .proverb-word-container div:nth-of-type(2){
-      font-size: 1.8em;
-    }
+   
     
     .water-info-container *{
         font-size: 16px;
@@ -1035,14 +1039,16 @@ tw-passage{
   
   .proverb-word-container{
       width: 100%;
-        border-radius: .3em;
+        border-radius: 16px;
+        border: 3px #379DF5 solid;
         background-color: black;
         height: 80vh;
         max-height: 600px;
         display: flex;
         align-items: center;
+        justify-content: center;
         flex-direction: column;
-        padding: 70px 10px 0px 10px;
+        padding: 10px;
   }
    
   .start-button{
@@ -1171,7 +1177,7 @@ tw-passage{
       display: flex;
       -ms-flex-direction: column;
       flex-direction: column;
-      font: 100% Georgia, serif;
+      font: 100% Montserrat, serif;
       box-sizing: border-box;
       width: 100%;
       min-height: 100%;
@@ -1205,14 +1211,11 @@ tw-passage{
     
   }
   
-  .proverb{
-      position: absolute;
-        width: 100vw;
-        height: 100%;
-        margin-left: calc(-1 * ((100vw - 100%) / 2));
-        margin-right: calc(-1 * ((100vw - 100%) / 2));
+
+  .pro_trans{
+    font-size: 36px;
+    font-style: italic;
   }
-  
   
   </style><script role="script" id="twine-user-script" type="text/twine-javascript">var metatags = '<meta property=“og:title” content=“pacific water: choose-your-own-adventure lab” /><meta property=“og:type” content=“website” /><meta property=“og:url” content=“https://pacific-h2o.galacticpolymath.com/” /><meta property=“og:image” content=“https://pacific-h2o.galacticpolymath.com/images/PacificH2O-meta-image.png” /><meta property=“og:image:width” content=“1200” /><meta property=“og:image:height” content=“630” /><meta property=“og:description” content=“Students perform a hands-on water purification lab in a nonlinear way. Uses Pacific island narratives to encourages authentic engineering thinking.” />'
 
@@ -1223,74 +1226,53 @@ $(document.head).append(metatags);</script><tw-passagedata pid="1" name="River W
       (set: $metalCont to false)
       (set: $nitrateCont to true)
       (set: $acidCont to false)
-      }
-      &lt;div class=&quot;water-info-container river-water-passage&quot;&gt;
-      //About the Kolo River//
-      New Georgia is a big, mountainous island with raised barrier reefs that define the large Marovo Lagoon. Rainfall occurs at high altitudes and replenishes the supply of the Kolo River. The river flows towards the coast into the Marovo Lagoon.
+      }&lt;div class=&quot;ttl&quot;&gt;About the Kolo River&lt;/div&gt;New Georgia is a big, mountainous island with raised barrier reefs that define the large Marovo Lagoon. Rainfall occurs at high altitudes and replenishes the supply of the Kolo River. The river flows towards the coast into the Marovo Lagoon.
       &lt;img class=&quot;diag background-img img-contain&quot; src=&quot;images/kolo_river.png&quot;&gt;
       
-      //Threats to the Kolo River//
-      &lt;div class=&#39;water-info-txt-container&#39;&gt;
-      Decades ago, commercial logging operations began in the inland tropical forests of the island, bringing economic gains and employment opportunities for some residents. However, the deforestation had profound ecological consequences. Deforestation caused agricultural runoff, resulting in an algal bloom in the lagoon. This led to widespread mortality of marine organisms. Additionally, the high levels of soil erosion severely impacted downstream water quality, compromising access to clean drinking water.
+&lt;div class=&quot;ttl&quot;&gt;Threats to the Kolo River&lt;/div&gt;&lt;div class=&#39;water-info-txt-container&#39;&gt;Decades ago, commercial logging operations began in the inland tropical forests of the island, bringing economic gains and employment opportunities for some residents. However, the deforestation had profound ecological consequences. 
+
+Deforestation caused agricultural runoff, resulting in an algal bloom in the lagoon. This led to widespread mortality of marine organisms. Additionally, the high levels of soil erosion severely impacted downstream water quality, compromising access to clean drinking water.
       &lt;/div&gt;
       (text-size: 0.6)[//Sources: Environmental research letter about the Solomon Islands (2018), &lt;a href=&quot;https://iopscience.iop.org/article/10.1088/1748-9326/aab9eb/pdf&quot;
       target=&quot;_blank&quot;&gt;“Predicting the impact of logging activities on soil erosion and water quality in steep, forested tropical islands&quot;&lt;/a&gt;, information from &lt;a href=&quot;https://wateractionhub.org/geos/country/200/d/solomon-islands/&quot;  target=&quot;_blank&quot;&gt;&quot;UN Global Impact Water Action Hub.&quot;&lt;/a&gt;, and book chapter, &lt;a href=&quot;https://www.jstor.org/stable/j.ctv47wfn1.7&quot; target=&quot;_blank&quot;&gt;&quot;The River, the Water and the Crocodile in Marovo Lagoon&quot;&lt;/a&gt; by Edvard Hviding (2018) (image taken from book chapter).//]
       &lt;button class=&quot;water-is-life-btn&quot;&gt;[[Continue-&gt;water has life]]&lt;/button&gt;
-      &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Coastal Aquifer" tags="" position="1025,200" size="100,100">{(set: $waterSource to &quot;a coastal aquifer&quot;)
+</tw-passagedata><tw-passagedata pid="2" name="Coastal Aquifer" tags="" position="1025,200" size="100,100">{(set: $waterSource to &quot;a coastal aquifer&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to false)
       (set: $saltCont to true)
       (set: $metalCont to false)
       (set: $nitrateCont to false)
       (set: $acidCont to false)
-      }
-	&lt;div class=&quot;water-info-container&quot;&gt;
-      //What is a coastal aquifer?//
-      Water in coastal aquifers is found underground and is pumped to the surface in wells. Aquifers are delicate, thin freshwater lenses that float atop denser seawater. Rainfall replenishes the freshwater aquifers and is important for the long-term stability of this water source.
+      }&lt;div class=&quot;ttl&quot;&gt;What is a coastal aquifer?&lt;/div&gt;Water in coastal aquifers is found underground and is pumped to the surface in wells. Aquifers are delicate, thin freshwater lenses that float atop denser seawater. Rainfall replenishes the freshwater aquifers and is important for the long-term stability of this water source.
 
-      &lt;img class=&quot;diag background-img img-contain&quot; src=&quot;images/Coastal_Aquifer.png&quot; /&gt;
-
-      //Threats to coastal aquifers//
-      These crucial groundwater sources face multiple threats, including sea level rise, wave overtopping, over-extraction (over-use), and bacterial contamination from agriculture or waste. Climate change intensifies these threats to coastal aquifers due to increased climate variability and climate extremes.
+      &lt;img class=&quot;diag background-img img-contain&quot; src=&quot;images/Coastal_Aquifer.png&quot;/&gt; 
+      
+      &lt;div class=&quot;ttl&quot;&gt;Threats to coastal aquifers&lt;/div&gt;These crucial groundwater sources face multiple threats, including sea level rise, wave overtopping, over-extraction (over-use), and bacterial contamination from agriculture or waste. Climate change intensifies these threats to coastal aquifers due to increased climate variability and climate extremes.
 
       (text-size: 0.6)[//Sources: &lt;a href=&quot;https://info.undp.org/docs/pdc/Documents/FJI/PIMS%206196%20MCAP%20UNDP%20Project%20Document%20_14June20.pdf&quot; target=&quot;_blank&quot;&gt;&quot;UNDP’s Managing Coastal Aquifer Project&quot;&lt;/a&gt; in Republic of Palau, Tuvalu, and Republic of Marshall Islands (2020).//]
-
       &lt;button class=&quot;water-is-life-btn&quot;&gt;[[Continue-&gt;water has life]]&lt;/button&gt;
-	&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Rainfall Catchment" tags="" position="875,200" size="100,100">{(set: $waterSource to &quot;rainfall catchments&quot;)
+</tw-passagedata><tw-passagedata pid="3" name="Rainfall Catchment" tags="" position="875,200" size="100,100">{(set: $waterSource to &quot;rainfall catchments&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to false)
       (set: $saltCont to false)
       (set: $metalCont to true)
       (set: $nitrateCont to false)
       (set: $acidCont to true)
-      }
-      &lt;div class=&#39;water-info-container&#39;&gt;
-      //What is rainwater catchment?//
-      &lt;div class=&quot;water-info-txt-container catchment-txt-container&quot;&gt;
-      &lt;div&gt;
-      Rainwater catchment is a system that catches, stores, and distributes rainwater for household use. In many local communities, residents rely on rainwater catchment systems for their freshwater needs, especially when groundwater reserves are over-extracted (over-used).
-      &lt;/div&gt;
+      }&lt;div class=&quot;ttl&quot;&gt;What is rainwater catchment?&lt;/div&gt;Rainwater catchment is a system that catches, stores, and distributes rainwater for household use. In many local communities, residents rely on rainwater catchment systems for their freshwater needs, especially when groundwater reserves are over-extracted (over-used).
+
       &lt;img class=&quot;diag background-img img-contain&quot; src=&quot;images/Rainwater_Collection.png&quot; /&gt;
       &lt;/div&gt;
-
-	//Threats to rainwater catchment//
-      &lt;div class=&#39;water-info-txt-container catchment-txt-container&#39;&gt;
-      &lt;div&gt;
-      While rainwater serves as a good source of clean water, maintaining efficient catchment systems is challenging and costly. Systems need to be properly designed, maintained, and water may need to be treated before drinking. Additionally, extreme weather events such as cyclones and storm surges can cause significant damage to rainwater catchment systems. Residents can face longer dry periods and droughts, making long-term water management challenging.
-      &lt;/div&gt;
+      
+&lt;div class=&quot;ttl&quot;&gt;Threats to rainwater catchment&lt;/div&gt;While rainwater serves as a good source of clean water, maintaining efficient catchment systems is challenging and costly. Systems need to be properly designed, maintained, and water may need to be treated before drinking. Additionally, extreme weather events such as cyclones and storm surges can cause significant damage to rainwater catchment systems. Residents can face longer dry periods and droughts, making long-term water management challenging.
       &lt;img class=&quot;diag background-img img-contain&quot; src=&quot;images/rainwater_catchment_image.png&quot; &gt;
-      &lt;/div&gt;
 
-      (text-size: 0.6)[//Sources: University of Hawai’i &lt;a
-      href=&quot;https://www.ctahr.hawaii.edu/hawaiirain/Library/Guides&amp;Manuals/A_Guide_for_Rainwater_Catchment_Systems_in_the_Pacific_Portia_Franz.pdf&quot; target=&quot;_blank&quot;&gt;&quot;A guide for rainwater catchment systems in the Pacific&quot;&lt;/a&gt; (image taken from guide), and &lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021WR030350&quot; target=&quot;_blank&quot;&gt;&quot;Contending with water shortages in the Pacific: Performance of private rainwater tanks versus communal rainwater tanks in rural Vanuatu&quot;&lt;/a&gt;.//]
-
-      &lt;button class=&quot;water-is-life-btn&quot;&gt;[[Continue-&gt;water has life]]&lt;/button&gt;
-      &lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="assays" tags="" position="1000,600" size="100,100">&lt;div class=&quot;water-info-container assays-container&quot;&gt;
+      (text-size: 0.6)[//Sources: University of Hawai’i &lt;a href=&quot;https://www.ctahr.hawaii.edu/hawaiirain/Library/Guides&amp;Manuals/A_Guide_for_Rainwater_Catchment_Systems_in_the_Pacific_Portia_Franz.pdf&quot; target=&quot;_blank&quot;&gt;&quot;A guide for rainwater catchment systems in the Pacific&quot;&lt;/a&gt; (image taken from guide), and &lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021WR030350&quot; target=&quot;_blank&quot;&gt;&quot;Contending with water shortages in the Pacific: Performance of private rainwater tanks versus communal rainwater tanks in rural Vanuatu&quot;&lt;/a&gt;.//]
+      &lt;button class=&quot;water-is-life-btn&quot;&gt;[[Continue-&gt;water has life]]&lt;/button&gt;</tw-passagedata><tw-passagedata pid="4" name="assays" tags="" position="1000,600" size="100,100">&lt;div class=&quot;water-info-container assays-container&quot;&gt;
 Select from the following assays:
 
       &#39;&#39;Clicking on test will purchase the assay.&#39;&#39;
 
-      (link:&quot;Click here for a hint&quot;)[(text-color: green)[Beginning with a rapid panel is a great way to quickly determine what&#39;s going on in the sample. The rapid panel will indicate which of the sensitive tests should be performed.]]
+      (link:&quot;Click here for a hint&quot;)[(text-color: #31FFA2)[Beginning with a rapid panel is a great way to quickly determine what&#39;s going on in the sample. The rapid panel will indicate which of the sensitive tests should be performed.]]
 
       * [[Rapid panel]], $1: A fast-acting (rapid) test strip which indicates the presence of many contaminants (panel) from one sample. The rapid panel can detect pH, nitrites, nitrates, and chlorine. This assay requires a few minutes to complete and is a cheap test.
       * [[Nitrates assay]], $3: This assay specifically measures the presence of nitrates. This assay requires roughly 10 minutes to complete and is a relatively inexpensive test.
@@ -1302,7 +1284,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="treatment" tags="" position="1800,525" size="100,100">(if: $assayPerformed is false)[A recent water quality survey found that the water contains harmful bacteria, most likely introduced from animal waste upstream.
 (text-colour:#FF3DAC)[You will need to treat for bacteria.]
 
-(text-size:1.2)[What do you want to do?]
+&lt;div class=&quot;ttl&quot;&gt;What do you want to do?&lt;/div&gt;
 
 {      
 (text-size:1.1)[(if: $assayPerformed is true)[Perform more [[assays]].
@@ -1344,19 +1326,19 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       
             {
       (if: $bacterialTreatment is true)[
-      * (text-colour:blue)[Water has been treated for bacteria.]]
+      * (text-colour:#31FFA2)[Water has been treated for bacteria.]]
       (if: $nitratesTreatment is true)[
-      * (text-colour:blue)[Water has been treated for nitrates.]]
+      * (text-colour:#31FFA2)[Water has been treated for nitrates.]]
       (if: $salinityTreatment is true)[
-      * (text-colour:blue)[Water has been treated for salinity.]]
+      * (text-colour:#31FFA2)[Water has been treated for salinity.]]
       (if: $acidityTreatment is true)[
-      * (text-colour:blue)[Water pH treated has been raised.]]
+      * (text-colour:#31FFA2)[Water pH treated has been raised.]]
       (if: $basicityTreatment is true)[
-      * (text-colour:blue)[Water pH has been lowered.]]
+      * (text-colour:#31FFA2)[Water pH has been lowered.]]
       (if: $particulateTreatment is true)[
-      * (text-colour:blue)[Water has been treated for particulates.]]
+      * (text-colour:#31FFA2)[Water has been treated for particulates.]]
       (if: $metalsTreatment is true)[
-      * (text-colour:blue)[Water has been treated for heavy metals.]]
+      * (text-colour:#31FFA2)[Water has been treated for heavy metals.]]
       }
 
 (text-size:1.1)[We&#39;re [[finished with treatments-&gt;Treatments complete.]] and ready to see if they worked.]
@@ -1536,7 +1518,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
 
       ] (if: $nitResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="11" name="Bacterial treatments" tags="" position="2475,300" size="100,100">(text-size:1.2)[Options for treating bacterial contamination:]
-      (if: $bacterialTreatment is true)[(text-colour:blue)[Water has already been treated for bacteria.]]
+      (if: $bacterialTreatment is true)[(text-colour:#31FFA2)[Water has already been treated for bacteria.]]
       * [[Boiling]], $boilingEP environmental impact points, $$boilingCost
       * [[Distillation]], $distillationEP environmental impact points, $$distillationCost
       * [[Ion-exchange]], $ionEP environmental impact points, $$ionCost
@@ -1553,7 +1535,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
 
     </tw-passagedata><tw-passagedata pid="12" name="Salinity treatments" tags="" position="2325,300" size="100,100">(text-size:1.2)[Options for desalinating water:]
-      (if: $salinityTreatment is true)[(text-colour:blue)[Water has already been desalinated.]]
+      (if: $salinityTreatment is true)[(text-colour:#31FFA2)[Water has already been desalinated.]]
       * [[Distillation]], $distillationEP environmental impact points, $$distillationCost
       * [[Reverse osmosis]], $reverseosmosisEP environmental impact points, $$reverseosmosisCost
       * [[Bottled drinking water]], $bottleEP environmental impact points, $$bottleCost
@@ -1564,7 +1546,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
 
     </tw-passagedata><tw-passagedata pid="13" name="Nitrates treatments" tags="" position="2150,300" size="100,100">(text-size:1.2)[Options for treating water contaminated by nitrates:]
-      (if: $nitratesTreatment is true)[(text-colour:blue)[Water has already been treated for nitrates.]]
+      (if: $nitratesTreatment is true)[(text-colour:#31FFA2)[Water has already been treated for nitrates.]]
       * [[Distillation]], $distillationEP environmental impact points, $$distillationCost
       * [[Ion-exchange]], $ionEP environmental impact points, $$ionCost
       * [[Reverse osmosis]], $reverseosmosisEP environmental impact points, $$reverseosmosisCost
@@ -1577,7 +1559,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
 
     </tw-passagedata><tw-passagedata pid="14" name="Particulate treatments" tags="" position="1875,300" size="100,100">(text-size:1.2)[Options for treating water that is cloudy due to materials such as sand, clay, algae, oils, dirt, or bacteria:]
-      (if: $particulateTreatment is true)[(text-colour:blue)[Water has already been treated for particulates]]
+      (if: $particulateTreatment is true)[(text-colour:#31FFA2)[Water has already been treated for particulates]]
       * [[Paper filter]], $paperfilterEP environmental impact points, $$paperfilterCost
       * [[Fine filter]], $finefilterEP environmental impact points, $$finefilterCost
       * [[Flocculation]], $flocculationEP environmental impact points, $$flocculationCost
@@ -1592,7 +1574,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
 
     </tw-passagedata><tw-passagedata pid="15" name="pH treatments" tags="" position="1725,300" size="100,100">(text-size:1.2)[Options for treating water with an unbalanced pH:]
-(if: $acidityTreatment is true)[(text-colour:blue)[Water has already been treated for acidity.]]
+(if: $acidityTreatment is true)[(text-colour:#31FFA2)[Water has already been treated for acidity.]]
       * [[pH-raising tablet]], $pHEP environmental impact points, $$pHCost
       * [[pH-lowering tablet]], $pHEP environmental impact points, $$pHCost
       * [[Ion-exchange]], $ionEP environmental impact points, $$ionCost
@@ -1621,7 +1603,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
 
       ] (if: $turResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="17" name="Boiling" tags="" position="2200,0" size="100,100">{
-      (if: visits &gt;1 AND $boiled is true)[(text-colour:blue)[Water has already been boiled.]]
+      (if: visits &gt;1 AND $boiled is true)[(text-colour:#31FFA2)[Water has already been boiled.]]
       }
       (text-size:1.2)[Boiling]
 
@@ -1631,14 +1613,14 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
       &#39;&#39;Do you want to treat your sample by boiling?&#39;&#39; It will cost $$boilingCost and have a $boilingEP environmental impact.
 
-      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $boilingCost)(set: $enviroPoints to $enviroPoints + $boilingEP)(set: $step to $step+1)(set: $boiling to true)(set: $bacterialTreatment to true)(set: $boiled to true)[(text-colour:blue)[Ask your teacher for boiling supplies and instructions. Make a note of the treatment in your lab notebook. Return to [[treatment]] types.]]]
+      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $boilingCost)(set: $enviroPoints to $enviroPoints + $boilingEP)(set: $step to $step+1)(set: $boiling to true)(set: $bacterialTreatment to true)(set: $boiled to true)[(text-colour:#31FFA2)[Ask your teacher for boiling supplies and instructions. Make a note of the treatment in your lab notebook. Return to [[treatment]] types.]]]
       (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
       []&lt;result|
 
 
     </tw-passagedata><tw-passagedata pid="18" name="Chlorination" tags="" position="2325,0" size="100,100">{
-      (if: visits &gt;1 AND $chlorinated is true)[(text-colour:blue)[Water has already been chlorinated.]]
+      (if: visits &gt;1 AND $chlorinated is true)[(text-colour:#31FFA2)[Water has already been chlorinated.]]
       }
       (text-size:1.2)[Chlorination]
 
@@ -1650,7 +1632,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
       (link:&quot;Click here for a hint&quot;)[(text-color: #31FFA2)[If you chlorinate the water after all other treatments have been completed, it will ensure that no bacteria grow in the sample between leaving the facility and being delivered to the community.]]
 
-      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $chlorinationCost)(set: $enviroPoints to $enviroPoints + $chlorinationEP)(set: $step to $step+1)(set: $chlorination to true)(set: $bacterialTreatment to true)(set: $chlorinated to true)(replace: ?result)[(text-colour:blue)[Get a chlorination supplies and instructions from your teacher. Be sure to follow lab safety instructions during this treatment. Make note of the treatment in your lab notebook.
+      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $chlorinationCost)(set: $enviroPoints to $enviroPoints + $chlorinationEP)(set: $step to $step+1)(set: $chlorination to true)(set: $bacterialTreatment to true)(set: $chlorinated to true)(replace: ?result)[(text-colour:#31FFA2)[Get a chlorination supplies and instructions from your teacher. Be sure to follow lab safety instructions during this treatment. Make note of the treatment in your lab notebook.
 
       Return to [[treatment]] types.]]]
       (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
@@ -1660,27 +1642,20 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
     </tw-passagedata><tw-passagedata pid="19" name="Reverse osmosis" tags="" position="2675,775" size="100,100">(text-size:1.2)[Reverse Osmosis]
 
-      Reverse osmosis uses a semipermeable membrane with very small pores that trap contaminants as water is pushed
-      through.
+Reverse osmosis uses a semipermeable membrane with very small pores that trap contaminants as water is pushed through.
 
       &lt;img class=&quot;diag&quot; src=&quot;images/reverse_osmosis_image_of_filter.png&quot;&gt;
 
-      This process is able to remove sediments, salt, nitrates, iron, bacteria, viruses, and parasites. Reverse osmosis
-      systems often begin with a filtration step, followed by multiple membranes to clean the water. Reverse osmosis is
-      a complex and costly system, but has a somewhat low environmental impact score.
+This process is able to remove sediments, salt, nitrates, iron, bacteria, viruses, and parasites. Reverse osmosis systems often begin with a filtration step, followed by multiple membranes to clean the water. Reverse osmosis is a complex and costly system, but has a somewhat low environmental impact score.
 
       Reverse osmosis desalinates, removes turbidity caused by particulates, and eliminates heavy metals and nitrates.
 
       &lt;img class=&quot;diag&quot; src=&quot;images/reverse_osmosis.png&quot;&gt;
 
-      &#39;&#39;Do you want to treat your sample using reverse osmosis?&#39;&#39; It will cost $$reverseosmosisCost and
-      have a $reverseosmosisEP environmental impact.
+      &#39;&#39;Do you want to treat your sample using reverse osmosis?&#39;&#39; It will cost $$reverseosmosisCost and have a $reverseosmosisEP environmental impact.
 
-      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $reverseosmosisCost)(set: $enviroPoints to $enviroPoints +
-      $reverseosmosisEP)(set: $step to $step+1)(set: $reverseOsmosis to true)(set: $particulateTreatment to true)(set:
-      $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)[(text-colour:blue)[You
-      must perform [[paper filter filtration]] first, which will not impact your budget or environmental impact
-      score.]]]
+      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $reverseosmosisCost)(set: $enviroPoints to $enviroPoints +  $reverseosmosisEP)(set: $step to $step+1)(set: $reverseOsmosis to true)(set: $particulateTreatment to true)(set:
+      $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)[(text-colour:#31FFA2)[You must perform [[paper filter filtration]] first, which will not impact your budget or environmental impact score.]]]
       (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
       []&lt;result|
@@ -1694,7 +1669,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
       &#39;&#39;Do you want to treat your sample with distillation?&#39;&#39; It will cost $$distillationCost and have a $distillationEP environmental impact.
 
-      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $distillationCost)(set: $enviroPoints to $enviroPoints + $distillationEP)(set: $step to $step+1)(set: $distillation to true)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)(set: $bacterialTreatment to true)[(text-colour:blue)[Ask your teacher for distillation supplies and instructions. Make a note of this treatment in your lab notebook.
+      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $distillationCost)(set: $enviroPoints to $enviroPoints + $distillationEP)(set: $step to $step+1)(set: $distillation to true)(set: $particulateTreatment to true)(set: $nitratesTreatment to true)(set: $salinityTreatment to true)(set: $metalsTreatment to true)(set: $bacterialTreatment to true)[(text-colour:#31FFA2)[Ask your teacher for distillation supplies and instructions. Make a note of this treatment in your lab notebook.
 
       Return to [[treatment]] types.]]]
       (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
@@ -1711,7 +1686,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       &#39;&#39;Do you want to treat your sample with pH-(text-style:&quot;underline&quot;)[raising] droplets?&#39;&#39; It will cost $$pHCost and have a $pHEP environmental impact.
 
       Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set:
-      $step to $step+1)(set: $acidityTreatment to true)(replace: ?result)[(text-colour:blue)[Get a pH increaser supplies and instructions from your teacher. Be sure to follow lab safety instructions during this step. After treatment, you must [[test the sample’s pH again]]. Make a note about this treatment in your lab notebook.]]]
+      $step to $step+1)(set: $acidityTreatment to true)(replace: ?result)[(text-colour:#31FFA2)[Get a pH increaser supplies and instructions from your teacher. Be sure to follow lab safety instructions during this step. After treatment, you must [[test the sample’s pH again]]. Make a note about this treatment in your lab notebook.]]]
       (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
       []&lt;result|
@@ -1725,7 +1700,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
       &#39;&#39;Do you want to treat your sample with pH-(text-style:&quot;underline&quot;)[lowering] droplets?&#39;&#39; It will cost $$pHCost and have a $pHEP environmental impact.
 
-      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $step to $step+1)(set: $basicityTreatment to true)(replace: ?result)[(text-colour:blue)[Get a pH decreaser supplies and instructions from your teacher. Be sure to follow lab safety instructions during this step. After treatment, you must [[test the sample’s pH again]]. Make a note about this treatment in your lab notebook.]]]
+      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $pHCost)(set: $enviroPoints to $enviroPoints + $pHEP)(set: $step to $step+1)(set: $basicityTreatment to true)(replace: ?result)[(text-colour:#31FFA2)[Get a pH decreaser supplies and instructions from your teacher. Be sure to follow lab safety instructions during this step. After treatment, you must [[test the sample’s pH again]]. Make a note about this treatment in your lab notebook.]]]
       (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
 
       []&lt;result|
@@ -1743,7 +1718,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
       &#39;&#39;Do you want to filter your sample with a paper filter?&#39;&#39; It will cost $$paperfilterCost and have a $paperfilterEP environmental impact.
 
-      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $paperfilterCost)(set: $enviroPoints to $enviroPoints + $paperfilterEP)(set: $step to $step+1)(set: $particulateTreatment to true)(set: $paperFilter to true)(replace: ?result)[(text-colour:blue)[Get paper filteration supplies and instructions from your teacher and perform the filtration. Make note of the treatment in your lab notebook.
+      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $paperfilterCost)(set: $enviroPoints to $enviroPoints + $paperfilterEP)(set: $step to $step+1)(set: $particulateTreatment to true)(set: $paperFilter to true)(replace: ?result)[(text-colour:#31FFA2)[Get paper filteration supplies and instructions from your teacher and perform the filtration. Make note of the treatment in your lab notebook.
 
       Return to [[treatment]] types.]]]
       (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
@@ -1759,7 +1734,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
 
       &#39;&#39;Do you want to filter your sample with a fine filter?&#39;&#39;It will cost $$finefilterCost and have a $finefilterEP environmental impact.
 
-      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $finefilterCost)(set: $enviroPoints to $enviroPoints + $finefilterEP)(set: $step to $step+1)(set: $particulateTreatment to true)(set: $fineFilter to true)(replace: ?result)[(text-colour:blue)[Get fine filteration supplies and instructions from your teacher and perform the filtration. Make a note of the treatment in your lab notebook.
+      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $finefilterCost)(set: $enviroPoints to $enviroPoints + $finefilterEP)(set: $step to $step+1)(set: $particulateTreatment to true)(set: $fineFilter to true)(replace: ?result)[(text-colour:#31FFA2)[Get fine filteration supplies and instructions from your teacher and perform the filtration. Make a note of the treatment in your lab notebook.
 
       Return to [[treatment]] types.]]]
       (link-replace: &quot;No&quot;)[Return to [[treatment]] types.]
@@ -1803,10 +1778,15 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       [[Coastal Aquifer]]
       [[River Water]]
       [[Rainfall Catchment]] 
-</tw-passagedata><tw-passagedata pid="27" name="your job" tags="" position="1000,475" size="100,100">	&lt;div class=&quot;water-info-container your-job-txt-container&quot;&gt;
-Your team&#39;s job is to treat the water so that it can be used by community members. Remember, $Player1, your priority is to ensure the water is as clean as possible by performing all necessary tests and treatments. $Player2, you must monitor your team&#39;s environmental impact and try to keep your Environmental Points as close to zero as possible. Finally, $Player3, don&#39;t forget about the budget! Your team has been trusted with funds to complete this project, and leftover money can be allocated to other uses in the community.
+</tw-passagedata><tw-passagedata pid="27" name="your job" tags="" position="1000,475" size="100,100">	&lt;div class=&quot;water-info-container your-job-txt-container&quot;&gt;&lt;div class=&quot;rounded-box&quot;&gt;Your team&#39;s job is to treat the water so that it can be used by community members. &lt;/div&gt;
 
-(text-size:1.2)[What do you want to do?]
+Remember, $Player1, your priority is to ensure the water is clean. 
+
+$Player2, you must minimize your team&#39;s environmental impact. 
+
+$Player3, don&#39;t forget about the budget! Your team has been trusted with funds to complete this project, and leftover money can be allocated to other uses in the community.
+
+&lt;div class=&quot;ttl&quot;&gt;What do you want to do?&lt;/div&gt;
 
       Perform some [[assays]] to determine contamination levels
 
@@ -1834,7 +1814,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
       (set: $particulateTreatment to false)
       (set: $metalsTreatment to false)
       }</tw-passagedata><tw-passagedata pid="28" name="Flocculation" tags="" position="2375,125" size="100,100">{
-      (if: visits &gt;1 AND $flocculated is true)[(text-colour:blue)[Water has already been flocculated.]]
+      (if: visits &gt;1 AND $flocculated is true)[(text-colour:#31FFA2)[Water has already been flocculated.]]
       }
       (text-size:1.2)[Flocculation]
 
@@ -1846,7 +1826,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
 
       &#39;&#39;Do you want to treat your sample by flocculating?&#39;&#39; It will cost $$flocculationCost and have a $flocculationEP environmental impact.
 
-      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $flocculationCost)(set: $enviroPoints to $enviroPoints + $flocculationEP)(set: $step to $step+1)(set: $flocculation to true)(set: $particulateTreatment to true)(set: $flocculated to true)(replace: ?result)[(text-colour:blue)[Get flocculation supplies and instructions from your teacher. Make a note of the treatment in your lab notebook.
+      Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $flocculationCost)(set: $enviroPoints to $enviroPoints + $flocculationEP)(set: $step to $step+1)(set: $flocculation to true)(set: $particulateTreatment to true)(set: $flocculated to true)(replace: ?result)[(text-colour:#31FFA2)[Get flocculation supplies and instructions from your teacher. Make a note of the treatment in your lab notebook.
 
       (link:&quot;Click here for a hint&quot;)[(text-color: #31FFA2)[It&#39;s a good idea to filter your sample after it has been flocculated.]]
 
@@ -1884,7 +1864,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
 
 
     </tw-passagedata><tw-passagedata pid="30" name="Heavy metals treatments" tags="" position="2025,300" size="100,100">(text-size:1.2)[Options for treating water with heavy metals such as iron, copper, or lead:]
-      (if: $metalsTreatment is true)[(text-colour:blue)[Water has already been treated for heavy metals.]]
+      (if: $metalsTreatment is true)[(text-colour:#31FFA2)[Water has already been treated for heavy metals.]]
       * [[Distillation]], $distillationEP environmental impact points, $$distillationCost
       * [[Ion-exchange]], $ionEP environmental impact points, $$ionCost
       * [[Reverse osmosis]], $reverseosmosisEP environmental impact points, $$reverseosmosisCost
@@ -2101,8 +2081,7 @@ Your team&#39;s job is to treat the water so that it can be used by community me
       {(if: $enviroPoints &lt;-15)[Your treatments also had a significant impact on the environment, and will likely
       contribute to degradation of the local ecosystem.]}
 
-      [[The End]]</tw-passagedata><tw-passagedata pid="43" name="Intro" tags="" position="250,50" size="100,100">&lt;div class=&quot;slide-container&quot;&gt;
-A local water authority council has hired your team to investigate a sample of contaminated water and find an &#39;&#39;optimised&#39;&#39; (most effective) way to deliver clean water to the local community. 
+      [[The End]]</tw-passagedata><tw-passagedata pid="43" name="Intro" tags="" position="250,50" size="100,100">&lt;div class=&quot;slide-container rounded-box&quot;&gt;A local water authority council has hired your team to investigate a sample of contaminated water and find an &#39;&#39;optimised&#39;&#39; (most effective) way to deliver clean water to the local community. 
 
 Your team consists of three people, each with different roles and motivations, all working together towards the overall goal of delivering clean water to the community.
 
@@ -2318,7 +2297,7 @@ You allocated the excess budget to fund &lt;a
       (if: $Player2 is not 0)[(print: &quot;ENGINEER: $Player2&quot;)]
       (if: $Player3 is not 0)[(print: &quot;MANAGER: $Player3&quot;)]]
       (append: ?sidebar)[(if: $waterSource is not 0)[(print: &quot;H2O SOURCE: $waterSource&quot;)]]
-      (append: ?sidebar)[(if: $budgetString is not 0)[(meter: bind $budget, 50, &quot;X&quot;, &quot;REMAINING:  $$budget&quot;, (gradient: 25, 0, #31FFA2, 1, #B2007C))]]
+      (append: ?sidebar)[(if: $budgetString is not 0)[(meter: bind $budget, 50, &quot;X&quot;, &quot;REMAINING:  $$budget&quot;, (gradient: 25, 0, #B2007C, 1, #31FFA2 ))]]
       (append: ?sidebar)[(if: $environmentString is not 0)[(print: &quot;ENVIR. IMPACT:
       $enviroPoints&quot;)]]
       (append: ?sidebar)[(if: $environmentString is not 0)[(print: &quot;STEP #$step&quot;)]]
@@ -2364,10 +2343,8 @@ Learn about [[the roles-&gt;Analytical Chemist]]
 &lt;div class=&quot;proverb-word-container&quot;&gt;
 	&lt;div class=&quot;pro_text&quot;&gt;&quot;Wata hem laef&quot;&lt;/div&gt;&lt;div class=&quot;pro_trans&quot;&gt;&lt;i&gt;&quot;Water is life&quot;&lt;/i&gt;&lt;/div&gt;&lt;div class=&quot;pro_source&quot;&gt;-Solomon Islands Pijin Proverb&lt;/div&gt;
     &lt;button class=&quot;water-is-life-btn&quot;&gt;[[Click To Begin-&gt;Intro]]&lt;/button&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="60" name="making decisions" tags="" position="1250,375" size="100,100">&lt;img  src=&quot;images/poverb-img.png&quot; class=&#39;proverb&#39; /&gt;
-&lt;div class=&quot;treatments-word-container&quot;&gt;
-	&lt;div class=&quot;pro_text&quot;&gt;&quot;Ota decisions blo iumi ba determinim future blo iumi everiwan&quot;&quot;&lt;/div&gt;&lt;div class=&quot;pro_trans&quot;&gt;&quot;Choices are the hinges of destiny&quot;&lt;/div&gt;&lt;div class=&quot;pro_source&quot;&gt;-Solomon Islands Pijin Proverb&lt;/div&gt;&lt;button class=&quot;treatments-btn&quot;&gt;[[Choose treatments-&gt;treatment]]&lt;/button&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="61" name="Analytical Chemist" tags="" position="275,175" size="100,100">&lt;div class=&#39;role-info-slide&#39;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="60" name="making decisions" tags="" position="1250,375" size="100,100">&lt;img  src=&quot;images/poverb-img.png&quot; class=&#39;proverb&#39; /&gt;&lt;div class=&quot;proverb-word-container&quot;&gt;&lt;div class=&quot;pro_text&quot;&gt;&quot;Ota decisions blo iumi ba determinim future blo iumi everiwan&quot;&quot;&lt;/div&gt;&lt;div class=&quot;pro_trans&quot;&gt;&quot;Choices are the hinges of destiny&quot;&lt;/div&gt;&lt;div class=&quot;pro_source&quot;&gt;-Solomon Islands Pijin Proverb&lt;/div&gt;&lt;button class=&quot;treatments-btn&quot;&gt;[[Choose treatments-&gt;treatment]]&lt;/button&gt;&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="61" name="Analytical Chemist" tags="" position="275,175" size="100,100">&lt;div class=&#39;role-info-slide&#39;&gt;
 &lt;div class=&#39;d-flex role-img-container&#39;&gt;
 	&lt;div&gt;
     &lt;div class=&#39;d-flex flex-column role-txt-container&#39;&gt;&lt;span class=&quot;ttl&quot;&gt;The Analytical Chemist&lt;/span&gt;&lt;span class=&quot;def&quot;&gt;Analytical chemistry is the science of obtaining and communicating information about the composition of a sample. 	&lt;/span&gt;&lt;img class=&quot;icon icon-mobile&quot; src=&#39;images/Analytical_Chemist_icon.png&#39; /&gt;&lt;/div&gt;
@@ -2410,18 +2387,12 @@ Learn about [[the roles-&gt;Analytical Chemist]]
 &lt;li&gt;Project Manager &lt;div class=&quot;position-relative icon-container-li img-contain&quot;&gt;&lt;img src=&quot;images/Project_Manager_icon.png&quot; /&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 Then enter the names of your [[players]].
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="65" name="water has life" tags="" position="1000,350" size="100,100">&lt;img  src=&quot;images/poverb-img.png&quot; class=&#39;proverb&#39; /&gt;
-&lt;div class=&quot;proverb-word-container&quot;&gt;
-	&lt;div class=&quot;pro_text&quot;&gt;&quot;O le vai ola&quot;&lt;/div&gt;&lt;div class=&quot;pro_trans&quot;&gt;&quot;Water lives / water has life&quot;&lt;/div&gt;&lt;div class=&quot;pro_source&quot;&gt;-Samoan Proverb&lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="65" name="water has life" tags="" position="1000,350" size="100,100">&lt;img  src=&quot;images/poverb-img.png&quot; class=&#39;proverb&#39; /&gt;&lt;div class=&quot;proverb-word-container&quot;&gt;&lt;div class=&quot;pro_text&quot;&gt;&quot;O le vai ola&quot;&lt;/div&gt;&lt;div class=&quot;pro_trans&quot;&gt;&quot;Water lives / water has life&quot;&lt;/div&gt;&lt;div class=&quot;pro_source&quot;&gt;-Samoan Proverb&lt;/div&gt;
     &lt;button class=&quot;water-is-life-btn&quot;&gt;[[Learn about your job-&gt;your job]]&lt;/button&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="66" name="Ion-exchange" tags="" position="2075,0" size="100,100"></tw-passagedata><tw-passagedata pid="67" name="reminder" tags="" position="475,425" size="100,100">&lt;div class=&#39;ttl&#39;&gt;Mission Focus:&lt;/div&gt;     
-      - &lt;b&gt;$Player1:&lt;b&gt; &lt;em&gt;Optimise overall water quality! Clean water is worth the expense.&lt;/em&gt;
-      
-      - $Player2, your mission focus: Minimize the environmental impact score! Cost and water purity should not come at a cost to ecosystem health.
-      
-      - $Player3, your mission focus: Successfully deliver clean water to the community and minimize cost! Excess (leftover) funds after treatment will be reallocated for community benefits at the end.
-
-      Here&#39;s a little [[background]] about our community.</tw-passagedata></tw-storydata>
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="66" name="Ion-exchange" tags="" position="2075,0" size="100,100"></tw-passagedata><tw-passagedata pid="67" name="reminder" tags="" position="475,425" size="100,100">&lt;div class=&#39;rounded-box&#39;&gt;&lt;div class=&#39;ttl&#39;&gt;Mission Focus:&lt;/div&gt;&lt;ul&gt;&lt;li&gt;**$Player1:** Optimise overall water quality! *Clean water is worth the expense.*&lt;/li&gt;
+&lt;li&gt;**$Player2:** Minimize the environmental impact score! *Cost and water purity should not come at a cost to ecosystem health.*&lt;/li&gt;
+&lt;li&gt;**$Player3:** Successfully deliver clean water to the community and minimize cost! *Excess (leftover) funds after treatment will be reallocated for community benefits at the end.*&lt;/li&gt;&lt;/div&gt;
+ Next, let&#39;s learn more [[about our community.-&gt;background]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
