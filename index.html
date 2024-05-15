@@ -590,15 +590,7 @@ padding-top: 5px;
       padding: 5% 5%;
       background-color: #000;
       color: #fff;
-  }
   
-  @media (min-width: 576px) {
-
-  }
-  
- // @media(min-width: 768px) and (max-width: 991px){
-
-  }
   
   @media(min-width: 768px) and (max-width: 1100px){
 
@@ -1196,9 +1188,54 @@ tw-passage{
     font-style: italic;
   }
   
-  </style><script role="script" id="twine-user-script" type="text/twine-javascript">var metatags = '<meta property=“og:title” content=“pacific water: choose-your-own-adventure lab” /><meta property=“og:type” content=“website” /><meta property=“og:url” content=“https://pacific-h2o.galacticpolymath.com/” /><meta property=“og:image” content=“https://pacific-h2o.galacticpolymath.com/images/PacificH2O-meta-image.png” /><meta property=“og:image:width” content=“1200” /><meta property=“og:image:height” content=“630” /><meta property=“og:description” content=“Students perform a hands-on water purification lab in a nonlinear way. Uses Pacific island narratives to encourages authentic engineering thinking.” />'
+  </style><script role="script" id="twine-user-script" type="text/twine-javascript">const head = document.head || document.getElementsByTagName('head')[0];
 
-$(document.head).append(metatags);</script><tw-passagedata pid="1" name="River Water" tags="" position="1175,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
+// Meta charset
+const metaCharset = document.createElement('meta');
+metaCharset.setAttribute('charset', 'utf-8');
+head.appendChild(metaCharset);
+
+// Meta viewport
+const metaViewport = document.createElement('meta');
+metaViewport.setAttribute('name', 'viewport');
+metaViewport.setAttribute('content', 'width=device-width, initial-scale=1');
+head.appendChild(metaViewport);
+
+// Open Graph meta tags
+const metaOgTitle = document.createElement('meta');
+metaOgTitle.setAttribute('property', 'og:title');
+metaOgTitle.setAttribute('content', 'pacific water: choose-your-own-adventure lab');
+head.appendChild(metaOgTitle);
+
+const metaOgType = document.createElement('meta');
+metaOgType.setAttribute('property', 'og:type');
+metaOgType.setAttribute('content', 'website');
+head.appendChild(metaOgType);
+
+const metaOgUrl = document.createElement('meta');
+metaOgUrl.setAttribute('property', 'og:url');
+metaOgUrl.setAttribute('content', 'https://pacific-h2o.galacticpolymath.com/');
+head.appendChild(metaOgUrl);
+
+const metaOgImage = document.createElement('meta');
+metaOgImage.setAttribute('property', 'og:image');
+metaOgImage.setAttribute('content', 'https://pacific-h2o.galacticpolymath.com/images/PacificH2O-meta-image.png');
+head.appendChild(metaOgImage);
+
+const metaOgImageWidth = document.createElement('meta');
+metaOgImageWidth.setAttribute('property', 'og:image:width');
+metaOgImageWidth.setAttribute('content', '1200');
+head.appendChild(metaOgImageWidth);
+
+const metaOgImageHeight = document.createElement('meta');
+metaOgImageHeight.setAttribute('property', 'og:image:height');
+metaOgImageHeight.setAttribute('content', '630');
+head.appendChild(metaOgImageHeight);
+
+const metaOgDescription = document.createElement('meta');
+metaOgDescription.setAttribute('property', 'og:description');
+metaOgDescription.setAttribute('content', 'Students perform a hands-on water purification lab in a nonlinear way. Uses Pacific island narratives to encourages authentic engineering thinking.');
+head.appendChild(metaOgDescription);</script><tw-passagedata pid="1" name="River Water" tags="" position="1175,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to true)
       (set: $saltCont to false)
