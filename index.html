@@ -17,7 +17,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Pacific H2O v4.0.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Pacific H2O v4.0" startnode="56" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="6dd82385-013c-4a18-b409-a0a9bff0279a" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">*{
+<tw-storydata name="Pacific H2O v4.0" startnode="56" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="6dd82385-013c-4a18-b409-a0a9bff0279a" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">*{
 color: #363636;
 }
 
@@ -646,6 +646,9 @@ tw-meter{
     
   }
 
+.cover-container{
+  
+}
 
 .cover-img{
     position: absolute;
@@ -657,7 +660,7 @@ tw-meter{
       object-fit: cover;
 
       @media (max-width: 800px){
-      
+      height: 
       }
 }
 
@@ -753,7 +756,7 @@ tw-meter{
       /* font-size: 16px !important; */
       bottom: 10%;
     } 
-  
+  }
   
   @media(min-width: 768px) and (max-width: 991px){
       tw-dialog{
@@ -901,7 +904,7 @@ tw-meter{
   
     
   a:link, tw-link{
-    color: #54C8FF;
+    color: #0f3bc1;
     text-decoration: none;
     font-weight: 500;
     transition: 0.3s ease;
@@ -909,11 +912,12 @@ tw-meter{
    a:visited, tw-link:visited, .visited{
      color: #379DF5;
     }
-    a:active, tw-link:active{
+    
+    /* a:active, tw-link:active{
       color: #2FECFF;
-    }
+    } */
+    
     a:hover, tw-link:hover, .visited:hover{
-      color: #2FECFF;
       text-decoration: underline;
   
     }   
@@ -996,9 +1000,17 @@ tw-meter{
     font-style: italic;
   }
   
-  </style><script role="script" id="twine-user-script" type="text/twine-javascript">var metatags = '<meta property="og:title" content="pacific water: choose-your-own-adventure lab" /><meta property="og:type" content="website" /><meta property="og:url" content="https://pacific-h2o.galacticpolymath.com/" /><meta property="og:image" content="https://pacific-h2o.galacticpolymath.com/images/PacificH2O-meta-image.png" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:description" content="Students perform a hands-on water purification lab in a nonlinear way. Uses Pacific island narratives to encourages authentic engineering thinking." />'
+  tw-expression> img{
+  position: absolute;
+    width: 100vw;
+    height: 100%;
+    margin-left: calc(-180px - 10px - 0.25rem);
+    /* this top margin accounts for padding of tw-story and margin of tw-passage */
+    margin-top: calc(-1rem - 30px);
+    object-fit: cover;
+  }</style><script role="script" id="twine-user-script" type="text/twine-javascript">var metatags = '<meta property="og:title" content="pacific water: choose-your-own-adventure lab" /><meta property="og:type" content="website" /><meta property="og:url" content="https://pacific-h2o.galacticpolymath.com/" /><meta property="og:image" content="https://pacific-h2o.galacticpolymath.com/images/PacificH2O-meta-image.png" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:description" content="Students perform a hands-on water purification lab in a nonlinear way. Uses Pacific island narratives to encourages authentic engineering thinking." />'
 
-$(document.head).append(metatags);</script><tw-passagedata pid="1" name="River Water" tags="" position="1175,200" size="100,100">{(set: $waterSource to &quot;the river&quot;)
+$(document.head).append(metatags);</script><tw-passagedata pid="1" name="River Water" tags="" position="1175,200" size="100,100">{(set: $waterSource to &quot;river&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to true)
       (set: $saltCont to false)
@@ -1015,14 +1027,16 @@ Deforestation caused agricultural runoff, resulting in an algal bloom in the lag
       (text-size: 0.6)[//Sources: Environmental research letter about the Solomon Islands (2018), &lt;a href=&quot;https://iopscience.iop.org/article/10.1088/1748-9326/aab9eb/pdf&quot;
       target=&quot;_blank&quot;&gt;“Predicting the impact of logging activities on soil erosion and water quality in steep, forested tropical islands&quot;&lt;/a&gt;, information from &lt;a href=&quot;https://wateractionhub.org/geos/country/200/d/solomon-islands/&quot;  target=&quot;_blank&quot;&gt;&quot;UN Global Impact Water Action Hub.&quot;&lt;/a&gt;, and book chapter, &lt;a href=&quot;https://www.jstor.org/stable/j.ctv47wfn1.7&quot; target=&quot;_blank&quot;&gt;&quot;The River, the Water and the Crocodile in Marovo Lagoon&quot;&lt;/a&gt; by Edvard Hviding (2018) (image taken from book chapter).//]
       &lt;button class=&quot;treatments-btn&quot;&gt;[[Continue-&gt;water has life]]&lt;/button&gt;
-</tw-passagedata><tw-passagedata pid="2" name="Coastal Aquifer" tags="" position="1025,200" size="100,100">{(set: $waterSource to &quot;a coastal aquifer&quot;)
+</tw-passagedata><tw-passagedata pid="2" name="Coastal Aquifer" tags="" position="1025,200" size="100,100">{(set: $waterSource to &quot;aquifer&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to false)
       (set: $saltCont to true)
       (set: $metalCont to false)
       (set: $nitrateCont to false)
       (set: $acidCont to false)
-      }&lt;div class=&quot;ttl&quot;&gt;What is a coastal aquifer?&lt;/div&gt;Water in coastal aquifers is found underground and is pumped to the surface in wells. Aquifers are delicate, thin freshwater lenses that float atop denser seawater. Rainfall replenishes the freshwater aquifers and is important for the long-term stability of this water source.
+      }
+ (print: &#39;&lt;img  src=&quot;images/&#39; + (text:$waterSource) + &#39;.png&quot; class=&quot;proverb&quot; /&gt;&#39;)
+ &lt;div class=&quot;ttl&quot;&gt;What is a coastal aquifer?&lt;/div&gt;Water in coastal aquifers is found underground and is pumped to the surface in wells. Aquifers are delicate, thin freshwater lenses that float atop denser seawater. Rainfall replenishes the freshwater aquifers and is important for the long-term stability of this water source.
 
       &lt;img class=&quot;diag background-img img-contain&quot; src=&quot;images/Coastal_Aquifer.png&quot;/&gt; 
       
@@ -1030,7 +1044,7 @@ Deforestation caused agricultural runoff, resulting in an algal bloom in the lag
 
       (text-size: 0.6)[//Sources: &lt;a href=&quot;https://info.undp.org/docs/pdc/Documents/FJI/PIMS%206196%20MCAP%20UNDP%20Project%20Document%20_14June20.pdf&quot; target=&quot;_blank&quot;&gt;&quot;UNDP’s Managing Coastal Aquifer Project&quot;&lt;/a&gt; in Republic of Palau, Tuvalu, and Republic of Marshall Islands (2020).//]
       &lt;button class=&quot;treatments-btn&quot;&gt;[[Continue-&gt;water has life]]&lt;/button&gt;
-</tw-passagedata><tw-passagedata pid="3" name="Rainfall Catchment" tags="" position="875,200" size="100,100">{(set: $waterSource to &quot;rainfall catchments&quot;)
+(print: &#39;&lt;/div&gt;&#39;)</tw-passagedata><tw-passagedata pid="3" name="Rainfall Catchment" tags="" position="875,200" size="100,100">{(set: $waterSource to &quot;rainwater&quot;)
       (set: $bacterialCont to true)
       (set: $particulateCont to false)
       (set: $saltCont to false)
@@ -1393,7 +1407,10 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       }
       (text-size:1.2)[Boiling]
 
-      This technique is a common water treatment process used throughout the world. This method of adding heat to the water causes damage to bacteria, viruses, and pathogens, effectively killing these organisms. Boiling is only effective if the water has been boiling for 20 minutes. As a result, this method has a somewhat high environmental impact score due to the energy required to heat the water.
+&lt;img class=&quot;thumb&quot; src=&quot;https://i.ytimg.com/vi/mw8OoXGIsj8/mqdefault.jpg&quot;/&gt;
+[[Show me!-&gt; boilingVid]]
+
+      This technique is commonly used to kill bacteria, viruses, and pathogens around the world. It is only effective if the water has been boiling for 20 minutes. As a result, this method has a somewhat high environmental impact score due to the energy required to heat the water.
 
       Boiling treats for pathogens, including bacterial contaminants.
 
@@ -2018,6 +2035,7 @@ You allocated the excess budget to fund &lt;a href=&quot;https://www.undp.org/bl
       $enviroPoints&quot;)]]
       (append: ?sidebar)[(if: $environmentString is not 0)[(print: &quot;STEP #$step&quot;)]]
 
+	{(set: $waterSource to &quot;unset&quot;)
       {
       (set: num-type $rapidCost to 1)
       (set: num-type $nitratesCost to 3)
@@ -2122,7 +2140,9 @@ Ion-exchange treats the water by swapping contaminant ions with safer ions. This
       []&lt;result|</tw-passagedata><tw-passagedata pid="66" name="reminder" tags="" position="475,425" size="100,100">&lt;div class=&#39;rounded-box&#39;&gt;&lt;div class=&#39;ttl&#39;&gt;Mission Focus:&lt;/div&gt;&lt;ul&gt;&lt;li&gt;**$Player1:** Optimise overall water quality! *Clean water is worth the expense.*&lt;/li&gt;
 &lt;li&gt;**$Player2:** Minimize the environmental impact score! *Cost and water purity should not come at a cost to ecosystem health.*&lt;/li&gt;
 &lt;li&gt;**$Player3:** Successfully deliver clean water to the community and minimize cost! *Excess (leftover) funds after treatment will be reallocated for community benefits at the end.*&lt;/li&gt;&lt;/div&gt;
- Next, let&#39;s learn more [[about our community.-&gt;background]]</tw-passagedata></tw-storydata>
+ Next, let&#39;s learn more [[about our community.-&gt;background]]</tw-passagedata><tw-passagedata pid="67" name=" boilingVid" tags="" position="2200,500" size="100,100">&lt;div class=&quot;vid&quot;&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/mw8OoXGIsj8?si=_IAiKgE6hV0H0DMK&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
