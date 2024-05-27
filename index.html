@@ -34,7 +34,7 @@
         color: #363636;
         margin-left: 180px;
         margin-top: 30px;
-        background-color: white;
+        background-color: transparent;
     }
       
       .img-contain{
@@ -1021,18 +1021,16 @@
         object-fit: cover;
       }</style><script role="script" id="twine-user-script" type="text/twine-javascript">const handleDomUpdate = () => {
   	let waterSourceSelectedElement = document.querySelector('[name="waterSource"]');
-    console.log("sup there")
   	const twStory = document.getElementsByTagName("tw-story")[0];
   	const twPassage = document.getElementsByTagName("tw-passage")[0];
   	const { background, backgroundRepeat } = twStory.style;
-  	console.log('background: ', background)
   	const wasAquiferBackgroundSet = 'url("images/aquifer.png") 0% 0% / cover no-repeat' === background;
   
     if (!wasAquiferBackgroundSet && waterSourceSelectedElement && (waterSourceSelectedElement?.textContent === "aquifer")){
     	const twStory = document.getElementsByTagName("tw-story")[0];
       	const twPassage = document.getElementsByTagName("tw-passage")[0];
       	twStory.style.background = 'url("images/aquifer.png") 0% 0% / cover no-repeat';
-      	twPassage.style.background = "none";
+      	twPassage.style.background = "0% 0% / cover no-repeat none";
     } else if ((background !== '0% 0% / cover no-repeat white') && (waterSourceSelectedElement?.textContent === "unset")){
     	twStory.style.background = '0% 0% / cover no-repeat white';
       	twPassage.style.background = "0% 0% / cover no-repeat white";
@@ -1040,6 +1038,7 @@
 }
 
 const observer = new MutationObserver(handleDomUpdate);
+
 observer.observe(document, {
   subtree: true,
   attributes: true,
@@ -1597,7 +1596,8 @@ Distillation relies on evaporation to purify water. Contaminated water is heated
       (if: $Player3 is not 0)(show: ?Welcome)
 &lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="26" name="background" tags="" position="1125,50" size="100,100">(text-size:1.2)[&#39;&#39;Coastal Aquifer Sample &#39;&#39;]
+</tw-passagedata><tw-passagedata pid="26" name="background" tags="" position="1125,50" size="100,100">(set: $waterSource to &quot;unset&quot;)
+(text-size:1.2)[&#39;&#39;Coastal Aquifer Sample &#39;&#39;]
       This sample was taken from a coastal aquifer. Communities in Tuvalu, Republic of Marshall Islands, Kiribati, Niue, Tonga, Fiji, and Samoa rely on coastal aquifers for their water supply needs.
 
       (text-size:1.2)[&#39;&#39;River Sample &#39;&#39;]
@@ -1643,7 +1643,7 @@ $Player3, don&#39;t forget about the budget! Your team has been trusted with fun
       (set: $basicityTreatment to false)
       (set: $particulateTreatment to false)
       (set: $metalsTreatment to false)
-      }</tw-passagedata><tw-passagedata pid="28" name="Flocculation" tags="" position="2375,125" size="100,100">{
+      }	</tw-passagedata><tw-passagedata pid="28" name="Flocculation" tags="" position="2375,125" size="100,100">{
       (if: visits &gt;1 AND $flocculated is true)[(text-colour:#0bc783)[Water has already been flocculated.]]
       }
       (text-size:1.2)[Flocculation]
@@ -2066,7 +2066,6 @@ You allocated the excess budget to fund &lt;a href=&quot;https://www.undp.org/bl
       $enviroPoints&quot;)]]
       (append: ?sidebar)[(if: $environmentString is not 0)[(print: &quot;STEP #$step&quot;)]]
 
-	(set: $waterSource to &quot;unset&quot;)
       {
       (set: num-type $rapidCost to 1)
       (set: num-type $nitratesCost to 3)
