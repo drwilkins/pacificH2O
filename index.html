@@ -871,21 +871,35 @@
         textContent: "aquifer",
         imgFileName: "aquifer.png"
     }
-] 
+]
 
-const handleDomUpdate = () => {
-    let waterSourceSelectedElement = document.querySelector('[name="waterSource"]');
-    const twStory = document.getElementsByTagName("tw-story")[0];
-    const twPassage = document.getElementsByTagName("tw-passage")[0];
-    const { background } = twStory.style;
-    const wasAquiferBackgroundSet = 'url("images/aquifer.png") 0% 0% / cover no-repeat' === background;
-
-    if (!waterSourceSelectedElement?.textContent){
+const handleDomMutationForImgUpdates = () => {
+  	const willHideSidebar = ['proverb', 'cover-img'].map(className => document.getElementsByClassName(className).length > 0).some(isImgPresent => isImgPresent);
+    const twSideBar = document.getElementsByTagName("tw-sidebar")?.[0];
+  	
+  	console.log("willHideSidebar: ", willHideSidebar)
+  
+    if (willHideSidebar) {
+        twSideBar.style.visibility = 'hidden';
+      	twSideBar.style.opacity = 0;
         return;
+    } else {
+        twSideBar.style.visibility = 'visible';
+      	twSideBar.style.opacity = 1;
     }
 
+    const waterSourceSelectedElement = document.querySelector('[name="waterSource"]');
+  
+  	if (!waterSourceSelectedElement?.textContent) {
+        return;
+    }
+  
+    const twStory = document.getElementsByTagName("tw-story")?.[0];
+    const twPassage = document.getElementsByTagName("tw-passage")?.[0];
+    const { background } = twStory.style;
+    const wasAquiferBackgroundSet = 'url("images/aquifer.png") 0% 0% / cover no-repeat' === background;
     const targetImgObj = BACKGROUND_IMGS.find(imgObj => imgObj.textContent === waterSourceSelectedElement?.textContent);
-    
+
     if (!wasAquiferBackgroundSet && waterSourceSelectedElement && targetImgObj) {
         const twStory = document.getElementsByTagName("tw-story")[0];
         const twPassage = document.getElementsByTagName("tw-passage")[0];
@@ -896,10 +910,9 @@ const handleDomUpdate = () => {
         twPassage.style.background = "0% 0% / cover no-repeat white";
     }
 }
+const backgroundImgObserver = new MutationObserver(handleDomMutationForImgUpdates);
 
-const observer = new MutationObserver(handleDomUpdate);
-
-observer.observe(document, {
+backgroundImgObserver.observe(document, {
     subtree: true,
     attributes: true,
 });</script><tw-passagedata pid="1" name="River Water" tags="" position="1175,200" size="100,100">{(set: $waterSource to &quot;river&quot;)
