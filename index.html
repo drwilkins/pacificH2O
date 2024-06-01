@@ -129,6 +129,18 @@ tw-passage {
   height: 275px;
 }
 
+.warning-banner{
+	padding: 10px 20px; 
+  	top: 20px;
+  	background-color: whitesmoke;
+  	z-index: 1;
+  	display: none;
+  
+  @media(max-width: 580px){
+  	display: flex;
+  }
+}
+
 tw-sidebar tw-hook:nth-of-type(2)>tw-expression,
 tw-sidebar tw-hook:nth-of-type(3)>tw-expression {
   margin-top: 20px;
@@ -174,11 +186,13 @@ tw-sidebar br {
   display: none;
 }
 
-/*  
-      tw-sidebar tw-hook{
-          margin-left: 10px;
-      }
-      */
+@media(max-width: 580px){
+  tw-sidebar{
+	flex-direction: column;
+  }
+  
+  
+}
 
 tw-meter {
   border-radius: 5px;
@@ -2228,9 +2242,9 @@ You allocated the excess budget to fund &lt;a href=&quot;https://www.undp.org/bl
       (set: num-type $reverseosmosisCost to 75)
       (set: num-type $bottleEP to -25)
       (set: num-type $bottleCost to 12)
-      }</tw-passagedata><tw-passagedata pid="56" name="Cover" tags="" position="75,50" size="100,100">&lt;div class=&quot;cover-container&quot;&gt;&lt;img class=&quot;cover-img&quot; src=&quot;images/cover-2.png&quot;/&gt;
-&lt;button class=&quot;start-btn&quot;&gt; [[Start-&gt;water is life]]&lt;/button&gt; 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="57" name="roles" tags="" position="400,50" size="100,100">&lt;div class=&#39;slide-container wave-bg&#39;&gt;&lt;div class=&#39;ttl&#39;&gt;Roles:&lt;/div&gt;
+      }</tw-passagedata><tw-passagedata pid="56" name="Cover" tags="" position="75,50" size="100,100">&lt;div class=&quot;cover-container&quot;&gt;&lt;div class=&quot;w-100 warning-banner justify-content-center align-items-center&quot;&gt;
+&lt;span style=&quot;text-align: center&quot; class=&quot;d-flex justify-content-center align-items-center&quot;&gt;*This app won&#39;t display well on this device. Try it on a larger screen.&lt;/span&gt;&lt;/div&gt;
+&lt;img class=&quot;cover-img&quot; src=&quot;images/cover-2.png&quot;/&gt;&lt;button class=&quot;start-btn&quot;&gt; [[Start-&gt;water is life]]&lt;/button&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="57" name="roles" tags="" position="400,50" size="100,100">&lt;div class=&#39;slide-container wave-bg&#39;&gt;&lt;div class=&#39;ttl&#39;&gt;Roles:&lt;/div&gt;
 * Analytical Chemist
 * Chemical &amp; Process Engineer
 * Project Manager
