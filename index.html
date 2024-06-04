@@ -16,8 +16,8 @@
 </style>
 </head>
 <body>
-<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Pacific H2O v4.4.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Pacific H2O v4.4" startnode="56" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="6dd82385-013c-4a18-b409-a0a9bff0279a" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Pacific H2O v4.5.</tw-noscript></noscript></tw-story>
+<tw-storydata name="Pacific H2O v4.5" startnode="56" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="6dd82385-013c-4a18-b409-a0a9bff0279a" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 * {
   color: #363636;
@@ -110,6 +110,7 @@ tw-passage {
   padding: 2rem;
   border-radius: 16px;
   border: 2px solid #363636;
+  width: fit-content;
   max-width: 800px;
   display: grid;
   /* flex-flow: nowrap; */
@@ -566,20 +567,34 @@ h4{
   border-radius: 16px;
 }
 
-.proverb-word-container div:first-of-type {
-  font-size: 3em;
+.proverb-word-container .pro_text {
+  font-size: 3rem;
 }
 
-.proverb-word-container div:nth-of-type(2) {
-  font-size: 1.8em;
+.proverb-word-container .pro_trans {
+  font-size: 1.8rem;
   margin-top: 60px;
 }
 
-.proverb-word-container div:nth-of-type(3) {
-  font-size: 1.1em;
+.proverb-word-container .pro_source {
+  font-size: 1.1rem;
   margin-top: 40px;
 }
 
+@media screen and (max-width:700px) {
+  .proverb-word-container{
+    max-width: 90vw;
+    .pro_text{
+      font-size:2.3rem;
+    }
+    .pro_trans{
+      font-size: 1.2rem;
+    }
+    .pro_source{
+      font-size:1rem;
+    }
+  }
+}
 
 
 .float-right {
@@ -825,6 +840,10 @@ tw-story {
 }
 
 /* Utility classes */
+.text-left{
+  text-align: left;
+}
+
 .pr-1{
   padding-right: 0.5rem;
 }
@@ -1168,9 +1187,9 @@ Deforestation caused agricultural runoff, resulting in an algal bloom in the lag
       * [[Turbidity test]], $1: Turbidity is the measure of a liquid’s clarity. Highly turbid liquid has an opaque, cloudy appearance, while low-turbid liquid is clear and transparent. Turbidity is caused by materials such as sand, clay, algae, oils, dirt, or bacteria. The water sample visually assessed to determine its turbidity, or cloudiness. This test takes a few minutes to complete and is an inexpensive test.
 
 View [[assay results]] or continue to [[treatment-&gt;making decisions]] options.
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="treatment" tags="" position="1800,525" size="100,100">(if: $assayPerformed is false)[&lt;div class=&quot;infobox&quot;&gt;&lt;i class=&quot;bi bi-exclamation-circle&quot;&gt;&lt;/i&gt;A recent water quality survey found that the water contains harmful bacteria, most likely introduced from animal waste upstream.
-&lt;div class=&quot;alert&quot;&gt;You will need to treat for bacteria.&lt;/div&gt;&lt;/div&gt;]
-&lt;h2&gt;What do you want to do?&lt;/h2&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="treatment" tags="" position="1800,525" size="100,100">(if: $assayPerformed is false)[&lt;div class=&quot;infobox&quot;&gt;&lt;i class=&quot;bi bi-exclamation-circle&quot;&gt;&lt;/i&gt;A recent water quality survey found that the water contains harmful bacteria, most likely introduced from animal waste upstream.&lt;/div&gt;
+&lt;div class=&quot;alert&quot;&gt;You will need to treat for bacteria.&lt;/div&gt;]
+&lt;div class=&quot;ttl&quot;&gt;What&#39;s next?&lt;/div&gt;
 {|1)[&lt;h4&gt;(if: $assayPerformed is true)[Perform more [[assays]].
 (if: $assayPerformed is false)[Actually, we do want to perform some [[assays]]...]]&lt;/h4&gt;
 &lt;div class=&quot;alert-message&quot;&gt;
@@ -1204,8 +1223,10 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       * [[Salinity-&gt;Salinity treatments]]
       * [[Particulates-&gt;Particulate treatments]]
       * [[Heavy metals-&gt;Heavy metals treatments]]]
-|3)[&lt;h4&gt;We&#39;re [[finished with treatments-&gt;Treatments complete.]] and ready to see if they worked.&lt;/h4&gt;]   
-(click: &quot;What do you want to do?&quot;)[(show:?1)(show:?2)(show:?3)]
+|3)[OR
+
+&lt;h4&gt;We&#39;re [[finished with treatments-&gt;Treatments complete.]] and ready to see if they worked.&lt;/h4&gt;]
+(click: &quot;What&#39;s next?&quot;)[(show:?1)(show:?2)(show:?3)]
       
 {(if: $bacterialTreatment is true OR $nitratesTreatment is true OR $salinityTreatment is true OR $acidityTreatment is true OR $basicityTreatment is true OR $particulateTreatment is true OR $metalsTreatment is true)[
 &lt;div class=&quot;message report&quot;&gt;
@@ -1286,8 +1307,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       |turbidity_result)[
       (show:(hooks-named:$turResult))]]
       }
-&lt;div class=&#39;water-info-container&#39;&gt;A recent water quality survey found that the water contains harmful bacteria, most likely introduced from animal waste upstream.    
-      
+&lt;div class=&#39;infobox&#39;&gt;&lt;i class=&quot;bi bi-exclamation-circle&quot;&gt;&lt;/i&gt;A recent water quality survey found that the water contains harmful bacteria, most likely introduced from animal waste upstream.&lt;/div&gt;       
       &lt;div class=&quot;message alert&quot;&gt;You will need to treat for bacteria.&lt;/div&gt;
       {
       (if: $rapidPanel is true)[(show:?rapid_result)]
@@ -1406,7 +1426,8 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       |info)[Perform more [[assays]] or view your [[assay results]].
 
 
-      ] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="10" name="Nitrates assay" tags="" position="850,750" size="100,100">{|recap)[(text-colour:orange)[You have already tested for nitrates. The result
+      ] (if: $pHResult is not 0)[(show:?info)]</tw-passagedata><tw-passagedata pid="10" name="Nitrates assay" tags="" position="850,750" size="100,100">&lt;div class=&quot;message&quot;&gt;
+{|recap)[(text-colour:orange)[You have already tested for nitrates. The result
       was:]]
       (if: visits is 1)[(set: $nitratesAssay to true)(set: $budget to $budget - $nitratesCost)(set: $step to $step+1)(set: $assayPerformed to true)]
       (if: visits is 1)[(dialog: bind $nitVal, &quot;Ask your teacher for the nitrate assay supplies and instructions.
@@ -1420,7 +1441,7 @@ View [[assay results]] or continue to [[treatment-&gt;making decisions]] options
       |neg_result)[Result: No nitrates were detected.]
       }
       (if: $nitResult is not 0 AND visits &gt;1)[(show:?recap)]
-
+&lt;/div&gt;
       |result&gt;[(show:(hooks-named:$nitResult))]
 
       |info)[Perform more [[assays]] or view your [[assay results]].
@@ -1691,40 +1712,17 @@ This sample was taken from the Kolo River, a freshwater river in the western-cen
 This sample was taken from a local rainwater catchment system. Communities in the Federated States of Micronesia, Vanuatu, Nauru, Tonga, Fiji, Tokelau, and Republic of Palau rely on rainwater catchment for their water supply needs.&lt;/div&gt;
 
 &lt;h3&gt;Which drinking water source have you been assigned?&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;[[Coastal Aquifer]]&lt;/li&gt;&lt;li&gt;[[River Water]]&lt;/li&gt;&lt;li&gt;[[Rainfall Catchment]]&lt;/li&gt;
-</tw-passagedata><tw-passagedata pid="27" name="your job" tags="" position="1000,475" size="100,100">&lt;div class=&quot;infobox&quot;&gt;&lt;i class=&quot;bi bi-exclamation-circle&quot;&gt;&lt;/i&gt;Your team&#39;s job is to treat the water so that it can be used by community members. &lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="27" name="your job" tags="" position="825,475" size="100,100">&lt;div class=&quot;infobox&quot;&gt;&lt;i class=&quot;bi bi-exclamation-circle&quot;&gt;&lt;/i&gt;Your team&#39;s job is to treat the water so that it can be used by community members. &lt;/div&gt;
 
-&lt;div class=&quot;message&quot;&gt; Remember, $Player1, your priority is to ensure the water is clean. 
+&lt;div class=&quot;message&quot;&gt;&lt;b&gt;Remember:&lt;/b&gt;
+
+$Player1, your priority is to ensure the water is clean. 
 
 $Player2, you must minimize your team&#39;s environmental impact. 
 
 $Player3, don&#39;t forget about the budget! Your team has been trusted with funds to complete this project, and leftover money can be allocated to other uses in the community. &lt;/div&gt;
 
-&lt;div class=&quot;ttl&quot;&gt;What do you want to do?&lt;/div&gt;
-|1)[{
-&lt;h4&gt;
-* Perform some [[assays]] to determine contamination levels 
-* Proceed directly to [[treatment-&gt;making decisions]].&lt;/h4&gt;}](click:&quot;What do you want to do?&quot;)[(show:?1)]
-
-
-      {(set: $budgetString to &quot;Remaining budget:&quot;)(set: num-type $budget to 50)(set: $environmentString to
-      &quot;Environmental impact points:&quot;)(set: num-type $enviroPoints to 0)
-      (set: num-type $step to 0)
-      }
-      {
-      (set: $rapidPanel to false)
-      (set: $nitratesAssay to false)
-      (set: $phTest to false)
-      (set: $salinityAssay to false)
-      (set: $turbidityTest to false)
-      (set: $assayPerformed to false)
-      (set: $bacterialTreatment to false)
-      (set: $nitratesTreatment to false)
-      (set: $salinityTreatment to false)
-      (set: $acidityTreatment to false)
-      (set: $basicityTreatment to false)
-      (set: $particulateTreatment to false)
-      (set: $metalsTreatment to false)
-      }	</tw-passagedata><tw-passagedata pid="28" name="Flocculation" tags="" position="2375,125" size="100,100">{
+[[But first...-&gt;safety]]</tw-passagedata><tw-passagedata pid="28" name="Flocculation" tags="" position="2375,125" size="100,100">{
       (if: visits &gt;1 AND $flocculated is true)[&lt;div class=&quot;report&quot;&gt;Water has already been flocculated.&lt;/div&gt;]
       }
       &lt;div class=&quot;ttl&quot;&gt;Flocculation&lt;/div&gt;
@@ -2350,7 +2348,34 @@ Then enter the names of your [[players]].
       |info)[Perform another [[post-treatment assay]] or view your [[post-treatment assay results]].
       ] (if: $postmetalResult is not 0 OR $postnitrateResult is not 0 OR $postnitriteResult is not 0 OR $postpHrapResult is not 0 OR $postchlorineResult is not 0 OR $none is not 0)[(show:?info)]
 
-    </tw-passagedata></tw-storydata>
+    </tw-passagedata><tw-passagedata pid="76" name="safety" tags="" position="825,600" size="100,100">&lt;div class=&quot;infobox&quot;&gt;&lt;i class=&quot;bi bi-cone-striped&quot;&gt;&lt;/i&gt;&lt;span class=&quot;ttl text-left&quot;&gt;Watch Lab Safety Basics Video&lt;/span&gt;&lt;/div&gt;
+&lt;iframe height=&quot;560&quot; width=&quot;315&quot; src=&quot;https://www.youtube.com/embed/xpuawXjfJ-A?si=HGB098VKzvPHYHEt&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;div class=&quot;ttl&quot;&gt;Now, what do you want to do?&lt;/div&gt;|1)[{
+* Perform some [[assays]] to determine contamination levels 
+OR
+* Proceed directly to [[treatment-&gt;making decisions]].}](click:&quot;Now, what do you want to do?&quot;)[(show:?1)]
+
+
+      {(set: $budgetString to &quot;Remaining budget:&quot;)(set: num-type $budget to 50)(set: $environmentString to
+      &quot;Environmental impact points:&quot;)(set: num-type $enviroPoints to 0)
+      (set: num-type $step to 0)
+      }
+      {
+      (set: $rapidPanel to false)
+      (set: $nitratesAssay to false)
+      (set: $phTest to false)
+      (set: $salinityAssay to false)
+      (set: $turbidityTest to false)
+      (set: $assayPerformed to false)
+      (set: $bacterialTreatment to false)
+      (set: $nitratesTreatment to false)
+      (set: $salinityTreatment to false)
+      (set: $acidityTreatment to false)
+      (set: $basicityTreatment to false)
+      (set: $particulateTreatment to false)
+      (set: $metalsTreatment to false)
+      }	</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
