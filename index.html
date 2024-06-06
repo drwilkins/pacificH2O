@@ -16,8 +16,8 @@
 </style>
 </head>
 <body>
-<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Pacific H2O v4.5.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Pacific H2O v4.5" startnode="56" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="6dd82385-013c-4a18-b409-a0a9bff0279a" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Pacific H2O v4.6.</tw-noscript></noscript></tw-story>
+<tw-storydata name="Pacific H2O v4.6" startnode="56" creator="Twine" creator-version="2.8.1" format="Harlowe" format-version="3.3.8" ifid="6dd82385-013c-4a18-b409-a0a9bff0279a" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 p {
   color: #363636;
@@ -816,6 +816,13 @@ tw-story {
   border-radius: 6px;
 }
 
+.tiny-thumb{
+  border: 1px solid #363636;
+  border-radius: 6px;
+  width:100px;
+  height: auto;
+}
+
 .vid{
   border: 1px solid #363636;
   width:fit-content;
@@ -1234,10 +1241,9 @@ Deforestation caused agricultural runoff, resulting in an algal bloom in the lag
 &lt;ul&gt;&lt;li&gt;&lt;div class=&#39;larger&#39;&gt;View [[assay results]] or continue to [[treatment-&gt;making decisions]] options.&lt;/div&gt;&lt;/li&gt;&lt;/ul&gt;
 &lt;div class=&quot;message hint p-1&quot;&gt;&lt;div class=&quot;p-1 infobox no-border hint&quot;&gt;&lt;i class=&quot;hint bi bi-info-circle pr-1&quot;&gt;&lt;/i&gt;&lt;span class=&quot;hint&quot;&gt;&lt;b&gt;&lt;em  class=&quot;hint&quot;&gt;assay&lt;/em&gt;&lt;/b&gt; – a chemical test for a substance&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;p-1 infobox no-border hint&quot;&gt;&lt;i class=&quot;hint bi bi-info-circle pr-1&quot;&gt;&lt;/i&gt;Clicking on a test will purchase the assay!&lt;/div&gt;(link:&quot;&lt;div class=&#39;p-1 alert infobox no-border&#39;&gt;&lt;i class=&#39;alert bi bi-cursor pr-1&#39;&gt;&lt;/i&gt;Click here for a hint on where to start&lt;/div&gt;&quot;)[&lt;div class=&quot;p-1 infobox no-border hint&quot;&gt;&lt;i class=&quot;hint bi bi-info-circle pr-1&quot;&gt;&lt;/i&gt;Beginning with a rapid panel is a great way to quickly determine what&#39;s going on in the sample. The rapid panel will indicate which of the sensitive tests should be performed.&lt;/div&gt;]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="treatment" tags="" position="1800,525" size="100,100">(if: $assayPerformed is false)[&lt;div class=&quot;infobox&quot;&gt;&lt;i class=&quot;bi bi-exclamation-circle&quot;&gt;&lt;/i&gt;A recent water quality survey found that the water contains harmful bacteria, most likely introduced from animal waste upstream.&lt;/div&gt;
 &lt;div class=&quot;alert&quot;&gt;You will need to treat for bacteria.&lt;/div&gt;]
-&lt;div class=&quot;ttl&quot;&gt;What&#39;s next?&lt;/div&gt;
+## What&#39;s next?
 {|1)[&lt;h4&gt;(if: $assayPerformed is true)[Perform more [[assays]].
-(if: $assayPerformed is false)[Actually, we do want to perform some [[assays]]...]]&lt;/h4&gt;
-&lt;div class=&quot;alert-message&quot;&gt;
+(if: $assayPerformed is false)[Actually, we do want to perform some [[assays]]...]]&lt;/h4&gt;&lt;div class=&quot;alert-message&quot;&gt;
       * Bacterial assay indicated harmful bacteria.
       (if: $rapidPanel is true)[
       (if: $nitrateCont is true)[
@@ -1260,14 +1266,7 @@ Deforestation caused agricultural runoff, resulting in an algal bloom in the lag
       treated for turbidity.
       ]
       ]]
-      }&lt;/div&gt;
-|2)[&lt;h4&gt;Let&#39;s treat for:&lt;/h4&gt;
-      * [[Bacteria-&gt;Bacterial treatments]]
-      * [[Improper pH-&gt;pH treatments]]
-      * [[Nitrates-&gt;Nitrates treatments]]
-      * [[Salinity-&gt;Salinity treatments]]
-      * [[Particulates-&gt;Particulate treatments]]
-      * [[Heavy metals-&gt;Heavy metals treatments]]]
+      }&lt;/div&gt;|2)[&lt;h4&gt;Let&#39;s treat for:&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;[[Bacteria-&gt;Bacterial treatments]]&lt;/li&gt;&lt;li&gt;[[Improper pH-&gt;pH treatments]]&lt;/li&gt;&lt;li&gt;[[Nitrates-&gt;Nitrates treatments]]&lt;/li&gt;&lt;li&gt;[[Salinity-&gt;Salinity treatments]]&lt;/li&gt;&lt;li&gt;[[Particulates-&gt;Particulate treatments]]&lt;/li&gt;&lt;li&gt;[[Heavy metals-&gt;Heavy metals treatments]]]&lt;/li&gt;&lt;/ul&gt;
 |3)[OR
 
 &lt;h4&gt;We&#39;re [[finished with treatments-&gt;Treatments complete.]] and ready to see if they worked.&lt;/h4&gt;]
@@ -1583,12 +1582,12 @@ Deforestation caused agricultural runoff, resulting in an algal bloom in the lag
       (if: visits &gt;1 AND $boiled is true)[&lt;div class=&quot;report&quot;&gt;Water has already been boiled.&lt;/div&gt;]
       }
       &lt;div class=&quot;ttl&quot;&gt;Boiling&lt;/div&gt;
-&lt;img class=&quot;thumb&quot; src=&quot;https://i.ytimg.com/vi/RXR2GgMCMqQ/mqdefault.jpg&quot;/&gt;
+&lt;img class=&quot;thumb&quot; src=&quot;https://i.ytimg.com/vi/xVMxwXsG_7s/mqdefault.jpg&quot;/&gt;
  &lt;i class=&quot;bi bi-play-circle pr-1&quot;&gt;&lt;/i&gt;[[Engineer&#39;s Briefing-&gt; boilingVid]]
+
 
 |about)[Boiling is a technique commonly used to kill bacteria, viruses, and pathogens around the world. It is only effective if the water has been boiling for 20 minutes. As a result, this method has a somewhat high environmental impact score due to the energy required to heat the water.](link: &quot;Boiling is a technique commonly used...&quot;)[(show:?about)]
 
-&lt;div class=&quot;message&quot;&gt;Boiling treats for pathogens, including bacterial contaminants.&lt;/div&gt;
 &lt;h4&gt;Do you want to treat your sample by boiling?&lt;/h4&gt;&lt;span&gt;It will cost $$boilingCost and have a $boilingEP environmental impact.&lt;/span&gt;
 
       Yes (click: &quot;Yes&quot;)[(set: $budget to $budget - $boilingCost)(set: $enviroPoints to $enviroPoints + $boilingEP)(set: $step to $step+1)(replace: ?opt-out)[](set: $boiling to true)(set: $bacterialTreatment to true)(set: $boiled to true)[&lt;div class=&quot;hint&quot;&gt;Ask your teacher for boiling supplies and instructions. Make a note of the treatment in your lab notebook. &lt;/div&gt;
@@ -1597,6 +1596,7 @@ Deforestation caused agricultural runoff, resulting in an algal bloom in the lag
       |opt-out&gt;[(link-replace: &quot;No&quot;)[Return to [[treatment]] types.]]
 
       []&lt;result|
+&lt;div class=&quot;p-1 infobox message no-border hint&quot;&gt;&lt;i class=&quot;hint bi bi-info-circle pr-1&quot;&gt;&lt;/i&gt;Boiling treats for pathogens, including bacterial contaminants.&lt;/div&gt;
 
 
     </tw-passagedata><tw-passagedata pid="18" name="Chlorination" tags="" position="2325,0" size="100,100">{
@@ -2332,7 +2332,7 @@ Then enter the names of your [[players]].
       []&lt;result|</tw-passagedata><tw-passagedata pid="66" name="reminder" tags="" position="475,425" size="100,100">&lt;div class=&#39;rounded-box&#39;&gt;&lt;div class=&#39;ttl&#39;&gt;Mission Focus:&lt;/div&gt;&lt;ul&gt;&lt;li&gt;**$Player1:** Optimise overall water quality! *Clean water is worth the expense.*&lt;/li&gt;
 &lt;li&gt;**$Player2:** Minimize the environmental impact score! *Cost and water purity should not come at a cost to ecosystem health.*&lt;/li&gt;
 &lt;li&gt;**$Player3:** Successfully deliver clean water to the community and minimize cost! *Excess (leftover) funds after treatment will be reallocated for community benefits at the end.*&lt;/li&gt;&lt;/div&gt;
- Next, let&#39;s learn more [[about our community.-&gt;background]]</tw-passagedata><tw-passagedata pid="67" name=" boilingVid" tags="" position="2200,500" size="100,100">&lt;div class=&quot;vid&quot;&gt;&lt;iframe height=&quot;560&quot; width=&quot;315&quot; src=&quot;https://www.youtube.com/embed/RXR2GgMCMqQ?si=oi7FNSBvSdO1kEHH&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;
+ Next, let&#39;s learn more [[about our community.-&gt;background]]</tw-passagedata><tw-passagedata pid="67" name=" boilingVid" tags="" position="2200,500" size="100,100">&lt;div class=&quot;vid&quot;&gt;&lt;iframe height=&quot;560&quot; width=&quot;315&quot; src=&quot;https://www.youtube.com/embed/xVMxwXsG_7s&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 
 (link-undo: &#39;Back&#39;,&#39;Use back button in upper left&#39;)</tw-passagedata><tw-passagedata pid="68" name=" distVid" tags="" position="2075,575" size="100,100">## Engineer&#39;s Briefing: Distillation
